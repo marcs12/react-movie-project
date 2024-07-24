@@ -22,7 +22,11 @@ function App() {
           count is {count}
         </button>
         <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
+          Edit <code>src/App.jsx</code> and save to test HMR Add a comment here
+          to do initial push
+          {/* please do "git checkout -b "yourname-branch" without the quotation marks */}
+          {/* after creating your own branch, please add a comment here just like mine, then do a commit named "initial commit"*/}
+          {/* Initial Push - Marc */}
         </p>
       </div>
       <p className="read-the-docs">
