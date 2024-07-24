@@ -29,6 +29,7 @@ function App() {
           then push the commit and merge with branch main*/}
           {/* please be sure to inform the group chat once its done */}
           {/* Initial Push - Marc */}
+          {/* Initial Push - Yining */}
         </p>
       </div>
       <p className="read-the-docs">
