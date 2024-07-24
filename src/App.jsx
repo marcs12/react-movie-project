@@ -25,7 +25,7 @@ function App() {
           Edit <code>src/App.jsx</code> and save to test HMR Add a comment here
           to do initial push
           {/* please do "git checkout -b "yourname-branch" without the quotation marks */}
-          {/* after creating your own branch, please add a comment here just like mine, then do a commit named "initial commit"*/}
+          {/* after creating your own branch, please add a comment here just like mine, then do a commit named "initial commit -yourname"*/}
           {/* Initial Push - Marc */}
         </p>
       </div>
