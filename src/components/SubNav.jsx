@@ -21,7 +21,7 @@ const SubNav = () => {
       <div className="container-fluid">
         <div className="row">
           <div className="col-12 text-center bg-dark subnav">
-            {data.map((Val) => }
+            {data.map((Val) => {
               return (
                 <>
                 <button className="col-sm-2 col-md btn btn-dark">
@@ -29,6 +29,7 @@ const SubNav = () => {
                 </button>
                 </>
               );
+            })}
           </div>
         </div>
       </div>
