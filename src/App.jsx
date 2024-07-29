@@ -7,6 +7,7 @@ function App() {
 
   return (
     <>
+     <Header />
       <h1>React Movie Project</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
@@ -21,6 +22,7 @@ function App() {
           {/* please be sure to inform the group chat once its done */}
           {/* Initial Push - Marc */}
           {/* Initial Push - Yining */}
+          <p>Hello World!</p>
         </p>
       </div>
     </>
