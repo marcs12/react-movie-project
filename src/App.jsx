@@ -6,6 +6,11 @@ function App() {
 
   return (
     <>
+
+    <Hero/>
+    <Navigation/>
+    <Sub-navigation/>
+    
       <h1>React Movie Project</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
