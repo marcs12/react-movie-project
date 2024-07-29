@@ -1,0 +1,19 @@
+@use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
+@use "../utilities/functions" as *;
+@use "../base/typography" as *;
+
+.hero-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 50%;
+  color: white;
+  .hero-img {
+    width: 50%;
+    height: 12rem;
+    background-color: white;
+    margin: 2rem;
+  }
+}

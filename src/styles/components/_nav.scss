@@ -2,3 +2,18 @@
 @use "../utilities/mixins" as *;
 @use "../utilities/functions" as *;
 @use "../base/typography" as *;
+
+.nav-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  li {
+    list-style-type: none;
+    padding: 1rem;
+  }
+}
