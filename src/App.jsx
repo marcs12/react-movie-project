@@ -5,8 +5,6 @@ import Hero from "./components/Hero";
 import SubNav from "./components/SubNav";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
       <Header />
