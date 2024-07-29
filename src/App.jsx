@@ -1,18 +1,20 @@
 import { useState } from "react";
 import "./styles/styles.scss";
 import Header from "./components/Header";
+import Hero from "./components/Hero";
+import Navigation from "./components/Navigation";
+import SubNav from "./components/SubNav";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
-     <Header />
+      <Header />
+      <Hero />
+      <Navigation />
+      <SubNav />
 
-    <Hero/>
-    <Navigation/>
-    <Sub-navigation/>
-    
       <h1>React Movie Project</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
