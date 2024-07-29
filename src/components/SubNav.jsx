@@ -1,14 +1,34 @@
 import React from "react";
 
 const SubNav = () => {
+  const data = [
+      {
+        name: "Popular",
+      },
+      {
+        name: "Top Rated"
+      },
+      {
+        name: "Upcoming"
+      },
+      {
+        name: "Now Playing"
+      },
+
+  ];
   return (
     <>
       <div className="container-fluid">
         <div className="row">
-          <div className="d-flex justify-content-center align-items-center w-100 text-uppercase p-3 subnav">
-            <a href="#popular">Popular</a>
-            <a href="#top-rated">Top Rated</a>
-            <a href="#upcoming">Upcoming</a>
+          <div className="col-12 text-center bg-dark subnav">
+            {data.map((Val) => }
+              return (
+                <>
+                <button className="col-sm-2 col-md btn btn-dark">
+                  <i className={`${Val.name}`}></i>
+                </button>
+                </>
+              );
           </div>
         </div>
       </div>
