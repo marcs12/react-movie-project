@@ -3,13 +3,20 @@ import React from "react";
 const Hero = () => {
   return (
     <>
-      <div className="container-fluid">
-        <div className="row">
-          <div className="d-flex-justify-content-center-align-items-center-w-100 text-uppercase p-3 hero">
-            <i className="fas fa-video"></i> & nbsp;&nbsp; The Movie Central
-          </div>
-        </div>
-      </div>
+      <section className="hero-section">
+        <article className="hero-img">
+          <img src="" alt="" />
+        </article>
+        <article className="details-text">
+          <h2>Hello World!</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem
+            molestiae consequuntur error, fugiat omnis, cupiditate recusandae
+            ipsam, quibusdam ullam cum expedita provident aliquid exercitationem
+            et suscipit architecto veniam libero doloremque?
+          </p>
+        </article>
+      </section>
     </>
   );
 };
