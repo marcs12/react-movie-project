@@ -20,6 +20,7 @@ function App() {
           {/* please be sure to inform the group chat once its done */}
           {/* Initial Push - Marc */}
           {/* Initial Push - Yining */}
+          <p>Hello World!</p>
         </p>
       </div>
     </>
