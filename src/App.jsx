@@ -7,6 +7,7 @@ function App() {
 
   return (
     <>
+     <Header />
       <h1>React Movie Project</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
