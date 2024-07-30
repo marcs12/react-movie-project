@@ -31,6 +31,22 @@ const SubNav = () => {
 
   return (
     <>
+      <section className="sub-navigation">
+        <nav className="subnav">
+          <button id="now-playing" className="button-38" role="button">
+            Now Playing
+          </button>
+          <button id="top-rated" className="button-38" role="button">
+            Top Rated
+          </button>
+          <button id="upcoming" className="button-38" role="button">
+            Upcoming
+          </button>
+          <button id="popular" className="button-38" role="button">
+            Popular
+          </button>
+        </nav>
+      </section>
       <div className="container-fluid">
         <button onClick={handleClick}>Test Here</button>
         <div className="row">
@@ -38,7 +54,7 @@ const SubNav = () => {
             {data.map((Val) => {
               return (
                 <>
-                <button className="col-sm-2 col-md btn btn-dark">
+                <button id={Val.name.toLowerCase().replace(" ", "-")} className="col-sm-2 col-md btn btn-dark">
                   <i className={`${Val.name}`}></i>
                 </button>
                 </>
