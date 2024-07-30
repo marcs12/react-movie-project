@@ -2,25 +2,24 @@ import React from "react";
 
 const SubNav = () => {
   const data = [
-      {
-        name: "Popular",
-      },
-      {
-        name: "Top Rated"
-      },
-      {
-        name: "Upcoming"
-      },
-      {
-        name: "Now Playing"
-      },
-
+    {
+      name: "Popular",
+    },
+    {
+      name: "Top Rated",
+    },
+    {
+      name: "Upcoming",
+    },
+    {
+      name: "Now Playing",
+    },
   ];
   return (
     <>
       <div className="container-fluid">
         <div className="row">
-          <div className="col-12 text-center bg-dark subnav">
+          {/* <div className="col-12 text-center bg-dark subnav">
             {data.map((Val) => {
               return (
                 <>
@@ -30,7 +29,7 @@ const SubNav = () => {
                 </>
               );
             })}
-          </div>
+          </div> */}
         </div>
       </div>
     </>
