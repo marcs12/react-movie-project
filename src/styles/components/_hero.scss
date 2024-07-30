@@ -4,16 +4,29 @@
 @use "../base/typography" as *;
 
 .hero-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 50%;
-  color: white;
+  background-color: white;
+  padding: 1rem;
+  margin: 2rem;
+  width: auto;
   .hero-img {
-    width: 50%;
-    height: 12rem;
-    background-color: white;
-    margin: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    .title {
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: column;
+      width: 100%;
+      font-size: 1rem;
+      color: black;
+      font-weight: bold;
+    }
+    .thumbnail {
+      width: 100%;
+      height: 18rem;
+      background-color: blue;
+    }
   }
 }
