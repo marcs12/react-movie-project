@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomePage from "../pages/HomePage";
 import AboutPage from "../pages/AboutPage";
 import DetailsPage from "../pages/DetailsPage";
@@ -16,6 +16,6 @@ const AppRouter = () => {
       </Routes>
     </Router>
   );
-}
+};
 
 export default AppRouter;
