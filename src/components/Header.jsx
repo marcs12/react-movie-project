@@ -18,6 +18,22 @@ const Header = () => {
           </a>
         </div>
       </section>
+      <section className="dropdown-menu show">
+        <ul>
+          <li>
+            <a href="#">Home</a>
+          </li>
+          <li>
+            <a href="#">About</a>
+          </li>
+          <li>
+            <a href="#">Favourites</a>
+          </li>
+          <li>
+            <a href="#">Info</a>
+          </li>
+        </ul>
+      </section>
     </header>
   );
 };
