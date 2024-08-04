@@ -1,13 +1,23 @@
-import React from "react";
+// import React from "react";
+import mainLogo from "../assets/main-logo.png";
 
 const Header = () => {
   return (
     <header>
-      <ul className="nav-wrap">
-        <li>Home</li>
-        <li>About</li>
-        <li>Favourites</li>
-      </ul>
+      <section className="nav-wrap">
+        <div className="menu-icon">
+          <input className="menu-icon__cheeckbox" type="checkbox" />
+          <div>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <div className="logo-main">
+          <a href="#">
+            <img src={mainLogo} alt="35mm Logo" />
+          </a>
+        </div>
+      </section>
     </header>
   );
 };
