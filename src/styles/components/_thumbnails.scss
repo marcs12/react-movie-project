@@ -2,3 +2,31 @@
 @use "../utilities/mixins" as *;
 @use "../utilities/functions" as *;
 @use "../base/typography" as *;
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.movie-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 2rem;
+  gap: 1rem;
+  background-color: white;
+  padding: 0.5rem;
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s;
+    padding-bottom: 0.5rem;
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
