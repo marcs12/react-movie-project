@@ -14,7 +14,6 @@ const Hero = () => {
     fetchData();
   }, [setMovie]);
 
-  // console log the movie poster from the array of objects
   console.log(movie.map((Val) => Val.poster_path));
 
   return (
