@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import mainLogo from "../assets/main-logo.png";
+import heroContainerBottom from "../assets/buttons-imported/container-bottom.png";
+import heroContainerTop from "../assets/buttons-imported/container-top.png";
 
 const API = import.meta.env.VITE_MOVIE_API_KEY;
 
@@ -56,6 +58,18 @@ const Header = () => {
       <section className="hero-section">
         <h2>Now Playing</h2>
         <div className="hero-image-container">
+          <figure className="hero-container">
+            <img
+              src={heroContainerTop}
+              alt="Container Top"
+              className="hero-container-top"
+            />
+            <img
+              src={heroContainerBottom}
+              alt="Container Bottom"
+              className="hero-container-bottom"
+            />
+          </figure>
           {movieData && (
             <img
               src={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`}
