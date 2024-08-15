@@ -10,6 +10,7 @@ ul {
 }
 
 .movie-wrap {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -30,3 +31,23 @@ ul {
     }
   }
 }
+
+
+.stars {
+  position: absolute;
+  z-index: 1;
+  width: 20rem;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.stars.favorite {
+  color: gold;
+}
+
+.stars:hover {
+  color: gold;
+}
+
