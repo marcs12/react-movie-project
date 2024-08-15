@@ -64,7 +64,7 @@ const Home = () => {
           movies.map((movie) => {
             return (
               <li key={movie.id} className="movie-wrap">
-                <Link to={`/movies/${movie.id}`}>
+                <Link to={`/movie/${movie.id}`}>
                   <img src={`${baseImgURL}/${movie.poster_path}`} />
                 </Link>
                 <div>{movie.title}</div>
