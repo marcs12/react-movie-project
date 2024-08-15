@@ -2,6 +2,8 @@
 @use "../utilities/mixins" as *;
 @use "../utilities/functions" as *;
 @use "../base/typography" as *;
+/* The following line can be included in a src/App.scss */
+@import '~bootstrap/scss/bootstrap';
 
 ul {
   list-style: none;
