@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import mainLogo from "../assets/main-logo.png";
 import heroContainerBottom from "../assets/buttons-imported/container-bottom.png";
 import heroContainerTop from "../assets/buttons-imported/container-top.png";
+import nextSlideBtn from "../assets/buttons-imported/next-slide-button.png";
+import prevSlideBtn from "../assets/buttons-imported/back-slide-button.png";
 
 const API = import.meta.env.VITE_MOVIE_API_KEY;
 
@@ -10,18 +11,20 @@ const Header = () => {
   useEffect(() => {
     fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${API}`)
       .then((response) => response.json())
-      .then((data) => setMovieData(data.results[0]));
+      .then((data) => setMovieData(data.results));
   }, []);
 
-  function menuClick() {
-    const menu = document.querySelector(".dropdown-menu");
-    const menuIcon = document.querySelector(".menu-icon__cheeckbox");
-    if (menuIcon.checked) {
-      menu.classList.add("show");
-    } else {
-      menu.classList.remove("show");
-    }
-  }
+  const [currentMovieIndex, setCurrentMovieIndex] = useState(0);
+
+  const handleNextSlide = () => {
+    setCurrentMovieIndex((prevIndex) => (prevIndex + 1) % movieData.length);
+  };
+
+  const handlePrevSlide = () => {
+    setCurrentMovieIndex(
+      (prevIndex) => (prevIndex - 1 + movieData.length) % movieData.length,
+    );
+  };
 
   return (
     <section className="hero-section">
@@ -39,23 +42,38 @@ const Header = () => {
             className="hero-container-bottom"
           />
         </figure>
-        {movieData && (
+        <button className="prev-slide" onClick={handlePrevSlide}>
+          <img src={prevSlideBtn} alt="Previous Slide" />
+        </button>
+        <button className="next-slide" onClick={handleNextSlide}>
+          <img src={nextSlideBtn} alt="Next Slide" />
+        </button>
+
+        {movieData && movieData[currentMovieIndex] && (
           <img
-            src={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`}
-            alt={movieData.title}
+            src={`https://image.tmdb.org/t/p/w500${movieData[currentMovieIndex].poster_path}`}
+            alt={movieData[currentMovieIndex].title}
             className="hero-image"
           />
         )}
       </div>
       <div className="hero-content">
-        {movieData && (
+        {movieData && movieData[currentMovieIndex] && (
           <>
-            <h1 className="hero-title">{movieData.title}</h1>
-            <div className="hero-details">
-              <span className="rating">{movieData.vote_average}</span>
-              <span className="duration">{movieData.runtime} mins</span>
+            <h1 className="hero-title" key="title">
+              {movieData[currentMovieIndex].title}
+            </h1>
+            <div className="hero-details" key="details">
+              <span className="rating" key="rating">
+                {movieData[currentMovieIndex].vote_average}
+              </span>
+              <span className="duration" key="duration">
+                {movieData[currentMovieIndex].runtime} mins
+              </span>
             </div>
-            <p className="hero-description">{movieData.overview}</p>
+            <p className="hero-description" key="description">
+              {movieData[currentMovieIndex].overview}
+            </p>
           </>
         )}
       </div>

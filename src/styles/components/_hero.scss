@@ -27,6 +27,7 @@
       left: -1rem;
       z-index: 1;
       background-color: rgba(0, 0, 0, 0.066);
+      backdrop-filter: blur(1px);
     }
     .hero-container-bottom {
       position: absolute;
@@ -34,6 +35,32 @@
       right: -1rem;
       z-index: 1;
       background-color: rgba(0, 0, 0, 0.044);
+      backdrop-filter: blur(1px);
+    }
+    .prev-slide {
+      position: absolute;
+      top: 50%;
+      left: -2rem;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.162);
+      padding: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      // remove button styling
+      border: none;
+      outline: none;
+    }
+    .next-slide {
+      position: absolute;
+      top: 50%;
+      right: -2rem;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.047);
+      padding: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: none;
+      outline: none;
     }
   }
 
