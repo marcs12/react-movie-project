@@ -13,6 +13,7 @@
 @use "./components/nav";
 @use "./components/thumbnails";
 @use "./components/hero";
+@import 'custom';
 
 // Base
 @use "./base/normalize";
