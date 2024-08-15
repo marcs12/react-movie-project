@@ -9,13 +9,13 @@ const API = import.meta.env.VITE_MOVIE_API_KEY;
 const Home = () => {
   const [category, setCategory] = useState("now_playing");
   const [movies, setMovies] = useState([]);
-  const [favorites, setFavorites] = useState([]); // State for favorites
+  const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
     const getMovies = async () => {
       const response = await fetch(`${endpoint}${category}?api_key=${API}`);
       const json = await response.json();
-      setMovies(json.results || []); // Ensure movies is an array
+      setMovies(json.results || []);
     };
 
     getMovies();
@@ -25,13 +25,10 @@ const Home = () => {
     setCategory(id);
   }
 
-  // Function to handle favorite toggle
   const toggleFavorite = (movie) => {
     if (favorites.includes(movie.id)) {
-      // Remove from favorites
       setFavorites(favorites.filter((fav) => fav !== movie.id));
     } else {
-      // Add to favorites
       setFavorites([...favorites, movie.id]);
     }
   };
