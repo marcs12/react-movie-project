@@ -1,6 +1,8 @@
 import React from "react";
 import SubNavMovies from "./SubNavMovies";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '/styles/components/_thumbnails.scss';
 import Button from 'react-bootstrap/Button';
 
 
