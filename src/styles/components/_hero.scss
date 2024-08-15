@@ -4,9 +4,16 @@
 @use "../base/typography" as *;
 
 .hero-section {
-  background-color: #000; // Adjust according to your design
+  background-color: #00000000;
   color: #fff;
   padding: 20px;
+
+  h2 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
 
   .hero-image-container {
     text-align: center;

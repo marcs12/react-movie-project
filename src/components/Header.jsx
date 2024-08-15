@@ -5,7 +5,6 @@ const API = import.meta.env.VITE_MOVIE_API_KEY;
 
 const Header = () => {
   const [movieData, setMovieData] = useState(null);
-
   useEffect(() => {
     fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${API}`)
       .then((response) => response.json())
@@ -24,7 +23,38 @@ const Header = () => {
 
   return (
     <header>
+      <section className="nav-wrap">
+        <button className="menu-icon" onClick={menuClick}>
+          <input className="menu-icon__cheeckbox" type="checkbox" />
+          <div>
+            <span></span>
+            <span></span>
+          </div>
+        </button>
+        <div className="logo-main">
+          <a href="#">
+            <img src={mainLogo} alt="35mm Logo" />
+          </a>
+        </div>
+      </section>
+      <section className="dropdown-menu">
+        <ul>
+          <li>
+            <a href="#">Home</a>
+          </li>
+          <li>
+            <a href="#">About</a>
+          </li>
+          <li>
+            <a href="#">Favourites</a>
+          </li>
+          <li>
+            <a href="#">Info</a>
+          </li>
+        </ul>
+      </section>
       <section className="hero-section">
+        <h2>Now Playing</h2>
         <div className="hero-image-container">
           {movieData && (
             <img
@@ -46,22 +76,6 @@ const Header = () => {
             </>
           )}
         </div>
-      </section>
-      <section className="dropdown-menu">
-        <ul>
-          <li>
-            <a href="#">Home</a>
-          </li>
-          <li>
-            <a href="#">About</a>
-          </li>
-          <li>
-            <a href="#">Favourites</a>
-          </li>
-          <li>
-            <a href="#">Info</a>
-          </li>
-        </ul>
       </section>
     </header>
   );
