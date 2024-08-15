@@ -79,6 +79,8 @@ const Home = () => {
 
             return (
               <li key={movie.id} className="movie-wrap">
+                <Link to={`/movie/${movie.id}`}>
+                  <img src={`${baseImgURL}/${movie.poster_path}`} />
                 <div className="stars">
                   <span
                     className={`star ${isFavorite ? "favorite" : ""}`}

@@ -7,6 +7,7 @@ const Favorite = () => {
         <section className="">
           <article className="">
             <img src="" alt="" />
+            <p class= "hero-section">favourites</p>
           </article>
           </section>
        

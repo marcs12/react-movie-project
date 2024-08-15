@@ -34,9 +34,9 @@ const SubNav = () => {
   return (
     <>
       <section className="sub-navigation">
-        <BrowserRouter>
+        {/* <BrowserRouter> */}
           <SubNavMovies />
-        </BrowserRouter>
+        {/* </BrowserRouter> */}
         </section>
         {/* <nav className="subnav">
           <button id="now-playing" className="button-38" role="button">
