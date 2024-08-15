@@ -11,6 +11,7 @@
   align-items: center;
   .logo-main {
     a {
+      @include Bebas-Neue;
       img {
         display: block;
         position: absolute;

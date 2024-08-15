@@ -13,6 +13,9 @@
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
+    @include Bebas-Neue;
+    // space text
+    letter-spacing: 0.5rem;
   }
 
   .hero-image-container {
