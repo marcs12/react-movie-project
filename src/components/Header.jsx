@@ -40,16 +40,16 @@ const Header = () => {
       <section className="dropdown-menu">
         <ul>
           <li>
-            <a href="#">Home</a>
+            <a href="/">Home</a>
           </li>
           <li>
-            <a href="#">About</a>
+            <a href="/about">About</a>
           </li>
           <li>
-            <a href="#">Favourites</a>
+            <a href="/favorites">Favourites</a>
           </li>
           <li>
-            <a href="#">Info</a>
+            <a href="/info">Info</a>
           </li>
         </ul>
       </section>

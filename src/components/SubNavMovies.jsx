@@ -79,8 +79,6 @@ const Home = () => {
             const isFavorite = favorites.includes(movie.id); // Define isFavorite
 
             return (
-              <>
-                <BrowserRouter>
                   <li key={movie.id} className="movie-wrap">
                     <Link to={`/movie/${movie.id}`}>
                       <img src={`${baseImgURL}/${movie.poster_path}`} />
@@ -100,9 +98,7 @@ const Home = () => {
                       <div>{movie.title}</div>
                       <div>{movie.release_date}</div>
                     </Link>
-                  </li>
-                </BrowserRouter>
-              </>
+                  </li> 
             );
           })}
       </ul>
