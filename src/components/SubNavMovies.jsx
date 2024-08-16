@@ -2,9 +2,8 @@ import { useEffect, useState } from "react";
 const endpoint = "https://api.themoviedb.org/3/movie/";
 const baseImgURL = "https://image.tmdb.org/t/p/w500/";
 import { Link } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './_thumbnails.scss';
-// import Button from 'react-bootstrap/Button';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+// import "../styles/components/_thumbnails.scss";
 
 
 const API = import.meta.env.VITE_MOVIE_API_KEY;
