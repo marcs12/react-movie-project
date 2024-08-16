@@ -13,8 +13,10 @@
 @use "./components/nav";
 @use "./components/thumbnails";
 @use "./components/hero";
+// @import 'custom' bootstrap;
+
 
 // Base
 @use "./base/normalize";
 @use "./base/typography";
-@use "./base/base";
+@use "./base/bootstrap";

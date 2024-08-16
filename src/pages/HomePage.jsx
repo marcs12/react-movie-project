@@ -1,13 +1,11 @@
-import React from "react";
 import SubNav from "../components/SubNav";
 import Hero from "../components/Hero";
 import Header from "../components/Header";
 
-
 const Home = () => {
   return (
     <>
-    <Header />
+      <Header />
       <Hero />
       <SubNav />
       <section className="">
