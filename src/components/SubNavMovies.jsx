@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 const endpoint = "https://api.themoviedb.org/3/movie/";
 const baseImgURL = "https://image.tmdb.org/t/p/w500/";
-import { BrowserRouter, Link } from "react-router-dom";
+// import { BrowserRouter, Link } from "react-router-dom";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const API = import.meta.env.VITE_MOVIE_API_KEY;
@@ -77,28 +77,28 @@ const Home = () => {
 
             return (
               <>
-                <BrowserRouter>
-                  <li key={movie.id} className="movie-wrap">
-                    <Link to={`/movie/${movie.id}`}>
-                      <img src={`${baseImgURL}/${movie.poster_path}`} />
-                    </Link>
-                    <div className="stars">
-                      <span
-                        className={`star ${isFavorite ? "favorite" : ""}`}
-                        onClick={() => toggleFavorite(movie)}
-                      >
-                        {/* <FontAwesomeIcon
+                {/* <BrowserRouter> */}
+                <li key={movie.id} className="movie-wrap">
+                  {/* <Link to={`/movie/${movie.id}`}> */}
+                  <img src={`${baseImgURL}/${movie.poster_path}`} />
+                  {/* </Link> */}
+                  <div className="stars">
+                    <span
+                      className={`star ${isFavorite ? "favorite" : ""}`}
+                      onClick={() => toggleFavorite(movie)}
+                    >
+                      {/* <FontAwesomeIcon
                         icon="fa-light fa-star"
                         style={{ color: "#FFD43B" }}
                       /> */}
-                      </span>
-                    </div>
-                    <Link to={`/movies/${movie.id}`}>
-                      <div>{movie.title}</div>
-                      <div>{movie.release_date}</div>
-                    </Link>
-                  </li>
-                </BrowserRouter>
+                    </span>
+                  </div>
+                  {/* <Link to={`/movies/${movie.id}`}> */}
+                  <div>{movie.title}</div>
+                  <div>{movie.release_date}</div>
+                  {/* </Link> */}
+                </li>
+                {/* </BrowserRouter> */}
               </>
             );
           })}
