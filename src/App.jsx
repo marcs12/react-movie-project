@@ -8,9 +8,6 @@ import AppRouter from "./routers/AppRouter";
 function App() {
   return (
     <>
-      <Header />
-      <Hero />
-      <SubNav />
       <AppRouter />
     </>
   );

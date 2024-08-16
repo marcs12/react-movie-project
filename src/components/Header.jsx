@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "../styles/styles.scss";
 import mainLogo from "../assets/main-logo.png";
 
 const API = import.meta.env.VITE_MOVIE_API_KEY;
@@ -16,6 +17,7 @@ const Header = () => {
     const menuIcon = document.querySelector(".menu-icon__cheeckbox");
     if (menuIcon.checked) {
       menu.classList.add("show");
+      console.log("show");
     } else {
       menu.classList.remove("show");
     }
