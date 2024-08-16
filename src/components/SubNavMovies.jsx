@@ -98,7 +98,7 @@ const Home = () => {
                     onClick={() => toggleFavorite(movie)}
                   >
                     <img
-                      src={isFavorite ? starSolid : starRegular} // Corrected this line
+                      src={isFavorite ? starSolid : starRegular}
                       alt="Star"
                       className="star-icon"
                     />

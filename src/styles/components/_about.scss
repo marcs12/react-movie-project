@@ -1,0 +1,33 @@
+@use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
+@use "../utilities/functions" as *;
+@use "../base/typography" as *;
+
+// About Page
+
+body {
+  color: white;
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
+  h1 {
+    font-size: 2rem;
+    padding-top: 4rem;
+    @include Bebas-Neue;
+  }
+  p {
+    font-size: 1.25rem;
+    @include Bebas-Neue;
+  }
+  img {
+    width: 100%;
+    height: auto;
+    opacity: 50%;
+  }
+}

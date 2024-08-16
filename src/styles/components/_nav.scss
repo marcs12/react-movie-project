@@ -8,10 +8,8 @@
 .nav-wrap {
   display: flex;
   flex-direction: row;
-  align-items: center;
   .logo-main {
     a {
-      @include Bebas-Neue;
       img {
         display: block;
         position: absolute;
@@ -143,10 +141,11 @@
     li {
       margin: 0.5rem 0;
       a {
-        font-family: "Bebas Nueue";
+        @include Bebas-Neue;
+        letter-spacing: 0.1rem;
         text-decoration: none;
         color: black;
-        font-size: 1.25rem;
+        font-size: 1.6rem;
         font-weight: 700;
         margin: 0.5rem 0;
         text-transform: uppercase;
