@@ -80,6 +80,7 @@ const Home = () => {
             const isFavorite = favorites.includes(movie.id); // Define isFavorite
 
             return (
+              <>
                   <li key={movie.id} className="movie-wrap">
                     <Link to={`/movie/${movie.id}`}>
                       <img src={`${baseImgURL}/${movie.poster_path}`} />
@@ -100,7 +101,6 @@ const Home = () => {
                       <div>{movie.release_date}</div>
                     </Link>
                   </li> 
-              <>
                 <li key={movie.id} className="movie-wrap">
                   {/* <Link to={`/movie/${movie.id}`}> */}
                   <img src={`${baseImgURL}/${movie.poster_path}`} />
@@ -121,6 +121,7 @@ const Home = () => {
                   <div>{movie.release_date}</div>
                    </Link>
                 </li>
+                </>
             );
           })}
       </ul>
