@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+import starSolid from '../assets/Images/star-solid.svg';
+import starRegular from '../assets/Images/star-regular.svg';
+
 const endpoint = "https://api.themoviedb.org/3/movie/";
 const baseImgURL = "https://image.tmdb.org/t/p/w500/";
 // import { BrowserRouter, Link } from "react-router-dom";
@@ -74,57 +77,38 @@ const Home = () => {
         </button>
       </nav>
 
+      
       <ul>
-        {movies.length > 0 &&
-          movies.map((movie) => {
-            const isFavorite = favorites.includes(movie.id); // Define isFavorite
+  {movies.length > 0 &&
+    movies.map((movie) => {
+      const isFavorite = favorites.includes(movie.id); // Check if the movie is a favorite
 
-            return (
-              <>
-                  <li key={movie.id} className="movie-wrap">
-                    <Link to={`/movie/${movie.id}`}>
-                      <img src={`${baseImgURL}/${movie.poster_path}`} />
-                    </Link>
-                    <div className="stars">
-                      <span
-                        className={`star ${isFavorite ? "favorite" : ""}`}
-                        onClick={() => toggleFavorite(movie)}
-                      >
-                        {/* <FontAwesomeIcon
-                        icon="fa-light fa-star"
-                        style={{ color: "#FFD43B" }}
-                      /> */}
-                      </span>
-                    </div>
-                    <Link to={`/movies/${movie.id}`}>
-                      <div>{movie.title}</div>
-                      <div>{movie.release_date}</div>
-                    </Link>
-                  </li> 
-                <li key={movie.id} className="movie-wrap">
-                  {/* <Link to={`/movie/${movie.id}`}> */}
-                  <img src={`${baseImgURL}/${movie.poster_path}`} />
-                  {/* </Link> */}
-                  <div className="stars">
-                    <span
-                      className={`star ${isFavorite ? "favorite" : ""}`}
-                      onClick={() => toggleFavorite(movie)}
-                    >
-                      {/* <FontAwesomeIcon
-                        icon="fa-light fa-star"
-                        style={{ color: "#FFD43B" }}
-                      /> */}
-                    </span>
-                  </div>
-                  <Link to={`/movies/${movie.id}`}>
-                  <div>{movie.title}</div>
-                  <div>{movie.release_date}</div>
-                   </Link>
-                </li>
-                </>
-            );
-          })}
-      </ul>
+      return (
+        <li key={movie.id} className="movie-wrap">
+          <Link to={`/movies/${movie.id}`}>
+            <img src={`${baseImgURL}${movie.poster_path}`} alt={movie.title} />
+          </Link>
+          <div className="stars">
+            <span
+              className={`star ${isFavorite ? "favorite" : ""}`}
+              onClick={() => toggleFavorite(movie)}
+            >
+              <img
+                src={isFavorite ? starSolid : starRegular} // Corrected this line
+                alt="Star"
+                className="star-icon"
+              />
+            </span>
+          </div>
+          <Link to={`/movies/${movie.id}`}>
+            <div>{movie.title}</div>
+            <div>{movie.release_date}</div>
+          </Link>
+        </li>
+      );
+    })}
+</ul>
+
     </div>
   );
 };
