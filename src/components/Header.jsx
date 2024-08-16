@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import mainLogo from "../assets/main-logo.png";
+import { Link } from "react-router-dom";
 
 const API = import.meta.env.VITE_MOVIE_API_KEY;
 
@@ -33,9 +34,11 @@ const Header = () => {
           </div>
         </button>
         <div className="logo-main">
-          <a href="#">
-            <img src={mainLogo} alt="35mm Logo" />
-          </a>
+          <Link to="/">
+            <a href="#">
+              <img src={mainLogo} alt="35mm Logo" />
+            </a>
+          </Link>
         </div>
       </section>
       <section className="dropdown-menu">
