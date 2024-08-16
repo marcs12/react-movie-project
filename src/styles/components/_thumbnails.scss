@@ -52,7 +52,6 @@ ul {
 
 .movie-wrap:hover {
   cursor: pointer;
-  transform: scale(1.1);
 }
 
 .movie-wrap:hover .overlay {
@@ -74,17 +73,10 @@ ul {
 .stars {
   position: absolute;
   z-index: 1;
-  width: 20rem;
+  width: 5rem;
   top: 0;
   right: 0;
   cursor: pointer;
   transition: color 0.3s;
 }
 
-.stars.favorite {
-  color: gold;
-}
-
-.stars:hover {
-  color: gold;
-}
