@@ -16,6 +16,7 @@ const Header = () => {
     const menuIcon = document.querySelector(".menu-icon__cheeckbox");
     if (menuIcon.checked) {
       menu.classList.add("show");
+      console.log("show");
     } else {
       menu.classList.remove("show");
     }
