@@ -86,7 +86,7 @@ const Home = () => {
 
             return (
               <li key={movie.id} className="movie-wrap">
-                <Link to={`/movies/${movie.id}`}>
+                <Link to={`/movie/${movie.id}`}>
                   <img
                     src={`${baseImgURL}${movie.poster_path}`}
                     alt={movie.title}
@@ -104,7 +104,7 @@ const Home = () => {
                     />
                   </span>
                 </div>
-                <Link to={`/movies/${movie.id}`}>
+                <Link to={`/movie/${movie.id}`}>
                   <div>{movie.title}</div>
                   <div>{movie.release_date}</div>
                 </Link>
