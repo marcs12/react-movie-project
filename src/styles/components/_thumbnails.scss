@@ -2,7 +2,7 @@
 @use "../utilities/mixins" as *;
 @use "../utilities/functions" as *;
 @use "../base/typography" as *;
-@import '~bootstrap/scss/bootstrap';
+// @import '~bootstrap/scss/bootstrap';
 
 
 ul {
@@ -59,6 +59,8 @@ ul {
 
 
 
+
+// bootstrap overlay 
 
 .button-38 {
   transition: background-color 0.3s ease, transform 0.3s ease;
