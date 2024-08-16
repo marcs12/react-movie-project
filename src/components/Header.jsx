@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "../styles/styles.scss";
 import mainLogo from "../assets/main-logo.png";
 
 const API = import.meta.env.VITE_MOVIE_API_KEY;

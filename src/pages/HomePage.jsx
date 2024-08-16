@@ -1,4 +1,3 @@
-import React from "react";
 import SubNav from "../components/SubNav";
 import Hero from "../components/Hero";
 import Header from "../components/Header";
