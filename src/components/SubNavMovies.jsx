@@ -4,7 +4,7 @@ const baseImgURL = "https://image.tmdb.org/t/p/w500/";
 import { BrowserRouter, Link } from "react-router-dom";
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // import "../styles/components/_thumbnails.scss";
->>>>>>> staging
+
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const API = import.meta.env.VITE_MOVIE_API_KEY;
