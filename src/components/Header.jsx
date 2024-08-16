@@ -53,30 +53,6 @@ const Header = () => {
           </li>
         </ul>
       </section>
-      <section className="hero-section">
-        <h2>Now Playing</h2>
-        <div className="hero-image-container">
-          {movieData && (
-            <img
-              src={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`}
-              alt={movieData.title}
-              className="hero-image"
-            />
-          )}
-        </div>
-        <div className="hero-content">
-          {movieData && (
-            <>
-              <h1 className="hero-title">{movieData.title}</h1>
-              <div className="hero-details">
-                <span className="rating">{movieData.vote_average}</span>
-                <span className="duration">{movieData.runtime} mins</span>
-              </div>
-              <p className="hero-description">{movieData.overview}</p>
-            </>
-          )}
-        </div>
-      </section>
     </header>
   );
 };
