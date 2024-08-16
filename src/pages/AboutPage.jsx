@@ -1,21 +1,29 @@
-
-import React from 'react';
-import Header from '../components/Header';
-
+import React from "react";
+import Header from "../components/Header";
+import mainLogo from "../assets/main-logo.png";
 
 const About = () => {
-    return (
-      <>
+  return (
+    <>
       <Header />
-        <section className="">
-          <article className="">
-            <p class="hero-section">about section Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore similique repellendus animi neque consequuntur, quidem illo saepe pariatur voluptatum exercitationem sed optio veniam eaque veritatis praesentium reprehenderit earum, rerum id!</p>
-            <img src="" alt="" />
-          </article>
-          </section>
-       
-      </>
-    );
-  };
-  
-  export default About;
+      <section className="about">
+        <h1>About 35MM</h1>
+        <p>
+          Welcome to 35mm, your go-to movie database for all things cinematic.
+        </p>
+        <p>
+          Dive into a curated collection of films spanning genres and decades.
+        </p>
+        <p>
+          Explore, review, and save your favorites with ease on our
+          user-friendly platform.
+        </p>
+        <figure>
+          <img src={mainLogo} alt="35mm Logo" />
+        </figure>
+      </section>
+    </>
+  );
+};
+
+export default About;
