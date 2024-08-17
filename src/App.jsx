@@ -1,4 +1,6 @@
-import { useState, useEffect } from "react";
+
+import { useState } from "react";
+import { FavoritesProvider } from "./components/FavoritesProvider"; 
 import AppRouter from "./routers/AppRouter";
 import Favorites from "./globals/Favorites";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -17,12 +19,14 @@ function App() {
 
   return (
     <>
-      <img src={backgroundImg} alt="Background" className="background" />
-      <Favorites.Provider value={{ favorites, setFavorites }}>
-        <AppRouter />
-      </Favorites.Provider>
+   <FavoritesProvider>
+      <AppRouter />
+    </FavoritesProvider>
     </>
   );
 }
 
 export default App;
+
+
+

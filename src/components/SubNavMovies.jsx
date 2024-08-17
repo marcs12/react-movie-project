@@ -1,7 +1,8 @@
 import { useEffect, useState, useContext } from "react";
 import starSolid from "../assets/Images/star-solid.svg";
 import starRegular from "../assets/Images/star-regular.svg";
-import { BrowserRouter, Link } from "react-router-dom";
+import { useFavorites } from "../components/FavoritesProvider";
+import { Link } from "react-router-dom";
 
 const endpoint = "https://api.themoviedb.org/3/movie/";
 const baseImgURL = "https://image.tmdb.org/t/p/w500/";
@@ -10,7 +11,12 @@ const API = import.meta.env.VITE_MOVIE_API_KEY;
 const Home = () => {
   const [category, setCategory] = useState("now_playing");
   const [movies, setMovies] = useState([]);
-  const [favorites, setFavorites] = useState([]); // State for favorites
+
+  const { favorites, addFavorite, removeFavorite } = useFavorites();
+
+  const handleClick = (category) => {
+    setCategory(category);
+  };
 
   useEffect(() => {
     const getMovies = async () => {
@@ -23,12 +29,11 @@ const Home = () => {
   }, [category]);
 
   const toggleFavorite = (movie) => {
-    if (favorites.includes(movie.id)) {
-      // Remove from favorites
-      setFavorites(favorites.filter((fav) => fav !== movie.id));
+    const isFavorite = favorites.some((fav) => fav.id === movie.id);
+    if (isFavorite) {
+      removeFavorite(movie.id);
     } else {
-      // Add to favorites
-      setFavorites([...favorites, movie.id]);
+      addFavorite(movie);
     }
   };
 
@@ -54,15 +59,16 @@ const Home = () => {
         <button onClick={() => handleClick("top_rated")}>Top Rated</button>
         <button onClick={() => handleClick("upcoming")}>Upcoming</button>
         <button onClick={() => handleClick("popular")}>Popular</button>
+        <button onClick={() => handleClick("now_playing")}>Now Playing</button>
+        <button onClick={() => handleClick("top_rated")}>Top Rated</button>
+        <button onClick={() => handleClick("upcoming")}>Upcoming</button>
+        <button onClick={() => handleClick("popular")}>Popular</button>
       </nav>
 
       <ul>
         {movies.length > 0 &&
           movies.map((movie) => {
-            let isFavorite = false;
-            if (favorites.some((obj) => obj.id === movie.id)) {
-              isFavorite = true;
-            }
+            const isFavorite = favorites.some((fav) => fav.id === movie.id);
 
             return (
               <li key={movie.id} className="movie-wrap">
@@ -73,22 +79,18 @@ const Home = () => {
                   />
                 </Link>
                 <div className="stars">
-                  <span
-                    className={`star ${isFavorite ? "favorite" : ""}`}
-                    onClick={() => toggleFavorite(movie)}
-                  >
+                  <span onClick={() => toggleFavorite(movie)}>
                     <img
-                      src={isFavorite ? starSolid : starRegular} // Corrected this line
+                      src={isFavorite ? starSolid : starRegular}
                       alt="Star"
                       className="star-icon"
                     />
                   </span>
                 </div>
-                <div className="movie-title">
-                  <Link to={`/movie/${movie.id}`}>
-                    <h2>{movie.title}</h2>
-                  </Link>
-                </div>
+                <Link to={`/movies/${movie.id}`}>
+                  <div>{movie.title}</div>
+                  <div>{movie.release_date}</div>
+                </Link>
               </li>
             );
           })}
