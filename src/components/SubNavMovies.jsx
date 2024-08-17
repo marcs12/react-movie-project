@@ -1,7 +1,8 @@
 import { useEffect, useState, useContext } from "react";
 import starSolid from "../assets/Images/star-solid.svg";
 import starRegular from "../assets/Images/star-regular.svg";
-import { BrowserRouter, Link } from "react-router-dom";
+import { useFavorites } from "../components/FavoritesProvider";
+import { Link } from "react-router-dom";
 
 const endpoint = "https://api.themoviedb.org/3/movie/";
 const baseImgURL = "https://image.tmdb.org/t/p/w500/";
@@ -21,7 +22,7 @@ const Home = () => {
     const getMovies = async () => {
       const response = await fetch(`${endpoint}${category}?api_key=${API}`);
       const json = await response.json();
-      setMovies(json.results || []); // Ensure movies is an array
+      setMovies(json.results || []);
     };
 
     getMovies();
@@ -67,13 +68,11 @@ const Home = () => {
       <ul>
         {movies.length > 0 &&
           movies.map((movie) => {
-            let isFavorite = false;
-            if (favorites.some((obj) => obj.id === movie.id)) {
-              isFavorite = true;
-            }
+            const isFavorite = favorites.some((fav) => fav.id === movie.id);
 
             return (
               <li key={movie.id} className="movie-wrap">
+                <Link to={`/movies/${movie.id}`}>
                 <Link to={`/movies/${movie.id}`}>
                   <img
                     src={`${baseImgURL}${movie.poster_path}`}
@@ -81,10 +80,7 @@ const Home = () => {
                   />
                 </Link>
                 <div className="stars">
-                  <span
-                    className={`star ${isFavorite ? "favorite" : ""}`}
-                    onClick={() => toggleFavorite(movie)}
-                  >
+                  <span onClick={() => toggleFavorite(movie)}>
                     <img
                       src={isFavorite ? starSolid : starRegular} // Corrected this line
                       alt="Star"
@@ -92,11 +88,10 @@ const Home = () => {
                     />
                   </span>
                 </div>
-                <div className="movie-title">
-                  <Link to={`/movie/${movie.id}`}>
-                    <h2>{movie.title}</h2>
-                  </Link>
-                </div>
+                <Link to={`/movies/${movie.id}`}>
+                  <div>{movie.title}</div>
+                  <div>{movie.release_date}</div>
+                </Link>
               </li>
             );
           })}

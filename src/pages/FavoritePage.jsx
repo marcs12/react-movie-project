@@ -5,8 +5,38 @@ import { Link } from "react-router-dom";
 
 const baseImgURL = "https://image.tmdb.org/t/p/w500/";
 
-const Favorite = () => {
-  const { favorites } = useContext(Favorites);
+  return (
+    <div>
+      <h1>Your Favorites</h1>
+      {favorites.length > 0 ? (
+        <ul>
+          {favorites.map((movie) => (
+            <li key={movie.id}>
+              <img
+                src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                alt={movie.title}
+              />
+              <div>
+                <h3>{movie.title}</h3>
+                <p>{movie.release_date}</p>
+                <button onClick={() => removeFavorite(movie.id)}>
+                  Remove from Favorites
+                </button>
+                <Link to={`/movie/${movie.id}`}>View Details</Link>
+              </div>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>No favorites added yet.</p>
+      )}
+    </div>
+  );
+};
+
+export default FavouritesPage;
+
+const Favorite = () => { 
   const [loadedMovies, setLoadedMovies] = useState([]);
   const containerRef = useRef(null);
 
