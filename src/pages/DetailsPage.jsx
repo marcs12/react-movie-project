@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Header from "../components/Header";
 import { useParams } from "react-router-dom";
-import { BrowserRouter, Link } from "react-router-dom";
+import { BrowserRouter, Link } from "react-router-dom"; 
+import GlobalContext from "../globals/GlobalContext";
 
 const endpoint = "https://api.themoviedb.org/3/movie/";
 const baseImgURL = "https://image.tmdb.org/t/p/w500/";
@@ -10,6 +11,7 @@ const API = import.meta.env.VITE_MOVIE_API_KEY;
 const Details = () => {
   let { id } = useParams();
   const [movie, setMovie] = useState(null);
+  const { data, setData } = useContext(GlobalContext);
 
   useEffect(() => {
     const fetchMovie = async () => {
@@ -31,6 +33,9 @@ const Details = () => {
     <>
       <Header />
 
+      <h3>{data}</h3>
+      <button onClick={() => setData(favorites + "X")}></button>
+      
       <section className="details-section">
         <h2>Now Playing</h2>
         <div className="details-image-container">
