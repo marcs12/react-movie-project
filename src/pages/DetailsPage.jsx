@@ -30,14 +30,16 @@ const Details = () => {
   return (
     <>
       <Header />
-      <section className="">
+      <section className="hero-section">
         <article className="">
           <img src={`${baseImgURL}${movie.poster_path}`} alt={movie.title} />
-          <p className="hero-section">{movie.title}</p>
+          
           <Link to={`/movie/${movie.id}`}>
-            <div>{movie.title}</div>
-            <div>{movie.release_date}</div>
+            
           </Link>
+          <div>{movie.title}</div>
+          <div>{movie.release_date}</div>
+          <div>{movie.overview}</div>
         </article>
       </section>
     </>
