@@ -1,18 +1,30 @@
-import { useState } from "react";
+import { useState, useEffect} from "react";
 import AppRouter from "./routers/AppRouter";
-import GlobalContext from "./globals/GlobalContext";
+import Favorites from "./globals/Favorites";
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 // import './styles/base/bootstrap.scss';
 import "./styles/styles.scss";
 
 function App() {
-  const [data, setData] = useState("");
+  const [favorites, setFavorites] =  useState(() => {
+    const savedFavorites = sessionStorage.getItem('favorites');
+    return savedFavorites ? JSON.parse(savedFavorites) : [];
+  });
+
+  useEffect(() => {
+    sessionStorage.setItem('favorites', JSON.stringify(favorites));
+  }, [favorites]);
+
+
+
+
+
   return (
     <>
-      <GlobalContext.Provider value={{ data, setData}}>
+      <Favorites.Provider value={{ favorites, setFavorites }}>
         <AppRouter />
-      </GlobalContext.Provider>
+      </Favorites.Provider>
     </>
   );
 }

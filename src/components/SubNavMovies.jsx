@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import starSolid from "../assets/Images/star-solid.svg";
 import starRegular from "../assets/Images/star-regular.svg";
+import Favorites from "../globals/Favorites";
 
 const endpoint = "https://api.themoviedb.org/3/movie/";
 const baseImgURL = "https://image.tmdb.org/t/p/w500/";
@@ -14,8 +15,8 @@ const API = import.meta.env.VITE_MOVIE_API_KEY;
 
 const Home = () => {
   const [category, setCategory] = useState("now_playing");
-  const [movies, setMovies] = useState([]);
-  const [favorites, setFavorites] = useState([]); // State for favorites
+  const [movies, setMovies] = useState([]); 
+  const {favorites, setFavorites}= useContext(Favorites);
 
   useEffect(() => {
     const getMovies = async () => {
