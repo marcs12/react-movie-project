@@ -33,9 +33,6 @@ const Details = () => {
     <>
       <Header />
 
-      <h3>---{favorites[0]}---</h3>
-      <button onClick={() => setData(favorites + "X")}>test</button>
-      
       <section className="details-section">
         <h2>Now Playing</h2>
         <div className="details-image-container">
