@@ -30,17 +30,32 @@ const Details = () => {
   return (
     <>
       <Header />
-      <section className="hero-section">
-        <article className="">
-          <img src={`${baseImgURL}${movie.poster_path}`} alt={movie.title} />
-          
-          <Link to={`/movie/${movie.id}`}>
-            
-          </Link>
-          <div>{movie.title}</div>
-          <div>{movie.release_date}</div>
-          <div>{movie.overview}</div>
-        </article>
+
+      <section className="details-section">
+        <h2>Now Playing</h2>
+        <div className="details-image-container">
+          <img
+            src={`${baseImgURL}${movie.poster_path}`}
+            alt="Container Top"
+            className="details-image"
+          />
+        </div>
+        <div className="details-content">
+          <h1 className="details-title" key="title">
+            {movie.title}
+          </h1>
+          <div className="details-details" key="details">
+            <span className="rating" key="rating">
+              {movie.vote_average}
+            </span>
+            <span className="duration" key="duration">
+              {movie.runtime} mins
+            </span>
+          </div>
+          <p className="details-description" key="description">
+            {movie.overview}
+          </p>
+        </div>
       </section>
     </>
   );
