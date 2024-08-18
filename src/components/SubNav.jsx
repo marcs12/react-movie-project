@@ -5,8 +5,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 // import './styles/base/bootstrap.scss';
 // import '/styles/components/_thumbnails.scss';
 
-
-
 const SubNav = () => {
   const data = [
     {
@@ -30,7 +28,7 @@ const SubNav = () => {
 
   const handleClick = async () => {
     const response = await fetch(
-      `${API}/movie/popular?language=en-US&page=1&api_key=${apiKey}`
+      `${API}/movie/popular?language=en-US&page=1&api_key=${apiKey}`,
     );
     const data = await response.json();
     console.log(data);
@@ -39,41 +37,8 @@ const SubNav = () => {
   return (
     <>
       <section className="sub-navigation">
-        {/* <BrowserRouter> */}
-          <SubNavMovies />
-        {/* </BrowserRouter> */}
-        </section>
-        {/* <nav className="subnav">
-          <button id="now-playing" className="button-38" role="button">
-            Now Playing
-          </button>
-          <button id="top-rated" className="button-38" role="button">
-            Top Rated
-          </button>
-          <button id="upcoming" className="button-38" role="button">
-            Upcoming
-          </button>
-          <button id="popular" className="button-38" role="button">
-            Popular
-          </button>
-        </nav> */}
-     
-      {/* <div className="container-fluid">
-        <button onClick={handleClick}>Test Here</button>
-        <div className="row"> */}
-          {/* <div className="col-12 text-center bg-dark subnav">
-            {data.map((Val) => {
-              return (
-                <>
-                <button id={Val.name.toLowerCase().replace(" ", "-")} className="col-sm-2 col-md btn btn-dark">
-                  <i className={`${Val.name}`}></i>
-                </button>
-                </>
-              );
-            })}
-          </div> */}
-        {/* </div> */}
-      {/* </div> */}
+        <SubNavMovies />
+      </section>
     </>
   );
 };
