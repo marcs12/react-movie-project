@@ -1,0 +1,120 @@
+@use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
+@use "../utilities/functions" as *;
+@use "../base/typography" as *;
+
+.details-section{
+  background-color: #00000000;
+  color: #fff;
+  padding: 20px;
+  top: 80%;
+
+  h2 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    @include Bebas-Neue;
+    letter-spacing: 0.5rem;
+  }
+
+  .details-image-container {
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+    .details-container-top {
+      position: absolute;
+      top: -1rem;
+      left: -1rem;
+      z-index: 1;
+      background-color: rgba(0, 0, 0, 0.066);
+      backdrop-filter: blur(1px);
+    }
+    .details-container-bottom {
+      position: absolute;
+      bottom: -1rem;
+      right: -1rem;
+      z-index: 1;
+      background-color: rgba(0, 0, 0, 0.044);
+      backdrop-filter: blur(1px);
+    }
+    .prev-slide {
+      position: absolute;
+      top: 50%;
+      left: -2rem;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.162);
+      padding: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      // remove button styling
+      border: none;
+      outline: none;
+      img {
+        width: 1.6rem;
+      }
+    }
+    .next-slide {
+      position: absolute;
+      top: 50%;
+      right: -2rem;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.047);
+      padding: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      img {
+        width: 1.6rem;
+      }
+    }
+  }
+
+  .details-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .details-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .details-details {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+
+    .rating,
+    .duration {
+      font-size: 14px;
+      padding: 2px 6px;
+      border: 1px solid #fff;
+    }
+  }
+
+  .details-description {
+    font-size: 16px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .details-buttons {
+    display: flex;
+    justify-content: space-between;
+
+    button {
+      padding: 10px;
+      background-color: #fff;
+      color: #000;
+      border: none;
+      cursor: pointer;
+      flex-grow: 1;
+      margin: 5px;
+    }
+  }
+}
