@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import starSolid from "../assets/Images/star-solid.svg";
 import starRegular from "../assets/Images/star-regular.svg";
+import Favorites from "../globals/Favorites";
 
 const endpoint = "https://api.themoviedb.org/3/movie/";
 const baseImgURL = "https://image.tmdb.org/t/p/w500/";
@@ -15,7 +16,7 @@ const API = import.meta.env.VITE_MOVIE_API_KEY;
 const Home = () => {
   const [category, setCategory] = useState("now_playing");
   const [movies, setMovies] = useState([]);
-  const [favorites, setFavorites] = useState([]); // State for favorites
+  const { favorites, setFavorites } = useContext(Favorites);
 
   useEffect(() => {
     const getMovies = async () => {
@@ -33,12 +34,12 @@ const Home = () => {
 
   // Function to handle favorite toggle
   const toggleFavorite = (movie) => {
-    if (favorites.includes(movie.id)) {
+    if (favorites.some((obj) => obj.id === movie.id)) {
       // Remove from favorites
-      setFavorites(favorites.filter((fav) => fav !== movie.id));
+      setFavorites(favorites.filter((fav) => fav.id !== movie.id));
     } else {
       // Add to favorites
-      setFavorites([...favorites, movie.id]);
+      setFavorites([...favorites, movie]);
     }
   };
 
@@ -82,7 +83,11 @@ const Home = () => {
       <ul>
         {movies.length > 0 &&
           movies.map((movie) => {
-            const isFavorite = favorites.includes(movie.id); // Check if the movie is a favorite
+            let isFavorite = false; // Check if the movie is a favorite
+
+            if (favorites.some((obj) => obj.id === movie.id)) {
+              isFavorite = true;
+            }
 
             return (
               <li key={movie.id} className="movie-wrap">

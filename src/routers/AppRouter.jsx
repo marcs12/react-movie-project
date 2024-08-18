@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomePage from "../pages/HomePage";
 import AboutPage from "../pages/AboutPage";
 import DetailsPage from "../pages/DetailsPage";
-import FavouritesPage from "../pages/FavoritePage";
+import FavoritesPage from "../pages/FavoritePage";
 
 const AppRouter = () => {
   return (
@@ -12,7 +12,7 @@ const AppRouter = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/movie/:id" element={<DetailsPage />} />
-        <Route path="/favorites" element={<FavouritesPage />} />
+        <Route path="/favorites" element={<FavoritesPage />} />
       </Routes>
     </Router>
   );
