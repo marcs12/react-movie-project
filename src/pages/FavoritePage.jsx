@@ -3,9 +3,22 @@ import Header from "../components/Header";
 import Favorites from "../globals/Favorites";
 import { BrowserRouter, Link } from "react-router-dom";
 const baseImgURL = "https://image.tmdb.org/t/p/w500/";
+import starSolid from "../assets/Images/star-solid.svg";
+import starRegular from "../assets/Images/star-regular.svg";
 
 const Favorite = () => {
   const { favorites, setFavorites } = useContext(Favorites);
+  // Function to handle favorite toggle
+  const toggleFavorite = (movie) => {
+    if (favorites.some((obj) => obj.id === movie.id)) {
+      // Remove from favorites
+      setFavorites(favorites.filter((fav) => fav.id !== movie.id));
+    } else {
+      // Add to favorites
+      setFavorites([...favorites, movie]);
+    }
+  };
+
   return (
     <>
       <Header />
@@ -19,6 +32,11 @@ const Favorite = () => {
         <ul>
           {favorites.length > 0 &&
             favorites.map((movie) => {
+              let isFavorite = false; // Check if the movie is a favorite
+  
+              if (favorites.some((obj) => obj.id === movie.id)) {
+                isFavorite = true;
+              }
               <h3>---{favorites[0].id}---</h3>;
               return (
                 <li key={movie.id} className="movie-wrap">
@@ -28,6 +46,18 @@ const Favorite = () => {
                     alt={movie.title}
                   />
                 </Link>
+                <div className="stars">
+                  <span
+                    className={`star ${isFavorite ? "favorite" : ""}`}
+                    onClick={() => toggleFavorite(movie)}
+                  >
+                    <img
+                      src={isFavorite ? starSolid : starRegular}
+                      alt="Star"
+                      className="star-icon"
+                    />
+                  </span>
+                </div>
                  
                 <Link to={`/movie/${movie.id}`}>
                   <div>{movie.title}</div>
