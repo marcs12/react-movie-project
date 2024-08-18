@@ -12,7 +12,7 @@
     text-align: center;
     font-size: 24px;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin: 1.25rem 0;
     @include Bebas-Neue;
     letter-spacing: 0.5rem;
   }
@@ -23,19 +23,21 @@
     position: relative;
     .hero-container-top {
       position: absolute;
-      top: -1rem;
-      left: -1rem;
+      top: -0.5rem;
+      left: -0.5rem;
       z-index: 1;
       background-color: rgba(0, 0, 0, 0.066);
       backdrop-filter: blur(1px);
+      width: 0.75rem;
     }
     .hero-container-bottom {
       position: absolute;
-      bottom: -1rem;
-      right: -1rem;
+      bottom: -0.5rem;
+      right: -0.5rem;
       z-index: 1;
       background-color: rgba(0, 0, 0, 0.044);
       backdrop-filter: blur(1px);
+      width: 0.75rem;
     }
     .prev-slide {
       position: absolute;

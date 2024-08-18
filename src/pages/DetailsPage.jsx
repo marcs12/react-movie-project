@@ -32,7 +32,11 @@ const Details = () => {
   return (
     <>
       <Header />
-
+      <section className="">
+        <article className="">
+          <img src="" alt="" />
+          <p className="hero-section">{id}</p>
+        </article>
       <section className="details-section">
         <h2>Now Playing</h2>
         <div className="details-image-container">
