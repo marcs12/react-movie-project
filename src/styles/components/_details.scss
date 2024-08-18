@@ -3,41 +3,40 @@
 @use "../utilities/functions" as *;
 @use "../base/typography" as *;
 
-.hero-section {
+.details-section{
   background-color: #00000000;
   color: #fff;
   padding: 20px;
+  top: 80%;
 
   h2 {
     text-align: center;
     font-size: 24px;
     font-weight: bold;
-    margin: 1.25rem 0;
+    margin-bottom: 20px;
     @include Bebas-Neue;
     letter-spacing: 0.5rem;
   }
 
-  .hero-image-container {
+  .details-image-container {
     text-align: center;
     margin-bottom: 20px;
     position: relative;
-    .hero-container-top {
+    .details-container-top {
       position: absolute;
-      top: -0.5rem;
-      left: -0.5rem;
+      top: -1rem;
+      left: -1rem;
       z-index: 1;
       background-color: rgba(0, 0, 0, 0.066);
       backdrop-filter: blur(1px);
-      width: 0.75rem;
     }
-    .hero-container-bottom {
+    .details-container-bottom {
       position: absolute;
-      bottom: -0.5rem;
-      right: -0.5rem;
+      bottom: -1rem;
+      right: -1rem;
       z-index: 1;
       background-color: rgba(0, 0, 0, 0.044);
       backdrop-filter: blur(1px);
-      width: 0.75rem;
     }
     .prev-slide {
       position: absolute;
@@ -72,19 +71,19 @@
     }
   }
 
-  .hero-image {
+  .details-image {
     width: 100%;
     height: auto;
   }
 
-  .hero-title {
+  .details-title {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 10px;
     text-align: center;
   }
 
-  .hero-details {
+  .details-details {
     display: flex;
     justify-content: center;
     gap: 10px;
@@ -98,13 +97,13 @@
     }
   }
 
-  .hero-description {
+  .details-description {
     font-size: 16px;
     margin-bottom: 20px;
     text-align: center;
   }
 
-  .hero-buttons {
+  .details-buttons {
     display: flex;
     justify-content: space-between;
 
