@@ -86,7 +86,8 @@
 
   .hero-details {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-self: center;
     gap: 10px;
     margin-bottom: 10px;
 

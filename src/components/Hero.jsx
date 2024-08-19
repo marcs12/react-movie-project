@@ -64,12 +64,13 @@ const Header = () => {
               {movieData[currentMovieIndex].title}
             </h1>
             <div className="hero-details" key="details">
-              <span className="rating" key="rating">
-                {movieData[currentMovieIndex].vote_average}
-              </span>
-              <span className="duration" key="duration">
-                {movieData[currentMovieIndex].runtime} mins
-              </span>
+              <p className="release-date" key="release-date">
+                <strong>Release:</strong>{" "}
+                {movieData[currentMovieIndex].release_date}
+              </p>
+              <p className="rating" key="rating">
+                {movieData[currentMovieIndex].vote_average} &#9733;
+              </p>
             </div>
             <p className="hero-description" key="description">
               {movieData[currentMovieIndex].overview}
