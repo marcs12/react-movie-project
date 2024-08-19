@@ -1,30 +1,18 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { Carousel } from "react-bootstrap"; // Import Carousel from react-bootstrap
 import heroContainerBottom from "../assets/buttons-imported/container-bottom.png";
 import heroContainerTop from "../assets/buttons-imported/container-top.png";
-import nextSlideBtn from "../assets/buttons-imported/next-slide-button.png";
-import prevSlideBtn from "../assets/buttons-imported/back-slide-button.png";
 
 const API = import.meta.env.VITE_MOVIE_API_KEY;
 
-const Header = () => {
+const Hero = () => {
   const [movieData, setMovieData] = useState(null);
+
   useEffect(() => {
     fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${API}`)
       .then((response) => response.json())
       .then((data) => setMovieData(data.results));
   }, []);
-
-  const [currentMovieIndex, setCurrentMovieIndex] = useState(0);
-
-  const handleNextSlide = () => {
-    setCurrentMovieIndex((prevIndex) => (prevIndex + 1) % movieData.length);
-  };
-
-  const handlePrevSlide = () => {
-    setCurrentMovieIndex(
-      (prevIndex) => (prevIndex - 1 + movieData.length) % movieData.length,
-    );
-  };
 
   return (
     <section className="hero-section">
@@ -42,43 +30,32 @@ const Header = () => {
             className="hero-container-bottom"
           />
         </figure>
-        <button className="prev-slide" onClick={handlePrevSlide}>
-          <img src={prevSlideBtn} alt="Previous Slide" />
-        </button>
-        <button className="next-slide" onClick={handleNextSlide}>
-          <img src={nextSlideBtn} alt="Next Slide" />
-        </button>
 
-        {movieData && movieData[currentMovieIndex] && (
-          <img
-            src={`https://image.tmdb.org/t/p/w500${movieData[currentMovieIndex].poster_path}`}
-            alt={movieData[currentMovieIndex].title}
-            className="hero-image"
-          />
-        )}
-      </div>
-      <div className="hero-content">
-        {movieData && movieData[currentMovieIndex] && (
-          <>
-            <h1 className="hero-title" key="title">
-              {movieData[currentMovieIndex].title}
-            </h1>
-            <div className="hero-details" key="details">
-              <span className="rating" key="rating">
-                {movieData[currentMovieIndex].vote_average}
-              </span>
-              <span className="duration" key="duration">
-                {movieData[currentMovieIndex].runtime} mins
-              </span>
-            </div>
-            <p className="hero-description" key="description">
-              {movieData[currentMovieIndex].overview}
-            </p>
-          </>
+        {movieData && (
+          <Carousel>
+            {movieData.map((movie, index) => (
+              <Carousel.Item key={index}>
+                <img
+                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                  alt={movie.title}
+                  className="d-block w-100"
+                />
+                <Carousel.Caption>
+                  <h3>{movie.title}</h3>
+                  <p>{movie.overview}</p>
+                  <div className="hero-details">
+                    <span className="rating">{movie.vote_average}</span>
+                    <span className="duration">{movie.runtime} mins</span>
+                  </div>
+                </Carousel.Caption>
+              </Carousel.Item>
+            ))}
+          </Carousel>
         )}
       </div>
     </section>
   );
 };
 
-export default Header;
+export default Hero;
+
