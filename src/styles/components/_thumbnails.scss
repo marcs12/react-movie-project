@@ -33,15 +33,13 @@ ul {
   }
 }
 
-// bootstrap overlay
-
 .button-38 {
   transition:
     background-color 0.3s ease,
     transform 0.3s ease;
   &:hover {
-    background-color: #ff5f5f; // your desired hover color
-    transform: scale(1.05); // slight zoom effect
+    background-color: #ff5f5f;
+    transform: scale(1.05);
   }
 }
 
