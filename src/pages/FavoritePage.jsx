@@ -11,7 +11,7 @@ const Favorite = () => {
   const containerRef = useRef(null);
 
   useEffect(() => {
-    // Initialize the first set of movies to display
+    // Initialize the first set of movies to display if there are any favorites
     if (favorites.length > 0) {
       setLoadedMovies(favorites.slice(0, 10)); // Initially load 10 movies
     }
@@ -19,7 +19,7 @@ const Favorite = () => {
 
   const loadMoreMovies = () => {
     if (loadedMovies.length < favorites.length) {
-      // Load 10 more movies each time
+      // Load more movies as user scrolls
       const newMovies = favorites.slice(loadedMovies.length, loadedMovies.length + 10);
       setLoadedMovies((prevMovies) => [...prevMovies, ...newMovies]);
     }
@@ -47,18 +47,26 @@ const Favorite = () => {
     <>
       <Header />
       <section className="favorite-section">
-        <div className="movie-grid">
-          {loadedMovies.map((movie) => (
-            <Link key={movie.id} to={`/movie/${movie.id}`} className="movie-item">
-              <img
-                src={`${baseImgURL}${movie.poster_path}`}
-                alt={movie.title}
-                className="movie-poster"
-              />
-            </Link>
-          ))}
-        </div>
-        <div ref={containerRef} className="scroll-trigger"></div> {/* Invisible scroll trigger */}
+        {favorites.length === 0 ? (
+          <div className="no-favorites-message">
+            <p>No favorite movies selected.</p>
+          </div>
+        ) : (
+          <>
+            <div className="movie-grid">
+              {loadedMovies.map((movie) => (
+                <Link key={movie.id} to={`/movie/${movie.id}`} className="movie-item">
+                  <img
+                    src={`${baseImgURL}${movie.poster_path}`}
+                    alt={movie.title}
+                    className="movie-poster"
+                  />
+                </Link>
+              ))}
+            </div>
+            <div ref={containerRef} className="scroll-trigger"></div>
+          </>
+        )}
       </section>
     </>
   );
