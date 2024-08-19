@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import Header from "../components/Header";
 import Favorites from "../globals/Favorites";
 import { BrowserRouter, Link } from "react-router-dom";
@@ -8,6 +8,7 @@ import starRegular from "../assets/Images/star-regular.svg";
 
 const Favorite = () => {
   const { favorites, setFavorites } = useContext(Favorites);
+
   // Function to handle favorite toggle
   const toggleFavorite = (movie) => {
     if (favorites.some((obj) => obj.id === movie.id)) {
@@ -28,48 +29,49 @@ const Favorite = () => {
           <p className="hero-section">favourites</p>
         </article>
       </section>
+
       <section>
-        <ul>
-          {favorites.length > 0 &&
-            favorites.map((movie) => {
-              let isFavorite = false; // Check if the movie is a favorite
-  
-              if (favorites.some((obj) => obj.id === movie.id)) {
-                isFavorite = true;
-              }
-              <h3>---{favorites[0].id}---</h3>;
+        {favorites.length === 0 ? (
+          <p>No favorite movies selected.</p>
+        ) : (
+          <ul>
+            {favorites.map((movie) => {
+              const isFavorite = favorites.some((obj) => obj.id === movie.id);
+
               return (
                 <li key={movie.id} className="movie-wrap">
-                <Link to={`/movie/${movie.id}`}>
-                  <img
-                    src={`${baseImgURL}${movie.poster_path}`}
-                    alt={movie.title}
-                  />
-                </Link>
-                <div className="stars">
-                  <span
-                    className={`star ${isFavorite ? "favorite" : ""}`}
-                    onClick={() => toggleFavorite(movie)}
-                  >
+                  <Link to={`/movie/${movie.id}`}>
                     <img
-                      src={isFavorite ? starSolid : starRegular}
-                      alt="Star"
-                      className="star-icon"
+                      src={`${baseImgURL}${movie.poster_path}`}
+                      alt={movie.title}
                     />
-                  </span>
-                </div>
-                 
-                <Link to={`/movie/${movie.id}`}>
-                  <div>{movie.title}</div>
-                  <div>{movie.release_date}</div>
-                </Link>
-              </li>
+                  </Link>
+                  <div className="stars">
+                    <span
+                      className={`star ${isFavorite ? "favorite" : ""}`}
+                      onClick={() => toggleFavorite(movie)}
+                    >
+                      <img
+                        src={isFavorite ? starSolid : starRegular}
+                        alt="Star"
+                        className="star-icon"
+                      />
+                    </span>
+                  </div>
+
+                  <Link to={`/movie/${movie.id}`}>
+                    <div>{movie.title}</div>
+                    <div>{movie.release_date}</div>
+                  </Link>
+                </li>
               );
             })}
-        </ul>
+          </ul>
+        )}
       </section>
     </>
   );
 };
 
 export default Favorite;
+
