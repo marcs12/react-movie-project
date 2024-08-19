@@ -1,77 +1,69 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect, useRef } from "react";
 import Header from "../components/Header";
 import Favorites from "../globals/Favorites";
-import { BrowserRouter, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 const baseImgURL = "https://image.tmdb.org/t/p/w500/";
-import starSolid from "../assets/Images/star-solid.svg";
-import starRegular from "../assets/Images/star-regular.svg";
 
 const Favorite = () => {
-  const { favorites, setFavorites } = useContext(Favorites);
+  const { favorites } = useContext(Favorites);
+  const [loadedMovies, setLoadedMovies] = useState([]);
+  const containerRef = useRef(null);
 
-  // Function to handle favorite toggle
-  const toggleFavorite = (movie) => {
-    if (favorites.some((obj) => obj.id === movie.id)) {
-      // Remove from favorites
-      setFavorites(favorites.filter((fav) => fav.id !== movie.id));
-    } else {
-      // Add to favorites
-      setFavorites([...favorites, movie]);
+  useEffect(() => {
+    // Initialize the first set of movies to display
+    if (favorites.length > 0) {
+      setLoadedMovies(favorites.slice(0, 10)); // Initially load 10 movies
+    }
+  }, [favorites]);
+
+  const loadMoreMovies = () => {
+    if (loadedMovies.length < favorites.length) {
+      // Load 10 more movies each time
+      const newMovies = favorites.slice(loadedMovies.length, loadedMovies.length + 10);
+      setLoadedMovies((prevMovies) => [...prevMovies, ...newMovies]);
     }
   };
+
+  // Infinite scroll observer
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        loadMoreMovies();
+      }
+    }, {
+      root: null,
+      threshold: 1.0,
+    });
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [loadedMovies]);
 
   return (
     <>
       <Header />
-      <section className="">
-        <article className="">
-          <img src="" alt="" />
-          <p className="hero-section">favourites</p>
-        </article>
-      </section>
-
-      <section>
-        {favorites.length === 0 ? (
-          <p>No favorite movies selected.</p>
-        ) : (
-          <ul>
-            {favorites.map((movie) => {
-              const isFavorite = favorites.some((obj) => obj.id === movie.id);
-
-              return (
-                <li key={movie.id} className="movie-wrap">
-                  <Link to={`/movie/${movie.id}`}>
-                    <img
-                      src={`${baseImgURL}${movie.poster_path}`}
-                      alt={movie.title}
-                    />
-                  </Link>
-                  <div className="stars">
-                    <span
-                      className={`star ${isFavorite ? "favorite" : ""}`}
-                      onClick={() => toggleFavorite(movie)}
-                    >
-                      <img
-                        src={isFavorite ? starSolid : starRegular}
-                        alt="Star"
-                        className="star-icon"
-                      />
-                    </span>
-                  </div>
-
-                  <Link to={`/movie/${movie.id}`}>
-                    <div>{movie.title}</div>
-                    <div>{movie.release_date}</div>
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        )}
+      <section className="favorite-section">
+        <div className="movie-grid">
+          {loadedMovies.map((movie) => (
+            <Link key={movie.id} to={`/movie/${movie.id}`} className="movie-item">
+              <img
+                src={`${baseImgURL}${movie.poster_path}`}
+                alt={movie.title}
+                className="movie-poster"
+              />
+            </Link>
+          ))}
+        </div>
+        <div ref={containerRef} className="scroll-trigger"></div> {/* Invisible scroll trigger */}
       </section>
     </>
   );
 };
 
 export default Favorite;
+
 
