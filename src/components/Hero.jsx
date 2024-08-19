@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Carousel } from "react-bootstrap"; // Import Carousel from react-bootstrap
+import { Carousel } from "react-bootstrap";
 import heroContainerBottom from "../assets/buttons-imported/container-bottom.png";
 import heroContainerTop from "../assets/buttons-imported/container-top.png";
 

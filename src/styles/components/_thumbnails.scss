@@ -78,22 +78,6 @@ ul {
   transition: color 3s ease-in-out;
 }
 
-<<<<<<< HEAD
-.movie-title {
-  font-size: 1rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-  a {
-    color: black;
-    text-decoration: none;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-  }
-  h2 {
-    @include Bebas-Neue;
-    letter-spacing: 0.1rem;
-    text-wrap: balance;
-  }
-=======
 //bootstrap carousel
 .carousel-item img {
   height: 500px;
@@ -109,5 +93,4 @@ ul {
   width: 24px;
   height: 24px;
   cursor: pointer;
->>>>>>> staging
 }
