@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import Header from "../components/Header";
 import Favorites from "../globals/Favorites";
-import { BrowserRouter, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { Carousel } from "react-bootstrap";
 const baseImgURL = "https://image.tmdb.org/t/p/w500/";
 import starSolid from "../assets/Images/star-solid.svg";
 import starRegular from "../assets/Images/star-regular.svg";
@@ -34,39 +35,41 @@ const Favorite = () => {
         {favorites.length === 0 ? (
           <p>No favorite movies selected.</p>
         ) : (
-          <ul>
+          <Carousel>
             {favorites.map((movie) => {
               const isFavorite = favorites.some((obj) => obj.id === movie.id);
 
               return (
-                <li key={movie.id} className="movie-wrap">
+                <Carousel.Item key={movie.id}>
                   <Link to={`/movie/${movie.id}`}>
                     <img
+                      className="d-block w-100"
                       src={`${baseImgURL}${movie.poster_path}`}
                       alt={movie.title}
                     />
                   </Link>
-                  <div className="stars">
-                    <span
-                      className={`star ${isFavorite ? "favorite" : ""}`}
-                      onClick={() => toggleFavorite(movie)}
-                    >
-                      <img
-                        src={isFavorite ? starSolid : starRegular}
-                        alt="Star"
-                        className="star-icon"
-                      />
-                    </span>
-                  </div>
-
-                  <Link to={`/movie/${movie.id}`}>
-                    <div>{movie.title}</div>
-                    <div>{movie.release_date}</div>
-                  </Link>
-                </li>
+                  <Carousel.Caption>
+                    <div className="stars">
+                      <span
+                        className={`star ${isFavorite ? "favorite" : ""}`}
+                        onClick={() => toggleFavorite(movie)}
+                      >
+                        <img
+                          src={isFavorite ? starSolid : starRegular}
+                          alt="Star"
+                          className="star-icon"
+                        />
+                      </span>
+                    </div>
+                    <Link to={`/movie/${movie.id}`}>
+                      <h3>{movie.title}</h3>
+                      <p>{movie.release_date}</p>
+                    </Link>
+                  </Carousel.Caption>
+                </Carousel.Item>
               );
             })}
-          </ul>
+          </Carousel>
         )}
       </section>
     </>
