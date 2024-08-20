@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import Header from "../components/Header";
 import { useParams } from "react-router-dom";
-import { BrowserRouter, Link } from "react-router-dom";
 import Favorites from "../globals/Favorites";
 
 const endpoint = "https://api.themoviedb.org/3/movie/";
