@@ -43,7 +43,10 @@ const Home = () => {
       <ul>
         {movies.length > 0 &&
           movies.map((movie) => {
-            const isFavorite = favorites.includes(movie.id); // Check if the movie is a favorite
+            let isFavorite = false;
+            if (favorites.some((obj) => obj.id === movie.id)) {
+              isFavorite = true;
+            }
 
             return (
               <li key={movie.id} className="movie-wrap">
@@ -65,10 +68,11 @@ const Home = () => {
                     />
                   </span>
                 </div>
-                <Link to={`/movies/${movie.id}`}>
-                  <div>{movie.title}</div>
-                  <div>{movie.release_date}</div>
-                </Link>
+                <div className="movie-title">
+                  <Link to={`/movie/${movie.id}`}>
+                    <h2>{movie.title}</h2>
+                  </Link>
+                </div>
               </li>
             );
           })}

@@ -86,15 +86,22 @@
 
   .hero-details {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
     gap: 10px;
     margin-bottom: 10px;
 
-    .rating,
-    .duration {
+    .release-date {
+      font-size: 14px;
+      padding: 0.25rem 0.375rem;
+      border: 1px solid #fff;
+      margin: 0;
+    }
+    .rating {
       font-size: 14px;
       padding: 2px 6px;
       border: 1px solid #fff;
+      margin: 0;
     }
   }
 
@@ -118,4 +125,100 @@
       margin: 5px;
     }
   }
+
+  .captions {
+    backdrop-filter: blur(0.25rem);
+    background-color: #00000042;
+    border-radius: 1rem;
+
+    h3 {
+      font-size: 1.6rem;
+      @include Bebas-Neue;
+      margin-bottom: 10px;
+      letter-spacing: 0.25rem;
+    }
+    p {
+      font-size: 1rem;
+      text-align: left;
+      margin-bottom: 10px;
+      box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
+      padding: 0 0.25rem;
+    }
+    .hero-details {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 10px;
+
+      .rating,
+      .duration {
+        font-size: 14px;
+        padding: 2px 6px;
+        border: 1px solid #000;
+      }
+    }
+  }
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #00000071;
+  backdrop-filter: blur(1rem);
+  border-radius: 50%;
+  padding: 1.2rem;
+  color: #fff;
+
+  .captions {
+    backdrop-filter: blur(0.25rem);
+    background-color: #00000042;
+    border-radius: 1rem;
+
+    h3 {
+      font-size: 1.6rem;
+      @include Bebas-Neue;
+      margin-bottom: 10px;
+      letter-spacing: 0.25rem;
+    }
+    p {
+      font-size: 1rem;
+      text-align: left;
+      margin-bottom: 10px;
+      box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
+      padding: 0 0.25rem;
+    }
+    .hero-details {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 10px;
+
+      .rating,
+      .duration {
+        font-size: 14px;
+        padding: 2px 6px;
+        border: 1px solid #000;
+      }
+    }
+  }
+}
+
+.movie-title {
+  font-size: 1.6rem;
+  @include Bebas-Neue;
+  margin-bottom: 10px;
+  letter-spacing: 0.25rem;
+  a {
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    text-wrap: balance;
+  }
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #00000071;
+  backdrop-filter: blur(1rem);
+  border-radius: 50%;
+  padding: 1.2rem;
+  color: #fff;
 }

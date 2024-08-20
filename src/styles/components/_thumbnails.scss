@@ -33,15 +33,13 @@ ul {
   }
 }
 
-// bootstrap overlay
-
 .button-38 {
   transition:
     background-color 0.3s ease,
     transform 0.3s ease;
   &:hover {
-    background-color: #ff5f5f; // your desired hover color
-    transform: scale(1.05); // slight zoom effect
+    background-color: #ff5f5f;
+    transform: scale(1.05);
   }
 }
 
@@ -65,8 +63,8 @@ ul {
   transition: 0.5s ease;
   opacity: 0;
   bottom: 0;
-  font-size: 20px;
-  padding: 20px;
+  font-size: 1.25rem;
+  padding: 1.25rem;
   text-align: center;
 }
 
@@ -78,4 +76,21 @@ ul {
   right: 0;
   cursor: pointer;
   transition: color 3s ease-in-out;
+}
+
+//bootstrap carousel
+.carousel-item img {
+  height: 500px;
+  object-fit: cover;
+}
+
+.carousel-caption h3 {
+  font-size: 2rem;
+  color: #fff;
+}
+
+.star-icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
 }
