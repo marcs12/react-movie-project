@@ -1,25 +1,3 @@
-<<<<<<< HEAD
-import React from 'react';
-import Header from '../components/Header';
-
-
-const Favorite = () => {
-    return (
-      <>
-      <Header />
-        <section className="">
-          <article className="">
-            <img src="" alt="" />
-            <p class= "hero-section">favourites</p>
-          </article>
-          </section>
-       
-      </>
-    );
-  };
-  
-  export default Favorite;
-=======
 import React, { useContext, useState, useEffect, useRef } from "react";
 import Header from "../components/Header";
 import Favorites from "../globals/Favorites";
@@ -97,4 +75,3 @@ const Favorite = () => {
 export default Favorite;
 
 
->>>>>>> staging
