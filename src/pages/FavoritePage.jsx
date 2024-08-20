@@ -1,9 +1,47 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { useFavorites } from '../components/FavoritesProvider'; // Import the useFavorites hook
+import React, { useContext, useState, useEffect, useRef } from "react";
+import Header from "../components/Header";
+import Favorites from "../globals/Favorites";
+import { Link } from "react-router-dom";
 
-const FavouritesPage = () => {
-  const { favorites, removeFavorite } = useFavorites(); // Use the custom hook
+const baseImgURL = "https://image.tmdb.org/t/p/w500/";
+
+const Favorite = () => {
+  const { favorites } = useContext(Favorites);
+  const [loadedMovies, setLoadedMovies] = useState([]);
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    // Initialize the first set of movies to display if there are any favorites
+    if (favorites.length > 0) {
+      setLoadedMovies(favorites.slice(0, 10)); // Initially load 10 movies
+    }
+  }, [favorites]);
+
+  const loadMoreMovies = () => {
+    if (loadedMovies.length < favorites.length) {
+      // Load more movies as user scrolls
+      const newMovies = favorites.slice(loadedMovies.length, loadedMovies.length + 10);
+      setLoadedMovies((prevMovies) => [...prevMovies, ...newMovies]);
+    }
+  };
+
+  // Infinite scroll observer
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        loadMoreMovies();
+      }
+    }, {
+      root: null,
+      threshold: 1.0,
+    });
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [loadedMovies]);
 
   return (
     <div>
@@ -34,4 +72,6 @@ const FavouritesPage = () => {
   );
 };
 
-export default FavouritesPage;
+export default Favorite;
+
+
