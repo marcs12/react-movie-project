@@ -2,39 +2,45 @@ import React, { useContext, useState, useEffect, useRef } from "react";
 import Header from "../components/Header";
 import Favorites from "../globals/Favorites";
 import { Link } from "react-router-dom";
+import starSolid from "../assets/Images/star-solid.svg";
+import starRegular from "../assets/Images/star-regular.svg";
 
 const baseImgURL = "https://image.tmdb.org/t/p/w500/";
 
-const Favorite = () => {
-  const { favorites } = useContext(Favorites);
+const Favorite = () => { 
   const [loadedMovies, setLoadedMovies] = useState([]);
   const containerRef = useRef(null);
+  const { favorites, setFavorites } = useContext(Favorites);
 
   useEffect(() => {
-    // Initialize the first set of movies to display if there are any favorites
     if (favorites.length > 0) {
-      setLoadedMovies(favorites.slice(0, 10)); // Initially load 10 movies
+      setLoadedMovies(favorites.slice(0, 10));
     }
   }, [favorites]);
 
   const loadMoreMovies = () => {
     if (loadedMovies.length < favorites.length) {
       // Load more movies as user scrolls
-      const newMovies = favorites.slice(loadedMovies.length, loadedMovies.length + 10);
+      const newMovies = favorites.slice(
+        loadedMovies.length,
+        loadedMovies.length + 10,
+      );
       setLoadedMovies((prevMovies) => [...prevMovies, ...newMovies]);
     }
   };
 
-  // Infinite scroll observer
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) {
-        loadMoreMovies();
-      }
-    }, {
-      root: null,
-      threshold: 1.0,
-    });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          loadMoreMovies();
+        }
+      },
+      {
+        root: null,
+        threshold: 1.0,
+      },
+    );
 
     if (containerRef.current) {
       observer.observe(containerRef.current);
@@ -42,6 +48,18 @@ const Favorite = () => {
 
     return () => observer.disconnect();
   }, [loadedMovies]);
+
+  
+  // Function to handle favorite toggle
+  const toggleFavorite = (movie) => {
+    if (favorites.some((obj) => obj.id === movie.id)) {
+      // Remove from favorites
+      setFavorites(favorites.filter((fav) => fav.id !== movie.id));
+    } else {
+      // Add to favorites
+      setFavorites([...favorites, movie]);
+    }
+  };
 
   return (
     <>
@@ -54,15 +72,45 @@ const Favorite = () => {
         ) : (
           <>
             <div className="movie-grid">
-              {loadedMovies.map((movie) => (
-                <Link key={movie.id} to={`/movie/${movie.id}`} className="movie-item">
-                  <img
-                    src={`${baseImgURL}${movie.poster_path}`}
-                    alt={movie.title}
-                    className="movie-poster"
-                  />
-                </Link>
-              ))}
+              {loadedMovies.map((movie) => {
+                
+                
+                let isFavorite = false;
+                if (favorites.some((obj) => obj.id === movie.id)) {
+                  isFavorite = true;
+                }
+                
+                return (
+                  <li key={movie.id} className="movie-wrap">
+                    <Link to={`/movie/${movie.id}`}>
+                      <img
+                        src={`${baseImgURL}${movie.poster_path}`}
+                        alt={movie.title}
+                      />
+                    </Link>
+                    <div className="stars">
+                      <span
+                        className={`star ${isFavorite ? "favorite" : ""}`}
+                        onClick={() => toggleFavorite(movie)}
+                      >
+                        <img
+                          src={isFavorite ? starSolid : starRegular}
+                          alt="Star"
+                          className="star-icon"
+                        />
+                      </span>
+                    </div>
+                    <div className="movie-title">
+                      <Link to={`/movie/${movie.id}`}>
+                        <h2>{movie.title}</h2>
+                      </Link>
+                    </div>
+                  </li>
+                );
+
+
+              }
+              )}
             </div>
             <div ref={containerRef} className="scroll-trigger"></div>
           </>
@@ -73,5 +121,3 @@ const Favorite = () => {
 };
 
 export default Favorite;
-
-
