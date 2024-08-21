@@ -33,11 +33,11 @@ const Header = () => {
           </div>
         </button>
         <div className="logo-main">
-          <Link to="/">
-            <a href="#">
+          {/* <Link to="/"> */}
+            <a href="/">
               <img src={mainLogo} alt="35mm Logo" />
             </a>
-          </Link>
+          {/* </Link> */}
         </div>
       </section>
       <section className="dropdown-menu">
