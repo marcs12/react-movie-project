@@ -2,6 +2,8 @@ import React, { useState, useEffect, useContext } from "react";
 import Header from "../components/Header";
 import { useParams } from "react-router-dom";
 import Favorites from "../globals/Favorites";
+import starSolid from "../assets/Images/star-solid.svg";
+import starRegular from "../assets/Images/star-regular.svg";
 
 const endpoint = "https://api.themoviedb.org/3/movie/";
 const baseImgURL = "https://image.tmdb.org/t/p/w500/";
@@ -11,6 +13,18 @@ const Details = () => {
   let { id } = useParams();
   const [movie, setMovie] = useState(null);
   const { favorites, setFavorites } = useContext(Favorites);
+
+  const isFavorite = favorites.some((obj) => obj.id === movie?.id);
+
+  const toggleFavorite = (movie) => {
+    if (favorites.some((obj) => obj.id === movie.id)) {
+      // Remove from favorites
+      setFavorites(favorites.filter((fav) => fav.id !== movie.id));
+    } else {
+      // Add to favorites
+      setFavorites([...favorites, movie]);
+    }
+  };
 
   useEffect(() => {
     const fetchMovie = async () => {
@@ -38,14 +52,24 @@ const Details = () => {
             alt="Container Top"
             className="details-image"
           />
+          <div className="stars-details">
+            <span
+              className={`star ${isFavorite ? "favorite" : ""}`}
+              onClick={() => toggleFavorite(movie)}
+            >
+              <img
+                src={isFavorite ? starSolid : starRegular}
+                alt="Star"
+                className="star-icon"
+              />
+            </span>
+          </div>
         </article>
         <article className="details-content">
           <h1 className="details-title" key="title">
             {movie.title}
           </h1>
-          <h2 className="tagline-details">
-            {movie.tagline && <span>{movie.tagline}</span>}
-          </h2>
+          <blockquote>{movie.tagline && <p>{movie.tagline}</p>}</blockquote>
           <p className="details-description" key="description">
             {movie.overview}
           </p>
