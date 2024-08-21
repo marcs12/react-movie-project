@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Carousel } from "react-bootstrap";
 import heroContainerBottom from "../assets/buttons-imported/container-bottom.png";
 import heroContainerTop from "../assets/buttons-imported/container-top.png";
+import { Link } from "react-router-dom";
 
 const API = import.meta.env.VITE_MOVIE_API_KEY;
 
@@ -35,19 +36,23 @@ const Hero = () => {
             {movieData &&
               movieData.map((movie, index) => (
                 <Carousel.Item key={index}>
-                  <img
-                    src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                    alt={movie.title}
-                    className="d-block w-100"
-                  />
+                  <Link to={`/movie/${movie.id}`}>
+                    <img
+                      src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                      alt={movie.title}
+                      className="d-block w-100"
+                    />
+                  </Link>
                   <Carousel.Caption>
                     <div className="captions">
-                      <h3>{movie.title}</h3>
-                      <p>
-                        {movie.overview.length > 50
-                          ? `${movie.overview.slice(0, 50)} ...`
-                          : movie.overview}
-                      </p>
+                      <Link to={`/movie/${movie.id}`}>
+                        <h3>{movie.title}</h3>
+                        <p>
+                          {movie.overview.length > 55
+                            ? `${movie.overview.slice(0, 55)} ...`
+                            : movie.overview}
+                        </p>
+                      </Link>
                     </div>
                   </Carousel.Caption>
                 </Carousel.Item>
