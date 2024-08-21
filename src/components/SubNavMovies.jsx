@@ -16,7 +16,7 @@ const Home = () => {
     const getMovies = async () => {
       const response = await fetch(`${endpoint}${category}?api_key=${API}`);
       const json = await response.json();
-      setMovies(json.results || []); 
+      setMovies(json.results || []);
     };
 
     getMovies();
@@ -31,16 +31,14 @@ const Home = () => {
       setFavorites([...favorites, movie.id]);
     }
   };
-  
+
   const [searchTerm, setSearchTerm] = useState("");
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value.toLowerCase());
   };
-
   const filteredMovies = movies.filter((movie) =>
-    movie.title.toLowerCase().includes(searchTerm)
+    movie.title.toLowerCase().includes(searchTerm),
   );
-
 
   return (
     <div>
@@ -60,9 +58,7 @@ const Home = () => {
 
       <ul>
         {movies.length > 0 &&
-           filteredMovies.map((movie) => {
-
-
+          movies.map((movie) => {
             let isFavorite = false;
             if (favorites.some((obj) => obj.id === movie.id)) {
               isFavorite = true;
@@ -95,11 +91,7 @@ const Home = () => {
                 </div>
               </li>
             );
-          }
-          
-          
-          
-          )}
+          })}
       </ul>
     </div>
   );
