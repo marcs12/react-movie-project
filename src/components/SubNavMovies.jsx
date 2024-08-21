@@ -21,7 +21,7 @@ const Home = () => {
     const getMovies = async () => {
       const response = await fetch(`${endpoint}${category}?api_key=${API}`);
       const json = await response.json();
-      setMovies(json.results || []);
+      setMovies(json.results || []); // Ensure movies is an array
     };
 
     getMovies();
@@ -67,7 +67,10 @@ const Home = () => {
       <ul>
         {movies.length > 0 &&
           movies.map((movie) => {
-            const isFavorite = favorites.some((fav) => fav.id === movie.id);
+            let isFavorite = false;
+            if (favorites.some((obj) => obj.id === movie.id)) {
+              isFavorite = true;
+            }
 
             return (
               <li key={movie.id} className="movie-wrap">
@@ -78,18 +81,22 @@ const Home = () => {
                   />
                 </Link>
                 <div className="stars">
-                  <span onClick={() => toggleFavorite(movie)}>
+                  <span
+                    className={`star ${isFavorite ? "favorite" : ""}`}
+                    onClick={() => toggleFavorite(movie)}
+                  >
                     <img
-                      src={isFavorite ? starSolid : starRegular}
+                      src={isFavorite ? starSolid : starRegular} // Corrected this line
                       alt="Star"
                       className="star-icon"
                     />
                   </span>
                 </div>
-                <Link to={`/movies/${movie.id}`}>
-                  <div>{movie.title}</div>
-                  <div>{movie.release_date}</div>
-                </Link>
+                <div className="movie-title">
+                  <Link to={`/movie/${movie.id}`}>
+                    <h2>{movie.title}</h2>
+                  </Link>
+                </div>
               </li>
             );
           })}
