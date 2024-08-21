@@ -83,6 +83,8 @@ const Home = () => {
       <ul>
         {movies.length > 0 &&
           movies.map((movie) => {
+
+
             let isFavorite = false;
             if (favorites.some((obj) => obj.id === movie.id)) {
               isFavorite = true;
@@ -115,7 +117,11 @@ const Home = () => {
                 </div>
               </li>
             );
-          })}
+          }
+          
+          
+          
+          )}
       </ul>
     </div>
   );
