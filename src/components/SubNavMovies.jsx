@@ -1,7 +1,7 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import starSolid from "../assets/Images/star-solid.svg";
 import starRegular from "../assets/Images/star-regular.svg";
-import { BrowserRouter, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const endpoint = "https://api.themoviedb.org/3/movie/";
 const baseImgURL = "https://image.tmdb.org/t/p/w500/";
@@ -11,7 +11,8 @@ const Home = () => {
   const [category, setCategory] = useState("now_playing");
   const [movies, setMovies] = useState([]);
 
-  const { favorites, addFavorite, removeFavorite } = useFavorites();
+  const { favorites, addFavorite, removeFavorite } =
+    useContext(FavoritesContext);
 
   const handleClick = (category) => {
     setCategory(category);
@@ -40,9 +41,9 @@ const Home = () => {
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value.toLowerCase());
   };
-  const filteredMovies = movies.filter((movie) =>
-    movie.title.toLowerCase().includes(searchTerm),
-  );
+  // const filteredMovies = movies.filter((movie) =>
+  //   movie.title.toLowerCase().includes(searchTerm),
+  // );
 
   return (
     <div>
@@ -71,7 +72,6 @@ const Home = () => {
 
             return (
               <li key={movie.id} className="movie-wrap">
-                <Link to={`/movies/${movie.id}`}>
                 <Link to={`/movies/${movie.id}`}>
                   <img
                     src={`${baseImgURL}${movie.poster_path}`}
