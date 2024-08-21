@@ -19,9 +19,10 @@ function App() {
 
   return (
     <>
-   <FavoritesProvider>
-      <AppRouter />
-    </FavoritesProvider>
+      <img src="#" alt="Background" className="background" />
+      <Favorites.Provider value={{ favorites, setFavorites }}>
+        <AppRouter />
+      </Favorites.Provider>
     </>
   );
 }
