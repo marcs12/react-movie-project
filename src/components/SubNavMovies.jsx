@@ -43,6 +43,14 @@ const Home = () => {
     }
   };
 
+  const [searchTerm, setSearchTerm] = useState("");
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value.toLowerCase());
+  };
+  const filteredMovies = movies.filter((movie) =>
+    movie.title.toLowerCase().includes(searchTerm),
+  );
+
   return (
     <div>
       <nav className="subnav">
@@ -83,8 +91,6 @@ const Home = () => {
       <ul>
         {movies.length > 0 &&
           movies.map((movie) => {
-
-
             let isFavorite = false;
             if (favorites.some((obj) => obj.id === movie.id)) {
               isFavorite = true;
@@ -117,11 +123,7 @@ const Home = () => {
                 </div>
               </li>
             );
-          }
-          
-          
-          
-          )}
+          })}
       </ul>
     </div>
   );
