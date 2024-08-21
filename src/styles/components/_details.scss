@@ -1,0 +1,107 @@
+@use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
+@use "../utilities/functions" as *;
+@use "../base/typography" as *;
+
+.details-section {
+  background-color: #00000000;
+  color: #fff;
+  margin: 2.6rem 0;
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    text-align: center;
+    font-weight: bold;
+    padding-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    @include Bebas-Neue;
+    letter-spacing: 0.5rem;
+  }
+
+  h2 {
+    text-align: center;
+    font-weight: bold;
+    padding-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    font-size: 1.5rem;
+    @include Oswald;
+    letter-spacing: 0.5rem;
+  }
+
+  p {
+    text-align: left;
+    font-size: 1rem;
+    text-wrap: balance;
+  }
+
+  blockquote {
+    text-align: center;
+    font-size: 1.25rem;
+    font-style: italic;
+    padding: 0.25rem;
+    background-color: white;
+    color: black;
+    margin: 1.25rem 0;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+    p {
+      margin: 0 auto;
+      padding: 0.5rem;
+    }
+  }
+
+  .details-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .details-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .details-details {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    .release-date {
+      margin-left: 2rem;
+    }
+
+    .rating,
+    .duration {
+      font-size: 14px;
+      padding: 2px 6px;
+      border: 1px solid #fff;
+    }
+  }
+}
+
+.details-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.25rem;
+  position: relative;
+
+  .stars-details {
+    position: absolute;
+    height: min-content;
+    bottom: -1.625rem;
+    right: -1rem;
+    padding: 0.25rem;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 0 0 0 1.25rem;
+    span {
+      img {
+        width: 3rem;
+        height: 3rem;
+      }
+    }
+  }
+}

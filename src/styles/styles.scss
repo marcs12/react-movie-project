@@ -4,6 +4,7 @@
 @use "./utilities/functions";
 
 // Components
+@use "./components/about";
 @use "./components/body";
 @use "./components/favourites";
 @use "./components/feature";
@@ -13,8 +14,10 @@
 @use "./components/nav";
 @use "./components/thumbnails";
 @use "./components/hero";
+@use "./components/details";
+// @import 'custom' bootstrap;
 
 // Base
 @use "./base/normalize";
 @use "./base/typography";
-@use "./base/base";
+@use "./base/bootstrap";

@@ -1,7 +1,17 @@
-// import React from "react";
+import React, { useState, useEffect } from "react";
 import mainLogo from "../assets/main-logo.png";
+import { Link } from "react-router-dom";
+
+const API = import.meta.env.VITE_MOVIE_API_KEY;
 
 const Header = () => {
+  const [movieData, setMovieData] = useState(null);
+  useEffect(() => {
+    fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${API}`)
+      .then((response) => response.json())
+      .then((data) => setMovieData(data.results[0]));
+  }, []);
+
   function menuClick() {
     const menu = document.querySelector(".dropdown-menu");
     const menuIcon = document.querySelector(".menu-icon__cheeckbox");
@@ -11,6 +21,7 @@ const Header = () => {
       menu.classList.remove("show");
     }
   }
+
   return (
     <header>
       <section className="nav-wrap">
@@ -22,24 +33,26 @@ const Header = () => {
           </div>
         </button>
         <div className="logo-main">
-          <a href="#">
-            <img src={mainLogo} alt="35mm Logo" />
-          </a>
+          {/* <Link to="/"> */}
+            <a href="/">
+              <img src={mainLogo} alt="35mm Logo" />
+            </a>
+          {/* </Link> */}
         </div>
       </section>
       <section className="dropdown-menu">
         <ul>
           <li>
-            <a href="#">Home</a>
+            <a href="/">Home</a>
           </li>
           <li>
-            <a href="#">About</a>
+            <a href="/about">About</a>
           </li>
           <li>
-            <a href="#">Favourites</a>
+            <a href="/favorites">Favourites</a>
           </li>
           <li>
-            <a href="#">Info</a>
+            <a href="/info">Info</a>
           </li>
         </ul>
       </section>

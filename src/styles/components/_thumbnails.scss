@@ -2,3 +2,95 @@
 @use "../utilities/mixins" as *;
 @use "../utilities/functions" as *;
 @use "../base/typography" as *;
+// @import '~bootstrap/scss/bootstrap';
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem;
+}
+
+.movie-wrap {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 2rem;
+  gap: 1rem;
+  background-color: white;
+  padding: 0.5rem;
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s;
+    padding-bottom: 0.5rem;
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
+
+.button-38 {
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+  &:hover {
+    background-color: #ff5f5f;
+    transform: scale(1.05);
+  }
+}
+
+.movie-wrap {
+  position: relative;
+  transition: transform 0.2s;
+}
+
+.movie-wrap:hover {
+  cursor: pointer;
+}
+
+.movie-wrap:hover .overlay {
+  opacity: 1;
+}
+
+.overlay {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  transition: 0.5s ease;
+  opacity: 0;
+  bottom: 0;
+  font-size: 1.25rem;
+  padding: 1.25rem;
+  text-align: center;
+}
+
+.stars {
+  position: absolute;
+  z-index: 1;
+  width: 5rem;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  transition: color 3s ease-in-out;
+}
+
+//bootstrap carousel
+.carousel-item img {
+  height: 500px;
+  object-fit: cover;
+}
+
+.carousel-caption h3 {
+  font-size: 2rem;
+  color: #fff;
+}
+
+.star-icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}

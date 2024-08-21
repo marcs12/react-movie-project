@@ -4,6 +4,13 @@
 @use "../base/typography" as *;
 
 body {
-  background-color: rgb(31, 31, 31);
-  padding-top: 5rem;
+  background-color: $color-background;
+  color: white;
+  @include Lora;
+  margin: 0;
+  padding: 1rem;
+  overflow-x: hidden;
+  transition:
+    background-color 0.5s,
+    color 0.5s;
 }
