@@ -1,6 +1,5 @@
-
-import { useState } from "react";
-import { FavoritesProvider } from "./components/FavoritesProvider"; 
+import { useState, useEffect } from "react";
+import { FavoritesProvider } from "./components/FavoritesProvider";
 import AppRouter from "./routers/AppRouter";
 import Favorites from "./globals/Favorites";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -28,6 +27,3 @@ function App() {
 }
 
 export default App;
-
-
-
