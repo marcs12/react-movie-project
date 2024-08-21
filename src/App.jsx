@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import AppRouter from "./routers/AppRouter";
 import Favorites from "./globals/Favorites";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./styles/styles.scss";
+import "../src/styles/styles.scss";
 
 function App() {
   const [favorites, setFavorites] = useState(() => {

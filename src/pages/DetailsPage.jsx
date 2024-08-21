@@ -31,37 +31,36 @@ const Details = () => {
   return (
     <>
       <Header />
-      <section className="">
-        <article className="">
-          <img src="" alt="" />
-          <p className="hero-section">{id}</p>
-        </article>
-      </section>
       <section className="details-section">
-        <h2>Now Playing</h2>
-        <div className="details-image-container">
+        <article className="details-image-container">
           <img
             src={`${baseImgURL}${movie.poster_path}`}
             alt="Container Top"
             className="details-image"
           />
-        </div>
-        <div className="details-content">
+        </article>
+        <article className="details-content">
           <h1 className="details-title" key="title">
             {movie.title}
           </h1>
-          <div className="details-details" key="details">
-            <span className="rating" key="rating">
-              {movie.vote_average}
-            </span>
-            <span className="duration" key="duration">
-              {movie.runtime} mins
-            </span>
-          </div>
+          <h2 className="tagline-details">
+            {movie.tagline && <span>{movie.tagline}</span>}
+          </h2>
           <p className="details-description" key="description">
             {movie.overview}
           </p>
-        </div>
+          <div className="details-details" key="details">
+            <p className="rating" key="rating">
+              {movie.vote_average.toFixed(2)}
+            </p>
+            <p className="duration" key="duration">
+              {movie.runtime} mins
+            </p>
+            <p className="release-date" key="release-date">
+              {movie.release_date}
+            </p>
+          </div>
+        </article>
       </section>
     </>
   );
