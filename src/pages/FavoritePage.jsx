@@ -55,7 +55,7 @@ const Favorite = () => {
       // Remove from favorites
       setFavorites(favorites.filter((fav) => fav.id !== movie.id));
     } else {
-      // Add to favorites
+
       setFavorites([...favorites, movie]);
     }
   };
