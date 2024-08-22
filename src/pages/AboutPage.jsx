@@ -1,6 +1,9 @@
 import React from "react";
 import Header from "../components/Header";
 import mainLogo from "../assets/main-logo.png";
+import discordLogo from "../../src/assets/discord-button.png";
+import facebookLogo from "../../src/assets/facebook-button.png";
+import youtubeLogo from "../../src/assets/youtube-button.png";
 
 const About = () => {
   return (
@@ -8,18 +11,27 @@ const About = () => {
       <Header />
       <section className="about">
         <h1>About 35MM</h1>
-        <p>
-          Welcome to 35mm, your go-to movie database for all things cinematic.
-        </p>
-        <p>
-          Dive into a curated collection of films spanning genres and decades.
-        </p>
-        <p>
-          Explore, review, and save your favorites with ease on our
-          user-friendly platform.
-        </p>
+        <article className="details-about">
+          <p>
+            Welcome to 35mm, your go-to movie database for all things cinematic.
+            Dive into a curated collection of films spanning genres and decades.
+            Explore, review, and save your favorites with ease on our
+            user-friendly platform.
+          </p>
+          <figure className="social-links">
+            <a href="https://discord.com">
+              <img src={discordLogo} alt="Discord Logo" />
+            </a>
+            <a href="https://facebook.com">
+              <img src={facebookLogo} alt="Facebook Logo" />
+            </a>
+            <a href="https://youtube.com">
+              <img src={youtubeLogo} alt="YouTube Logo" />
+            </a>
+          </figure>
+        </article>
         <figure>
-          <img src={mainLogo} alt="35mm Logo" />
+          <img src={mainLogo} alt="35mm Logo" className="main-logo-bg" />
         </figure>
       </section>
     </>
