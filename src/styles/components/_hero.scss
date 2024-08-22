@@ -39,37 +39,6 @@
       backdrop-filter: blur(1px);
       width: 0.75rem;
     }
-    .prev-slide {
-      position: absolute;
-      top: 50%;
-      left: -2rem;
-      transform: translateY(-50%);
-      background-color: rgba(0, 0, 0, 0.162);
-      padding: 10px;
-      border-radius: 50%;
-      cursor: pointer;
-      // remove button styling
-      border: none;
-      outline: none;
-      img {
-        width: 1.6rem;
-      }
-    }
-    .next-slide {
-      position: absolute;
-      top: 50%;
-      right: -2rem;
-      transform: translateY(-50%);
-      background-color: rgba(0, 0, 0, 0.047);
-      padding: 10px;
-      border-radius: 50%;
-      cursor: pointer;
-      border: none;
-      outline: none;
-      img {
-        width: 1.6rem;
-      }
-    }
   }
 
   .hero-image {
@@ -114,15 +83,6 @@
     text-wrap: balance;
   }
 }
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  background-color: #00000071;
-  backdrop-filter: blur(1rem);
-  border-radius: 50%;
-  padding: 1.2rem;
-  color: #fff;
-}
-
 .carousel-item {
   img {
     height: auto;
@@ -130,6 +90,8 @@
 }
 
 .carousel-caption {
+  background-color: rgba(0, 0, 0, 0.32);
+  border-radius: 0.75rem;
   #caption-title {
     text-shadow: 0.1em 0.1em 0 hsl(0, 0%, 0%);
     font-size: 1.25rem;
@@ -147,7 +109,8 @@
     a {
       color: white;
       text-decoration: none;
-      text-shadow: 0.1em 0.1em 0 hsl(200 50% 30%);
+      text-shadow: 0.1em 0.1em 0 hsl(0, 0%, 0%);
+      font-size: 1rem;
     }
   }
 }
