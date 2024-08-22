@@ -4,6 +4,12 @@
   grid-template-rows: repeat(2, 1fr);
 }
 
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+  
+}
+
 @mixin Bebas-Neue {
   font-family: "Bebas Neue", sans-serif;
   font-weight: 200;
