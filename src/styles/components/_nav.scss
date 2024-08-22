@@ -3,25 +3,27 @@
 @use "../utilities/functions" as *;
 @use "../base/typography" as *;
 
-// Hamburger Menu
-
+// Base styles for the header
 .nav-wrap {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+
   .logo-main {
     a {
       img {
         display: block;
-        position: absolute;
         height: 3rem;
-        left: 0;
-        top: 0.5rem;
-        padding: 0.4rem;
+        margin-right: 1rem;
       }
     }
   }
 }
 
+// Hamburger Menu
 .menu-icon {
   border: none;
   background-color: transparent;
@@ -50,6 +52,7 @@
     right: 0;
     opacity: 0;
   }
+
   div {
     margin: auto;
     position: absolute;
@@ -60,6 +63,7 @@
     width: 1.375rem;
     height: 0.75rem;
   }
+
   span {
     position: absolute;
     display: block;
@@ -72,22 +76,22 @@
     &:first-of-type {
       top: 0;
     }
+
     &:last-of-type {
       bottom: 0;
     }
   }
+
   &.active,
   .menu-icon__cheeckbox:checked + div {
     span {
       &:first-of-type {
         transform: rotate(45deg);
         top: 5px;
-        // background-color: black;
       }
       &:last-of-type {
         transform: rotate(-45deg);
         bottom: 5px;
-        // background-color: black;
       }
     }
   }
@@ -112,26 +116,25 @@
   }
 }
 
-// Dropdown Menu
-
-.dropdown-menu {
+// Dropdown Menu (for mobile)
+.dropdown-menu { 
   position: fixed;
-  top: -50rem;
+  top: 0;
   right: 0;
   left: 0;
   height: 50vh;
   background-color: white;
   z-index: 2;
-  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 1.25rem;
-  transition: all 0.3s ease-in-out;
   pointer-events: none;
   border-radius: 0 0 1.25rem 1.25rem;
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+
   ul {
     list-style: none;
     padding: 0;
@@ -141,8 +144,10 @@
     justify-content: center;
     align-items: center;
     gap: 2rem;
+
     li {
       margin: 0.5rem 0;
+
       a {
         @include Bebas-Neue;
         letter-spacing: 0.1rem;
@@ -153,6 +158,47 @@
         margin: 0.5rem 0;
         text-transform: uppercase;
         text-align: center;
+
+        &:hover {
+          color: rgb(111, 111, 111);
+        }
+      }
+    }
+  }
+
+  &.show {
+    top: 0;
+    pointer-events: all;
+  }
+}
+
+// Regular Menu (for desktop)
+.regular-menu {
+  display: none; // Hidden by default on mobile
+  width: 100%;
+  position: relative;
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-start; // Align menu items to the left
+    align-items: center;
+    gap: 2rem;
+
+    li {
+      margin: 0;
+
+      a {
+        @include Bebas-Neue;
+        letter-spacing: 0.1rem;
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+        font-size: 1.6rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-align: left;
+
         &:hover {
           color: rgb(111, 111, 111);
         }
@@ -161,9 +207,32 @@
   }
 }
 
-.dropdown-menu.show {
-  display: flex;
-  top: 0;
-  pointer-events: all;
-  transition: all 0.3s ease-in-out;
+// Media Queries for Desktop
+@media (min-width: 1024px) {
+  .dropdown-menu {
+    display: none; // Hide dropdown menu on desktop
+  }
+
+  .regular-menu {
+    display: flex; // Show regular menu on desktop
+    justify-content: flex-start; // Align menu items to the left
+    background-color: transparent;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .nav-wrap {
+    justify-content: space-between; // Space between regular menu and logo
+  }
+
+  .logo-main {
+    position: relative;
+    margin-left: auto;
+    max-width: 150px; // Ensure the logo doesn't exceed a certain width
+    align-self: center; // Aligns the logo with the menu on the same line
+  }
+
+  .menu-icon {
+    display: none; // Hide the Hamburger Menu on Desktop
+  }
 }

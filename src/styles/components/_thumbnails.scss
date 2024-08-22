@@ -7,7 +7,18 @@
 ul {
   list-style: none;
   padding: 0;
-  margin: 1rem;
+  margin: 1rem auto;
+  display: grid;
+  gap: 1rem;
+
+  // Mobile version: 1 column
+  grid-template-columns: 1fr;
+
+  @media (min-width: 768px) {
+    // Tablet version: Fixed size, but more items as screen widens
+    grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
+  }
+
 }
 
 .movie-wrap {
