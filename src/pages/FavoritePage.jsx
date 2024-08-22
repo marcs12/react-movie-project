@@ -20,7 +20,6 @@ const Favorite = () => {
 
   const loadMoreMovies = () => {
     if (loadedMovies.length < favorites.length) {
-      // Load more movies as user scrolls
       const newMovies = favorites.slice(
         loadedMovies.length,
         loadedMovies.length + 10,
@@ -66,7 +65,11 @@ const Favorite = () => {
       <section className="favorite-section">
         {favorites.length === 0 ? (
           <div className="no-favorites-message">
-            <p>No favorite movies selected.</p>
+            <p>No favorite movies selected. </p>
+            <br></br>
+            <p>
+              Please select your favourite movies by pressing on the star icon.
+            </p>
           </div>
         ) : (
           <>

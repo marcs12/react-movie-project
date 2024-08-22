@@ -43,4 +43,13 @@
   .scroll-trigger {
     height: 1px; /* Invisible, but used for the scroll trigger */
   }
+
+  p {
+    text-align: center;
+    margin-top: 1rem;
+    @include Lora;
+    font-size: 1.5rem;
+    opacity: 0.5;
+    letter-spacing: 0.1rem;
+  }
 }
