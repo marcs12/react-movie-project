@@ -45,7 +45,7 @@ const Hero = () => {
                     />
                   </Link>
                   <Carousel.Caption>
-                    <h3 className="caption-title">{movie.title}</h3>
+                    <h3 id="caption-title">{movie.title}</h3>
                     <div className="hero-caption">
                       <p className="caption-info">
                         <Link to={`/movie/${movie.id}`}>More Info</Link>
