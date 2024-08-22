@@ -21,3 +21,7 @@
   font-weight: 400;
   font-style: normal;
 }
+
+@mixin longshadow($color1, $color2, $length) {
+  text-shadow: shadow-string($color1, $color2, $length);
+}
