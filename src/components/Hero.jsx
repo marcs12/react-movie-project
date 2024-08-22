@@ -3,6 +3,7 @@ import { Carousel } from "react-bootstrap";
 import heroContainerBottom from "../assets/buttons-imported/container-bottom.png";
 import heroContainerTop from "../assets/buttons-imported/container-top.png";
 import { Link } from "react-router-dom";
+import infoBtn from "../assets//circle-info-solid.svg";
 
 const API = import.meta.env.VITE_MOVIE_API_KEY;
 
@@ -44,14 +45,13 @@ const Hero = () => {
                     />
                   </Link>
                   <Carousel.Caption>
-                    <div className="captions">
+                    <h3 className="caption-title">{movie.title}</h3>
+                    <div className="hero-caption">
+                      <p className="caption-info">
+                        <Link to={`/movie/${movie.id}`}>More Info</Link>
+                      </p>
                       <Link to={`/movie/${movie.id}`}>
-                        <h3>{movie.title}</h3>
-                        <p>
-                          {movie.overview.length > 55
-                            ? `${movie.overview.slice(0, 55)} ...`
-                            : movie.overview}
-                        </p>
+                        <img src={infoBtn} alt="Info Button" id="info-button" />
                       </Link>
                     </div>
                   </Carousel.Caption>

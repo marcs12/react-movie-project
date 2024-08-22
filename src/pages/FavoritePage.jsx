@@ -20,7 +20,6 @@ const Favorite = () => {
 
   const loadMoreMovies = () => {
     if (loadedMovies.length < favorites.length) {
-      // Load more movies as user scrolls
       const newMovies = favorites.slice(
         loadedMovies.length,
         loadedMovies.length + 10,
