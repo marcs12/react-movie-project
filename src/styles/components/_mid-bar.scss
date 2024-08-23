@@ -9,7 +9,7 @@
   .subnav {
     @include two-column-row-grid;
     gap: 1rem;
-    margin: 1rem;
+    margin-top: 0.5rem;
     #now-playing {
       grid-column: 1 / 2;
       grid-row: 1 / 2;
