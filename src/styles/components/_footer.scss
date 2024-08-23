@@ -49,7 +49,8 @@ footer {
 .line {
     flex: 1; 
     height: 10rem; 
-    background-color: #ffff 
+    background-color: #ffff;
+    border: 2px solid red; 
   }
   
   @media (max-width: 48rem) {
