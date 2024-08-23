@@ -23,6 +23,17 @@ const Footer = () => {
             <li><Link to="/upcoming">Upcoming</Link></li>
             </ul>
           
+            {/* <figure className="social-links">
+            <a href="https://discord.com">
+              <img src={discordLogo} alt="Discord Logo" />
+            </a>
+            <a href="https://facebook.com">
+              <img src={facebookLogo} alt="Facebook Logo" />
+            </a>
+            <a href="https://youtube.com">
+              <img src={youtubeLogo} alt="YouTube Logo" />
+            </a>
+          </figure> */}
             <p>Copyright © FWD 2024 Yining Li Mahdi Roozbahani Marc Sapa Kate Shepherd</p>
         </div>
     </footer>
