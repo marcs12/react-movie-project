@@ -13,8 +13,8 @@ const Home = () => {
   const [movies, setMovies] = useState([]);
   const { favorites, setFavorites } = useContext(Favorites);
 
-  const [searchTerm, setSearchTerm] = useState(""); 
-  const [searchQuery, setSearchQuery] = useState(""); 
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     const getMovies = async () => {
@@ -30,7 +30,6 @@ const Home = () => {
     setCategory(id);
     setPlaceholderText(`Search for ${placeholder}...`);
   };
-  
 
   // Function to handle favorite toggle
   const toggleFavorite = (movie) => {
@@ -50,15 +49,17 @@ const Home = () => {
 
   // Update search query when the search button is clicked
   const handleSearchSubmit = () => {
-    setSearchQuery(searchTerm); 
+    setSearchQuery(searchTerm);
   };
 
   // Filter movies based on the search query
   const filteredMovies = movies.filter((movie) =>
-    movie.title.toLowerCase().includes(searchQuery)
+    movie.title.toLowerCase().includes(searchQuery),
   );
 
-  const [placeholderText, setPlaceholderText] = useState("Search for Now Playing...");
+  const [placeholderText, setPlaceholderText] = useState(
+    "Search for Now Playing...",
+  );
 
   return (
     <div>
@@ -74,13 +75,33 @@ const Home = () => {
       </div>
 
       <nav className="subnav">
-      <button className="button-38" onClick={() => handleClick("now_playing", "Now Playing")}>Now Playing</button>
-      <button className="button-38" onClick={() => handleClick("top_rated", "Top Rated")}>Top Rated</button>
-      <button className="button-38" onClick={() => handleClick("upcoming", "Upcoming")}>Upcoming</button>
-      <button className="button-38" onClick={() => handleClick("popular", "Popular")}>Popular</button>
+        <button
+          className="button-38"
+          onClick={() => handleClick("now_playing", "Now Playing")}
+        >
+          Now Playing
+        </button>
+        <button
+          className="button-38"
+          onClick={() => handleClick("top_rated", "Top Rated")}
+        >
+          Top Rated
+        </button>
+        <button
+          className="button-38"
+          onClick={() => handleClick("upcoming", "Upcoming")}
+        >
+          Upcoming
+        </button>
+        <button
+          className="button-38"
+          onClick={() => handleClick("popular", "Popular")}
+        >
+          Popular
+        </button>
       </nav>
 
-      <ul>
+      <ul className="subnav-ul">
         {filteredMovies.length > 0 &&
           filteredMovies.map((movie) => {
             let isFavorite = false;
