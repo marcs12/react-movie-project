@@ -11,6 +11,11 @@ const Footer = () => {
                 <li><Link to="/about">About</Link></li>
                 <li><Link to="/favorites">Favourites</Link></li>
             </ul> */}
+            {/* <ul className="sub-menulinks">
+            <li><Link to="/now_playing">Now Playing</Link></li>
+            <li><Link to="/top_rated">Top Rated</Link></li>
+            <li><Link to="/upcoming">Upcoming</Link></li>
+            </ul> */}
             <Link to="/">
             <span class="line"></span>
                 <img src={mainLogo} alt="35mm Logo" />
