@@ -2,21 +2,19 @@ import { useEffect, useState, useContext } from "react";
 import starSolid from "../assets/Images/star-solid.svg";
 import starRegular from "../assets/Images/star-regular.svg";
 import Favorites from "../globals/Favorites";
+import { Link } from "react-router-dom";
 
 const endpoint = "https://api.themoviedb.org/3/movie/";
 const baseImgURL = "https://image.tmdb.org/t/p/w500/";
-import { BrowserRouter, Link } from "react-router-dom";
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import "../styles/components/_thumbnails.scss";
-
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 const API = import.meta.env.VITE_MOVIE_API_KEY;
 
 const Home = () => {
   const [category, setCategory] = useState("now_playing");
   const [movies, setMovies] = useState([]);
   const { favorites, setFavorites } = useContext(Favorites);
+
+  const [searchTerm, setSearchTerm] = useState(""); 
+  const [searchQuery, setSearchQuery] = useState(""); 
 
   useEffect(() => {
     const getMovies = async () => {
@@ -28,9 +26,9 @@ const Home = () => {
     getMovies();
   }, [category]);
 
-  function handleClick(id) {
+  const handleClick = (id) => {
     setCategory(id);
-  }
+  };
 
   // Function to handle favorite toggle
   const toggleFavorite = (movie) => {
@@ -43,54 +41,44 @@ const Home = () => {
     }
   };
 
-  const [searchTerm, setSearchTerm] = useState("");
+  // Update search term as user types
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value.toLowerCase());
   };
+
+  // Update search query when the search button is clicked
+  const handleSearchSubmit = () => {
+    setSearchQuery(searchTerm); 
+  };
+
+  // Filter movies based on the search query
   const filteredMovies = movies.filter((movie) =>
-    movie.title.toLowerCase().includes(searchTerm),
+    movie.title.toLowerCase().includes(searchQuery)
   );
 
   return (
     <div>
+      {/* Search bar */}
+      <div className="search_bar">
+        <input
+          type="text"
+          placeholder="Search for a movie..."
+          value={searchTerm}
+          onChange={handleSearchChange}
+        />
+        <button onClick={handleSearchSubmit}>Search</button>
+      </div>
+
       <nav className="subnav">
-        <button
-          id="now-playing"
-          className="button-38"
-          role="button"
-          onClick={() => handleClick("now_playing")}
-        >
-          Now Playing
-        </button>
-        <button
-          id="top-rated"
-          className="button-38"
-          role="button"
-          onClick={() => handleClick("top_rated")}
-        >
-          Top Rated
-        </button>
-        <button
-          id="upcoming"
-          className="button-38"
-          role="button"
-          onClick={() => handleClick("upcoming")}
-        >
-          Upcoming
-        </button>
-        <button
-          id="popular"
-          className="button-38"
-          role="button"
-          onClick={() => handleClick("popular")}
-        >
-          Popular
-        </button>
+        <button className="button-38" onClick={() => handleClick("now_playing")}>Now Playing</button>
+        <button className="button-38" onClick={() => handleClick("top_rated")}>Top Rated</button>
+        <button className="button-38" onClick={() => handleClick("upcoming")}>Upcoming</button>
+        <button className="button-38" onClick={() => handleClick("popular")}>Popular</button>
       </nav>
 
       <ul>
-        {movies.length > 0 &&
-          movies.map((movie) => {
+        {filteredMovies.length > 0 &&
+          filteredMovies.map((movie) => {
             let isFavorite = false;
             if (favorites.some((obj) => obj.id === movie.id)) {
               isFavorite = true;
