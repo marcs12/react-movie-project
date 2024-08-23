@@ -115,3 +115,72 @@
 .active {
   height: 36.75rem;
 }
+
+//Mobile Medium
+
+@media (min-width: 23.4em) {
+  .hero-section {
+    h2 {
+      font-size: 36px;
+    }
+  }
+
+  .carousel-caption {
+    #caption-title {
+      font-size: 1.5rem;
+    }
+  }
+
+  .carousel-item {
+    height: 42.74rem;
+  }
+  .active {
+    height: 42.74rem;
+  }
+}
+
+//Mobile Large
+
+@media (min-width: 26.5em) {
+  .hero-section {
+    h2 {
+      font-size: 48px;
+    }
+  }
+
+  .carousel-caption {
+    #caption-title {
+      font-size: 2rem;
+    }
+  }
+
+  .carousel-item {
+    height: 48rem;
+  }
+  .active {
+    height: 48rem;
+  }
+}
+
+// Tablet
+
+@media (min-width: 48em) {
+  .hero-section {
+    h2 {
+      font-size: 60px;
+    }
+  }
+
+  .carousel-caption {
+    #caption-title {
+      font-size: 2.5rem;
+    }
+  }
+
+  .carousel-item {
+    height: 54rem;
+  }
+  .active {
+    height: 54rem;
+  }
+}
