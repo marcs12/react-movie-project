@@ -13,6 +13,10 @@
 
   // Mobile version: 1 column
   grid-template-columns: 1fr;
+  @media (min-width: 40em) {
+    // Tablet version: Fixed size, but more items as screen widens
+    grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
+  }
 
   @media (min-width: 768px) {
     // Tablet version: Fixed size, but more items as screen widens
@@ -24,6 +28,7 @@
   position: relative;
   background-color: white;
   padding: 0.5rem;
+  margin: 0 auto;
   img {
     display: block;
     width: 100%;
@@ -42,9 +47,7 @@
 }
 
 .button-38 {
-  transition:
-    background-color 0.3s ease,
-    transform 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
   &:hover {
     background-color: #ff5f5f;
     transform: scale(1.05);
@@ -114,3 +117,5 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
+
+
