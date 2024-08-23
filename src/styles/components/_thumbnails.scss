@@ -92,5 +92,30 @@ ul {
 
 .search_bar {
   text-align: center;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
+  padding: 1rem;
+  max-width: 400px;
+  margin: 1.5rem auto; 
 }
+
+.search_bar input {
+  padding: 0.75rem; 
+  border: 1px solid #ccc; 
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+
+.search_bar button {
+  padding: 0.75rem 1rem;
+  margin-left: 1rem;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search_bar button:hover {
+  background-color: #0056b3; /* تغییر رنگ دکمه در هاور */
+}
+
