@@ -18,14 +18,12 @@ ul {
     // Tablet version: Fixed size, but more items as screen widens
     grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
   }
-
 }
 
 .movie-wrap {
   position: relative;
   background-color: white;
   padding: 0.5rem;
-  width: 13rem;
   img {
     display: block;
     width: 100%;
