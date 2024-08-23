@@ -26,9 +26,11 @@ const Home = () => {
     getMovies();
   }, [category]);
 
-  const handleClick = (id) => {
+  const handleClick = (id, placeholder) => {
     setCategory(id);
+    setPlaceholderText(`Search for ${placeholder}...`);
   };
+  
 
   // Function to handle favorite toggle
   const toggleFavorite = (movie) => {
@@ -56,13 +58,15 @@ const Home = () => {
     movie.title.toLowerCase().includes(searchQuery)
   );
 
+  const [placeholderText, setPlaceholderText] = useState("Search for Now Playing...");
+
   return (
     <div>
       {/* Search bar */}
       <div className="search_bar">
         <input
           type="text"
-          placeholder="Search for a movie..."
+          placeholder={placeholderText}
           value={searchTerm}
           onChange={handleSearchChange}
         />
@@ -70,10 +74,10 @@ const Home = () => {
       </div>
 
       <nav className="subnav">
-        <button className="button-38" onClick={() => handleClick("now_playing")}>Now Playing</button>
-        <button className="button-38" onClick={() => handleClick("top_rated")}>Top Rated</button>
-        <button className="button-38" onClick={() => handleClick("upcoming")}>Upcoming</button>
-        <button className="button-38" onClick={() => handleClick("popular")}>Popular</button>
+      <button className="button-38" onClick={() => handleClick("now_playing", "Now Playing")}>Now Playing</button>
+      <button className="button-38" onClick={() => handleClick("top_rated", "Top Rated")}>Top Rated</button>
+      <button className="button-38" onClick={() => handleClick("upcoming", "Upcoming")}>Upcoming</button>
+      <button className="button-38" onClick={() => handleClick("popular", "Popular")}>Popular</button>
       </nav>
 
       <ul>
