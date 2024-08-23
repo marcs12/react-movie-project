@@ -5,7 +5,7 @@
 
 
 footer {
-    background-color: #333;
+    background-color: rgba(0, 0, 0, 0.066);
     color: #fff;
     padding: 20px 0;
     text-align: center;
@@ -13,8 +13,9 @@ footer {
   
   .footer-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+    position: relative;
   }
   
   .footer-links {
@@ -24,15 +25,39 @@ footer {
   
   .footer-links li {
     display: inline;
-    margin: 0 10px;
+    margin: 0 20px;
+
   }
   
   .footer-links a {
     color: #fff;
     text-decoration: none;
+    justify-content: left;
   }
   
   .footer-links a:hover {
     text-decoration: underline;
   }
   
+  .footer img {
+    max-width: 12.5rem;
+    align-items: center;
+    margin: 0 20px;
+  }
+
+
+.line {
+    flex: 1; 
+    height: 10rem; 
+    background-color: #ffff 
+  }
+  
+  @media (max-width: 768px) {
+ 
+    
+  .footer-links li {
+    display: block;
+    margin: 0 20px;
+
+  }
+  }
