@@ -18,21 +18,12 @@ ul {
     // Tablet version: Fixed size, but more items as screen widens
     grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
   }
-
 }
 
 .movie-wrap {
   position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin-bottom: 2rem;
-  gap: 1rem;
   background-color: white;
   padding: 0.5rem;
-  width: 13rem;
   img {
     display: block;
     width: 100%;
@@ -42,6 +33,11 @@ ul {
     &:hover {
       transform: scale(1.05);
     }
+  }
+  .movie-title {
+    text-align: center;
+    margin: auto 0;
+    padding: 1rem;
   }
 }
 
@@ -53,19 +49,6 @@ ul {
     background-color: #ff5f5f;
     transform: scale(1.05);
   }
-}
-
-.movie-wrap {
-  position: relative;
-  transition: transform 0.2s;
-}
-
-.movie-wrap:hover {
-  cursor: pointer;
-}
-
-.movie-wrap:hover .overlay {
-  opacity: 1;
 }
 
 .overlay {
