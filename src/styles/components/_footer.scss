@@ -13,7 +13,7 @@ footer {
   
   .footer-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between; /* Ensures space distribution on both sides */
     align-items: center;
     position: relative;
   }
@@ -23,7 +23,7 @@ footer {
     padding: 0;
   }
   
-.footer-links li {
+.footer-links li, .social-links {
     display: inline;
     margin: 0 20px;
 
@@ -46,11 +46,11 @@ footer {
   }
 
 
-.line {
-    flex: 1; 
-    height: 10rem; 
-    background-color: #ffff;
-    border: 2px solid red; 
+  .line {
+    flex-grow: 1; 
+    height: .5rem; 
+    background-color: #ffffff; 
+    margin: 0 .625rem; 
   }
   
   @media (max-width: 48rem) {
