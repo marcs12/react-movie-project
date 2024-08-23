@@ -47,11 +47,10 @@ const Hero = () => {
                   <Carousel.Caption>
                     <h3 id="caption-title">{movie.title}</h3>
                     <div className="hero-caption">
-                      <p className="caption-info">
-                        <Link to={`/movie/${movie.id}`}>More Info</Link>
-                      </p>
                       <Link to={`/movie/${movie.id}`}>
-                        <img src={infoBtn} alt="Info Button" id="info-button" />
+                        <p>
+                          {movie.overview.split(" ").slice(0, 15).join(" ")}...
+                        </p>
                       </Link>
                     </div>
                   </Carousel.Caption>
