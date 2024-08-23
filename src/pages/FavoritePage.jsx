@@ -74,6 +74,7 @@ const Favorite = () => {
         ) : (
           <>
             <div className="movie-grid">
+              <ul>
               {loadedMovies.map((movie) => {
                 let isFavorite = false;
                 if (favorites.some((obj) => obj.id === movie.id)) {
@@ -108,6 +109,7 @@ const Favorite = () => {
                   </li>
                 );
               })}
+              </ul>
             </div>
             <div ref={containerRef} className="scroll-trigger"></div>
           </>
