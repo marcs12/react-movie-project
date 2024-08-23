@@ -204,32 +204,9 @@
   }
 }
 
-// Media Queries for Desktop
-@media (min-width: 1024px) {
-  .dropdown-menu {
-    display: none; // Hide dropdown menu on desktop
-  }
-
-  .regular-menu {
-    display: flex; // Show regular menu on desktop
-    justify-content: flex-start; // Align menu items to the left
-    background-color: transparent;
-    height: auto;
-    padding: 1rem;
-  }
-
-  .nav-wrap {
-    justify-content: space-between; // Space between regular menu and logo
-  }
-
-  .logo-main {
-    position: relative;
-    margin-left: auto;
-    max-width: 150px; // Ensure the logo doesn't exceed a certain width
-    align-self: center; // Aligns the logo with the menu on the same line
-  }
-
-  .menu-icon {
-    display: none; // Hide the Hamburger Menu on Desktop
-  }
+.dropdown-menu.show {
+  display: flex;
+  top: 0;
+  pointer-events: all;
+  transition: all 0.3s ease-in-out;
 }

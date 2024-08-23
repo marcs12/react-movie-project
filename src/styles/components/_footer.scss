@@ -2,3 +2,62 @@
 @use "../utilities/mixins" as *;
 @use "../utilities/functions" as *;
 @use "../base/typography" as *;
+
+
+footer {
+    background-color: rgba(0, 0, 0, 0.066);
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  .footer-links {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-links li {
+    display: inline;
+    margin: 0 20px;
+
+  }
+  
+  .footer-links a {
+    color: #fff;
+    text-decoration: none;
+    justify-content: left;
+  }
+  
+  .footer-links a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer img {
+    max-width: 12.5rem;
+    align-items: center;
+    margin: 0 20px;
+  }
+
+
+.line {
+    flex: 1; 
+    height: 10rem; 
+    background-color: #ffff;
+    border: 2px solid red; 
+  }
+  
+  @media (max-width: 48rem) {
+ 
+  .footer-links li {
+    display: block;
+    margin: 0 20px;
+
+  }
+  }

@@ -9,6 +9,7 @@ const Home = () => {
       <Header />
       <Hero />
       <SubNav />
+      <Footer />
       <section className="">
         <article className="">
           <img src="" alt="" />

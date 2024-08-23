@@ -51,9 +51,6 @@ const Header = () => {
           <li>
             <a href="/favorites">Favourites</a>
           </li>
-          <li>
-            <a href="/info">Info</a>
-          </li>
         </ul>
       </section>
     </header>
