@@ -4,7 +4,7 @@
 @use "../base/typography" as *;
 // @import '~bootstrap/scss/bootstrap';
 
-ul {
+.subnav-ul {
   list-style: none;
   padding: 0;
   margin: 1rem auto;
@@ -95,12 +95,12 @@ ul {
   border-radius: 1rem;
   padding: 1rem;
   max-width: 400px;
-  margin: 1.5rem auto; 
+  margin: 1.5rem auto;
 }
 
 .search_bar input {
-  padding: 0.75rem; 
-  border: 1px solid #ccc; 
+  padding: 0.75rem;
+  border: 1px solid #ccc;
   border-radius: 0.5rem;
   font-size: 1rem;
 }
@@ -114,5 +114,3 @@ ul {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-
-
