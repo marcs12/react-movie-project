@@ -50,7 +50,6 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  width: 10rem;
 }
 
 .button-38:hover {
@@ -66,24 +65,23 @@
   box-shadow: none;
 }
 
-
 /* Tablet Version */
 @media (min-width: 768px) {
   .sub-navigation {
-    background-color: #111827;
     padding: 1rem;
     margin-bottom: 2rem;
 
     .subnav {
       @include flex-row;
       justify-content: space-between;
-      gap: 1rem;
+      gap: 0.5rem;
       padding: 0 2rem;
     }
   }
 
-
-
+  .button-38 {
+    width: 10rem;
+  }
   .button-38:hover {
     color: inherit;
     text-decoration: none;

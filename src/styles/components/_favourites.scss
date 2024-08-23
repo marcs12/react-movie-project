@@ -18,38 +18,5 @@
       flex-direction: row;
       justify-content: space-around;
     }
-
-    // Mobile: column of posters
-    @media (max-width: 767px) {
-      flex-direction: column;
-      align-items: center;
-    }
-  }
-
-  .movie-item {
-    flex: 1 1 20%; /* Adjust width for desktop, 5 items per row */
-
-    @media (max-width: 767px) {
-      flex: 1 1 100%; /* Full width for mobile */
-    }
-
-    .movie-poster {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-  }
-
-  .scroll-trigger {
-    height: 1px; /* Invisible, but used for the scroll trigger */
-  }
-
-  p {
-    text-align: center;
-    margin-top: 1rem;
-    @include Lora;
-    font-size: 1.5rem;
-    opacity: 0.5;
-    letter-spacing: 0.1rem;
   }
 }

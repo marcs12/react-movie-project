@@ -10,8 +10,6 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 1rem;
-
   .logo-main {
     a {
       img {
@@ -117,12 +115,11 @@
 }
 
 // Dropdown Menu (for mobile)
-.dropdown-menu { 
+.dropdown-menu {
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
-  height: 50vh;
   background-color: white;
   z-index: 2;
   flex-direction: column;
