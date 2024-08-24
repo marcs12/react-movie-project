@@ -3,6 +3,7 @@ import starSolid from "../assets/Images/star-solid.svg";
 import starRegular from "../assets/Images/star-regular.svg";
 import Favorites from "../globals/Favorites";
 import { Link } from "react-router-dom";
+import searchImg from "../assets/magnifying-glass-solid.svg";
 
 const endpoint = "https://api.themoviedb.org/3/movie/";
 const baseImgURL = "https://image.tmdb.org/t/p/w500/";
@@ -43,8 +44,23 @@ const Home = () => {
   };
 
   // Update search term as user types
-  const handleSearchChange = (e) => {
+  const handleSearchChange = async (e) => {
     setSearchTerm(e.target.value.toLowerCase());
+    setSearchQuery(e.target.value.toLowerCase());
+    if (e.target.value === "") {
+      setCategory("now_playing");
+      setPlaceholderText("Search for Now Playing...");
+    } else {
+      try {
+        const response = await fetch(
+          `${endpoint}search/movie?api_key=${API}&query=${e.target.value}`,
+        );
+        const json = await response.json();
+        setMovies(json.results || []);
+      } catch (error) {
+        console.error("Error fetching search results:", error);
+      }
+    }
   };
 
   // Update search query when the search button is clicked
@@ -64,14 +80,20 @@ const Home = () => {
   return (
     <div>
       {/* Search bar */}
-      <div className="search_bar">
+      <div className="search-bar">
         <input
           type="text"
           placeholder={placeholderText}
           value={searchTerm}
           onChange={handleSearchChange}
         />
-        <button onClick={handleSearchSubmit}>Search</button>
+        <button onClick={handleSearchSubmit} className="search-btn">
+          <img
+            src={searchImg}
+            alt="Magnifying Glass Icon"
+            className="search-btn-img"
+          />
+        </button>
       </div>
 
       <nav className="subnav">
