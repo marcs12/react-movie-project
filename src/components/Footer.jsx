@@ -1,17 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import mainLogo from "../assets/main-logo.png";
-import './Footer.scss';
+import discordLogo from "../../src/assets/discord-button.png";
+import facebookLogo from "../../src/assets/facebook-button.png";
+import youtubeLogo from "../../src/assets/youtube-button.png";
 
 const Footer = () => {
   return (
     <footer>
       <div className="footer-logo-container">
-        <span className="line"></span>
+        <hr/>
         <Link to="/">
-          <img src={mainLogo} alt="35mm Logo" />
+          <img src={mainLogo} alt="35mm Logo" className='footer-logo' />
         </Link>
-        <span className="line"></span>
       </div>
       <div className="footer-container">
         <ul className="footer-links">
@@ -22,7 +23,8 @@ const Footer = () => {
           <li><Link to="/top_rated">Top Rated</Link></li>
           <li><Link to="/upcoming">Upcoming</Link></li>
         </ul>
-        <figure className="social-links">
+        </div>
+        <div className="footer-social-links">
             <a href="https://discord.com">
               <img src={discordLogo} alt="Discord Logo" />
             </a>
@@ -32,9 +34,8 @@ const Footer = () => {
             <a href="https://youtube.com">
               <img src={youtubeLogo} alt="YouTube Logo" />
             </a>
-          </figure>
-      </div>
-            <p>Copyright © FWD 2024 Yining Li Mahdi Roozbahani Marc Sapa Kate Shepherd</p>
+          </div>
+            <p className="footer-p">Copyright © FWD 2024 Yining Li Mahdi Roozbahani Marc Sapa Kate Shepherd</p>
     </footer>
   );
 };
