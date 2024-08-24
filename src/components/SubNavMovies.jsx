@@ -27,6 +27,11 @@ const Home = () => {
     getMovies();
   }, [category]);
 
+  useEffect(() => {
+    // Set the default category to "now_playing" when the component mounts
+    setCategory("now_playing");
+  }, []);
+
   const handleClick = (id, placeholder) => {
     setCategory(id);
     setPlaceholderText(`Search for ${placeholder}...`);
@@ -44,22 +49,19 @@ const Home = () => {
   };
 
   // Update search term as user types
-  const handleSearchChange = async (e) => {
-    setSearchTerm(e.target.value.toLowerCase());
-    setSearchQuery(e.target.value.toLowerCase());
-    if (e.target.value === "") {
-      setCategory("now_playing");
+  const handleSearchChange = (e) => {
+    const searchTerm = e.target.value.toLowerCase();
+    setSearchTerm(searchTerm);
+
+    if (searchTerm === "") {
+      setMovies(json.results || []);
       setPlaceholderText("Search for Now Playing...");
     } else {
-      try {
-        const response = await fetch(
-          `${endpoint}search/movie?api_key=${API}&query=${e.target.value}`,
-        );
-        const json = await response.json();
-        setMovies(json.results || []);
-      } catch (error) {
-        console.error("Error fetching search results:", error);
-      }
+      const filteredMovies = movies.filter((movie) =>
+        movie.title.toLowerCase().includes(searchTerm),
+      );
+      setMovies(filteredMovies);
+      setPlaceholderText(`Search for ${searchTerm}...`);
     }
   };
 
@@ -67,11 +69,6 @@ const Home = () => {
   const handleSearchSubmit = () => {
     setSearchQuery(searchTerm);
   };
-
-  // Filter movies based on the search query
-  const filteredMovies = movies.filter((movie) =>
-    movie.title.toLowerCase().includes(searchQuery),
-  );
 
   const [placeholderText, setPlaceholderText] = useState(
     "Search for Now Playing...",
@@ -124,8 +121,8 @@ const Home = () => {
       </nav>
 
       <ul className="subnav-ul">
-        {filteredMovies.length > 0 &&
-          filteredMovies.map((movie) => {
+        {movies.length > 0 &&
+          movies.map((movie) => {
             let isFavorite = false;
             if (favorites.some((obj) => obj.id === movie.id)) {
               isFavorite = true;
