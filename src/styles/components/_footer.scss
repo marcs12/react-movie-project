@@ -79,7 +79,7 @@ hr {
   margin-top: 2rem;
 }
 
-  @media (max-width: 48rem) {
+  @media (max-width: 20em) {
 
     .footer-logo-container {
       position: relative;
@@ -88,7 +88,7 @@ hr {
         position: absolute;
         z-index: 999;
         top: 30%;
-        left: 37%;
+        left: 35%;
         img {
           width: 5rem;
     
@@ -103,4 +103,28 @@ hr {
   }
   
 
+}
+
+@media (max-width: 48rem) {
+  
+    .footer-logo-container {
+    position: relative;
+    padding: 2rem;
+    a {
+      position: absolute;
+      z-index: 999;
+      top: 30%;
+      left: 45%;
+      img {
+        width: 5rem;
+  
+      }
+    }
+  }
+
+  .footer-links li, .footer-links a {
+    display: block;
+    text-align: left;
+    margin: 0 1.25rem;
+  }
 }
