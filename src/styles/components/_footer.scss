@@ -1,19 +1,32 @@
-@use "../utilities/variables" as *;
 @use "../utilities/mixins" as *;
 @use "../utilities/functions" as *;
 @use "../base/typography" as *;
 
 
 footer {
-    background-color: rgba(0, 0, 0, 0.066);
+    background-color: #00000011;
     color: #fff;
-    padding: 20px 0;
+    padding: 1.25rem 0;
     text-align: center;
   }
-  
+
+.footer-logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  a {
+    img {
+      width: 5rem;
+    }
+  }
+}
+
+hr {
+  border: 1px solid #ffffff;
+ }
   .footer-container {
-    display: flex;
-    justify-content: center;
+    justify-content: space-between; 
     align-items: center;
     position: relative;
   }
@@ -23,41 +36,66 @@ footer {
     padding: 0;
   }
   
-  .footer-links li {
+.footer-links li {
     display: inline;
-    margin: 0 20px;
+    margin: 0 1.25rem;
+    text-align: center;
+    @include Bebas-Neue;
 
   }
-  
+
   .footer-links a {
     color: #fff;
     text-decoration: none;
-    justify-content: left;
+    justify-content: center;
   }
   
   .footer-links a:hover {
-    text-decoration: underline;
-  }
-  
-  .footer img {
-    max-width: 12.5rem;
-    align-items: center;
-    margin: 0 20px;
+    color: #00FB03;
   }
 
-
-.line {
-    flex: 1; 
-    height: 10rem; 
-    background-color: #ffff;
-    border: 2px solid red; 
+  .footer-social-links {
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
   }
-  
-  @media (max-width: 48rem) {
+
  
-  .footer-links li {
-    display: block;
-    margin: 0 20px;
+.footer-social-links a {
+  width: 2rem; 
+  height: 2rem;
+}
 
+.footer-social-links a img {
+  width: 100%;
+  height: auto;
+}
+
+.footer-p {
+  @include Oswald;
+  margin-top: 2rem;
+}
+
+
+
+
+@media (max-width: 20em) {
+
+.footer-links li, .footer-links a {
+  display: block;
+  text-align: left;
+  margin: 0 20px;
+}
+}
+
+  @media (max-width: 48em) {
+ 
+  .footer-links li, .footer-links a {
+    display: block;
+    text-align: left;
+    margin: 0 1.25rem;
   }
-  }
+  
+
+}

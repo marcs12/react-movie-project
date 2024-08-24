@@ -1,9 +1,11 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import Favorites from "../globals/Favorites";
 import { Link } from "react-router-dom";
 import starSolid from "../assets/Images/star-solid.svg";
 import starRegular from "../assets/Images/star-regular.svg";
+
 
 const baseImgURL = "https://image.tmdb.org/t/p/w500/";
 
@@ -115,6 +117,7 @@ const Favorite = () => {
           </>
         )}
       </section>
+      <Footer />
     </>
   );
 };
