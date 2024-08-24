@@ -3,6 +3,7 @@ import starSolid from "../assets/Images/star-solid.svg";
 import starRegular from "../assets/Images/star-regular.svg";
 import Favorites from "../globals/Favorites";
 import { Link } from "react-router-dom";
+import searchImg from "../assets/magnifying-glass-solid.svg";
 
 const endpoint = "https://api.themoviedb.org/3/movie/";
 const baseImgURL = "https://image.tmdb.org/t/p/w500/";
@@ -11,16 +12,17 @@ const API = import.meta.env.VITE_MOVIE_API_KEY;
 const Home = () => {
   const [category, setCategory] = useState("now_playing");
   const [movies, setMovies] = useState([]);
+  const [allMovies, setAllMovies] = useState([]); // Store all movies fetched
   const { favorites, setFavorites } = useContext(Favorites);
 
   const [searchTerm, setSearchTerm] = useState("");
-  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     const getMovies = async () => {
       const response = await fetch(`${endpoint}${category}?api_key=${API}`);
       const json = await response.json();
-      setMovies(json.results || []); // Ensure movies is an array
+      setMovies(json.results || []);
+      setAllMovies(json.results || []); // Store all fetched movies
     };
 
     getMovies();
@@ -29,6 +31,7 @@ const Home = () => {
   const handleClick = (id, placeholder) => {
     setCategory(id);
     setPlaceholderText(`Search for ${placeholder}...`);
+    setSearchTerm(""); // Reset search term when changing categories
   };
 
   // Function to handle favorite toggle
@@ -44,18 +47,19 @@ const Home = () => {
 
   // Update search term as user types
   const handleSearchChange = (e) => {
-    setSearchTerm(e.target.value.toLowerCase());
-  };
+    const searchTerm = e.target.value.toLowerCase();
+    setSearchTerm(searchTerm);
 
-  // Update search query when the search button is clicked
-  const handleSearchSubmit = () => {
-    setSearchQuery(searchTerm);
+    if (searchTerm === "") {
+      // Reset to all movies when search term is empty
+      setMovies(allMovies);
+    } else {
+      const filteredMovies = allMovies.filter((movie) =>
+        movie.title.toLowerCase().includes(searchTerm),
+      );
+      setMovies(filteredMovies);
+    }
   };
-
-  // Filter movies based on the search query
-  const filteredMovies = movies.filter((movie) =>
-    movie.title.toLowerCase().includes(searchQuery),
-  );
 
   const [placeholderText, setPlaceholderText] = useState(
     "Search for Now Playing...",
@@ -64,14 +68,13 @@ const Home = () => {
   return (
     <div>
       {/* Search bar */}
-      <div className="search_bar">
+      <div className="search-bar">
         <input
           type="text"
           placeholder={placeholderText}
           value={searchTerm}
           onChange={handleSearchChange}
         />
-        <button onClick={handleSearchSubmit}>Search</button>
       </div>
 
       <nav className="subnav">
@@ -102,8 +105,8 @@ const Home = () => {
       </nav>
 
       <ul className="subnav-ul">
-        {filteredMovies.length > 0 &&
-          filteredMovies.map((movie) => {
+        {movies.length > 0 &&
+          movies.map((movie) => {
             let isFavorite = false;
             if (favorites.some((obj) => obj.id === movie.id)) {
               isFavorite = true;

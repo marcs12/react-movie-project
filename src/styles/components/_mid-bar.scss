@@ -29,6 +29,36 @@
   }
 }
 
+.search-bar {
+  position: relative;
+  max-width: 50rem;
+  margin: 2rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  input {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    border-radius: 0.5rem;
+    color: #111827;
+    background-color: #ffffff;
+  }
+  .search-btn {
+    background-color: transparent;
+    border: 0;
+    position: absolute;
+    right: 0.5rem;
+    top: 0.5rem;
+    padding: 0;
+    img {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
+}
+
 // button sub-nav
 .button-38 {
   background-color: #ffffff;
