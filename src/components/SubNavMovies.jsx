@@ -12,29 +12,26 @@ const API = import.meta.env.VITE_MOVIE_API_KEY;
 const Home = () => {
   const [category, setCategory] = useState("now_playing");
   const [movies, setMovies] = useState([]);
+  const [allMovies, setAllMovies] = useState([]); // Store all movies fetched
   const { favorites, setFavorites } = useContext(Favorites);
 
   const [searchTerm, setSearchTerm] = useState("");
-  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     const getMovies = async () => {
       const response = await fetch(`${endpoint}${category}?api_key=${API}`);
       const json = await response.json();
-      setMovies(json.results || []); // Ensure movies is an array
+      setMovies(json.results || []);
+      setAllMovies(json.results || []); // Store all fetched movies
     };
 
     getMovies();
   }, [category]);
 
-  useEffect(() => {
-    // Set the default category to "now_playing" when the component mounts
-    setCategory("now_playing");
-  }, []);
-
   const handleClick = (id, placeholder) => {
     setCategory(id);
     setPlaceholderText(`Search for ${placeholder}...`);
+    setSearchTerm(""); // Reset search term when changing categories
   };
 
   // Function to handle favorite toggle
@@ -54,20 +51,14 @@ const Home = () => {
     setSearchTerm(searchTerm);
 
     if (searchTerm === "") {
-      setMovies(json.results || []);
-      setPlaceholderText("Search for Now Playing...");
+      // Reset to all movies when search term is empty
+      setMovies(allMovies);
     } else {
-      const filteredMovies = movies.filter((movie) =>
+      const filteredMovies = allMovies.filter((movie) =>
         movie.title.toLowerCase().includes(searchTerm),
       );
       setMovies(filteredMovies);
-      setPlaceholderText(`Search for ${searchTerm}...`);
     }
-  };
-
-  // Update search query when the search button is clicked
-  const handleSearchSubmit = () => {
-    setSearchQuery(searchTerm);
   };
 
   const [placeholderText, setPlaceholderText] = useState(
@@ -84,13 +75,6 @@ const Home = () => {
           value={searchTerm}
           onChange={handleSearchChange}
         />
-        <button onClick={handleSearchSubmit} className="search-btn">
-          <img
-            src={searchImg}
-            alt="Magnifying Glass Icon"
-            className="search-btn-img"
-          />
-        </button>
       </div>
 
       <nav className="subnav">
