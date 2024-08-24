@@ -8,8 +8,8 @@ import youtubeLogo from "../../src/assets/youtube-button.png";
 const Footer = () => {
   return (
     <footer>
+      <hr />
       <div className="footer-logo-container">
-        <hr/>
         <Link to="/">
           <img src={mainLogo} alt="35mm Logo" className='footer-logo' />
         </Link>
@@ -19,9 +19,6 @@ const Footer = () => {
           <li><Link to="/">Home</Link></li>
           <li><Link to="/about">About</Link></li>
           <li><Link to="/favorites">Favourites</Link></li>
-          <li><Link to="/now_playing">Now Playing</Link></li>
-          <li><Link to="/top_rated">Top Rated</Link></li>
-          <li><Link to="/upcoming">Upcoming</Link></li>
         </ul>
         </div>
         <div className="footer-social-links">
