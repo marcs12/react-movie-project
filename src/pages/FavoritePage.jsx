@@ -28,25 +28,25 @@ const Favorite = () => {
     }
   };
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          loadMoreMovies();
-        }
-      },
-      {
-        root: null,
-        threshold: 1.0,
-      },
-    );
+  // useEffect(() => {
+  //   const observer = new IntersectionObserver(
+  //     (entries) => {
+  //       if (entries[0].isIntersecting) {
+  //         loadMoreMovies();
+  //       }
+  //     },
+  //     {
+  //       root: null,
+  //       threshold: 1.0,
+  //     },
+  //   );
 
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
+  //   if (containerRef.current) {
+  //     observer.observe(containerRef.current);
+  //   }
 
-    return () => observer.disconnect();
-  }, [loadedMovies]);
+  //   return () => observer.disconnect();
+  // }, [loadedMovies]);
 
   // Function to handle favorite toggle
   const toggleFavorite = (movie) => {
@@ -59,6 +59,18 @@ const Favorite = () => {
     }
   };
 
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+        if (entries[0].isIntersecting) {
+            loadMoreMovies();
+        }
+    },
+    {
+        root: null,
+        threshold: 0.1,
+    }
+);
   return (
     <>
       <Header />
@@ -74,7 +86,7 @@ const Favorite = () => {
         ) : (
           <>
             <div className="movie-grid">
-              <ul>
+              <ul className="subnav-ul">
               {loadedMovies.map((movie) => {
                 let isFavorite = false;
                 if (favorites.some((obj) => obj.id === movie.id)) {

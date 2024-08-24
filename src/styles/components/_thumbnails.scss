@@ -11,16 +11,32 @@
   display: grid;
   gap: 1rem;
 
-  // Mobile version: 1 column
+  /* Default: Single column */
   grid-template-columns: 1fr;
-  @media (min-width: 40em) {
-    // Tablet version: Fixed size, but more items as screen widens
-    grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
+
+  
+  @media (min-width: 40em) and (max-width: 47.5em) {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  @media (min-width: 768px) {
-    // Tablet version: Fixed size, but more items as screen widens
-    grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
+ 
+  @media (min-width: 48em) and (max-width: 83.5em) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+ 
+  @media (min-width: 84em) and (max-width: 96.5em) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+ 
+  @media (min-width: 97em) and (max-width: 119.5em) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+
+  @media (min-width: 120em) {
+    grid-template-columns: repeat(6, 1fr);
   }
 }
 
@@ -45,6 +61,7 @@
     padding: 1rem;
   }
 }
+
 
 .button-38 {
   transition: background-color 0.3s ease, transform 0.3s ease;
@@ -118,4 +135,37 @@
   transition: background-color 0.3s ease;
 }
 
+
+
+
+.movie-title h2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2em; /* Adjust to match your design */
+  max-height: 2.4em; /* Ensure this is exactly 2 times the line-height */
+  min-height: 2.4em; /* Ensures the block always takes up 2 lines */
+}
+
+.movie-title h2:empty::before {
+  content: "\00A0"; /* Non-breaking space to ensure two lines are shown even if the title is empty */
+  visibility: hidden; /* Keeps the space invisible but ensures height */
+}
+
+.carousel-caption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Optional: Add a background with opacity */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white; /* Text color */
+  padding: 20px;
+  box-sizing: border-box;
+}
 
