@@ -75,6 +75,7 @@ const Home = () => {
           value={searchTerm}
           onChange={handleSearchChange}
         />
+        <img src={searchImg} alt="Search" className="search-btn" />
       </div>
 
       <nav className="subnav">
