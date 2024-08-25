@@ -16,8 +16,10 @@ const About = () => {
             Welcome to 35mm, your go-to movie database for all things cinematic.
             Dive into a curated collection of films spanning genres and decades.
             Explore, review, and save your favorites with ease on our
-            user-friendly platform.
-          </p>
+            user-friendly platform.<br></br>
+          We would like to acknowledge The Movie DB API <a href="https://www.themoviedb.org/?language=en-CA" target="_blank" rel="noopener noreferrer">
+              Visit The Movie DB
+            </a>. The API referenced is for educational use. </p>
           <figure className="social-links">
             <a href="https://discord.com">
               <img src={discordLogo} alt="Discord Logo" />
