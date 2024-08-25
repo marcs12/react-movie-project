@@ -16,7 +16,7 @@ const Favorite = () => {
 
   useEffect(() => {
     if (favorites.length > 0) {
-      setLoadedMovies(favorites.slice(0, 10));
+      setLoadedMovies(favorites.slice(0, 128));
     }
   }, [favorites]);
 
