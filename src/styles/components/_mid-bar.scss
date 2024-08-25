@@ -113,7 +113,7 @@
     .subnav {
       @include flex-row;
       justify-content: space-between;
-      gap: 0.5rem;
+      gap: 1.5rem;
       padding: 0 2rem;
     }
   }

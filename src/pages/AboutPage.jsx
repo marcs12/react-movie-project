@@ -17,10 +17,16 @@ const About = () => {
             Dive into a curated collection of films spanning genres and decades.
             Explore, review, and save your favorites with ease on our
             user-friendly platform.
-            We would like to acknowledge The Movie DB API, the API referenced is for educational purposes only 
-          <a href="https://www.themoviedb.org/?language=en-CA">
-              Visit The Movie DB</a>.
-            </p>
+            <br />
+            <br />
+            We would like to acknowledge The Movie DB API, the API referenced is
+            for educational purposes only.
+            <br />
+            <a href="https://www.themoviedb.org/?language=en-CA">
+              Visit The Movie DB
+            </a>
+            .
+          </p>
 
           <figure className="social-links">
             <a href="https://discord.com">

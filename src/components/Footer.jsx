@@ -39,11 +39,8 @@ const Footer = () => {
         </a>
       </div>
       <p className="footer-p">
-        Copyright © FWD 2024
-        <br />
-        Yining Li - Mahdi Roozbahani
-        <br />
-        Marc Sapa - Kate Shepherd
+        Copyright © FWD 2024 - Yining Li - Mahdi Roozbahani- Marc Sapa - Kate
+        Shepherd
       </p>
     </footer>
   );

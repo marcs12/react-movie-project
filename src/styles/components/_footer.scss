@@ -3,7 +3,7 @@
 @use "../base/typography" as *;
 
 footer {
-  color: #fff;
+  color: #ffffff52;
   padding: 1.25rem 0;
   text-align: center;
 }
@@ -45,6 +45,9 @@ hr {
   color: #fff;
   text-decoration: none;
   justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
+  letter-spacing: 0.125rem;
 }
 
 .footer-links a:hover {
@@ -79,6 +82,7 @@ hr {
     display: block;
     text-align: left;
     margin: 0 20px;
+    font-size: 1.25rem;
   }
 }
 
@@ -88,5 +92,6 @@ hr {
     display: block;
     text-align: left;
     margin: 0 1.25rem;
+    font-size: 1.6rem;
   }
 }
