@@ -174,7 +174,7 @@
 
 // Regular Menu (for desktop)
 .regular-menu {
-  display: none; // Hidden by default on mobile
+  display: none;
   width: 100%;
   position: relative;
 
@@ -194,7 +194,7 @@
         letter-spacing: 0.1rem;
         text-decoration: none;
         color: rgb(255, 255, 255);
-        font-size: 1.6rem;
+        font-size: 1.25rem;
         text-align: left;
         font-weight: 1;
         @include Lora;
