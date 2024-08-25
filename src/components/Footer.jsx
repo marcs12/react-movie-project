@@ -32,7 +32,7 @@ const Footer = () => {
               <img src={youtubeLogo} alt="YouTube Logo" />
             </a>
           </div>
-            <p className="footer-p">Copyright © FWD 2024 Yining Li Mahdi Roozbahani Marc Sapa Kate Shepherd</p>
+            <p className="footer-p">Copyright © FWD 2024 Yining Li, Mahdi Roozbahani, Marc Sapa, Kate Shepherd</p>
     </footer>
   );
 };
