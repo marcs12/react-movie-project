@@ -58,7 +58,6 @@ body {
 }
 
 // Tablet Version
-
 @media (min-width: 768px) {
   .about {
     h1 {
@@ -71,15 +70,25 @@ body {
         text-align: left;
         @include Oswald;
       }
-
-      flex-direction: row;
-      align-items: center;
     }
 
     .social-links {
-      flex-direction: column;
-      gap: 2rem;
-      width: 8rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem; 
+      margin: 2rem;
+
+      img {
+        width: 5rem; 
+        height: auto;
+      }
+
+      a {
+        color: white;
+        font-size: 1.5rem;
+        text-decoration: none;
+      }
     }
   }
 }
+
