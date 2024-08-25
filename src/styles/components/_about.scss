@@ -59,24 +59,27 @@ body {
 
 // Tablet Version
 
-@media screen and (min-width: 768px) {
+@media (min-width: 768px) {
   .about {
     h1 {
-      font-size: 3rem;
+      font-size: 5rem;
     }
-    p {
-      font-size: 3rem;
-      text-align: left;
-      @include Oswald;
-    }
+    
     .details-about {
+      p {
+        font-size: 3rem;
+        text-align: left;
+        @include Oswald;
+      }
+
       flex-direction: row;
       align-items: center;
-      .social-links {
-        flex-direction: column;
-        gap: 2rem;
-        width: 5rem;
-      }
+    }
+
+    .social-links {
+      flex-direction: column;
+      gap: 2rem;
+      width: 8rem;
     }
   }
 }
