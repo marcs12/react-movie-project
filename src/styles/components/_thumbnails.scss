@@ -209,3 +209,25 @@
     }
   }
 }
+
+@media (min-width: 1024px){
+  .button-38 {
+    background-color: transparent; /* Remove background color */
+    border: none; /* Remove any borders */
+    font-family: 'Lora', serif; /* Set font to Lora */
+    font-size: 1.6rem; /* Set font size */
+    color: rgb(255, 255, 255); /* Default text color */
+    cursor: pointer;
+    transition: color 0.3s ease; /* Transition for color only */
+  
+    // &:hover {
+    //   color: #ff5f5f; /* Change text color on hover */
+    // }
+  
+    &:focus {
+      outline: none; /* Remove outline when focused */
+    }
+  }
+ 
+}
+
