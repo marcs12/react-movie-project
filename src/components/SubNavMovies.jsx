@@ -4,6 +4,7 @@ import starRegular from "../assets/Images/star-regular.svg";
 import Favorites from "../globals/Favorites";
 import { Link } from "react-router-dom";
 import searchImg from "../assets/magnifying-glass-solid.svg";
+import moreInfo from "../assets/circle-info-solid.svg";
 
 const endpoint = "https://api.themoviedb.org/3/movie/";
 const baseImgURL = "https://image.tmdb.org/t/p/w500/";
@@ -115,6 +116,16 @@ const Home = () => {
 
             return (
               <li key={movie.id} className="movie-wrap">
+                <div className="hover-overlay">
+                  <h2>{movie.title}</h2>
+                  <br />
+                  <p>{movie.overview.split(" ").slice(0, 50).join(" ")}...</p>
+                  <br />
+                  <Link to={`/movie/${movie.id}`}>
+                    <p>More Info</p>
+                    <img src={moreInfo} alt="More Info" className="more-info" />
+                  </Link>
+                </div>
                 <Link to={`/movie/${movie.id}`}>
                   <img
                     src={`${baseImgURL}${movie.poster_path}`}
