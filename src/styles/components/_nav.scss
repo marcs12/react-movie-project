@@ -116,8 +116,9 @@
 
 // Dropdown Menu (for mobile)
 .dropdown-menu {
+  display: flex;
   position: fixed;
-  top: -100px;
+  top: -100%;
   right: 0;
   left: 0;
   background-color: white;
@@ -213,7 +214,7 @@
   .menu-icon {
     display: none;
   }
-  
+
   .regular-menu {
     display: flex;
   }
