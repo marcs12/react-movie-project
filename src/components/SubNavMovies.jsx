@@ -115,6 +115,11 @@ const Home = () => {
 
             return (
               <li key={movie.id} className="movie-wrap">
+                <div className="hover-overlay">
+                  <h2>{movie.title}</h2>
+                  <br />
+                  <p>{movie.overview}</p>
+                </div>
                 <Link to={`/movie/${movie.id}`}>
                   <img
                     src={`${baseImgURL}${movie.poster_path}`}
