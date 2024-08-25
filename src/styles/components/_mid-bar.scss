@@ -29,6 +29,11 @@
   }
 }
 
+.caret-left,
+.caret-right {
+  display: none;
+}
+
 .search-bar {
   position: relative;
   max-width: 50rem;
@@ -61,7 +66,6 @@
 .button-38 {
   background-color: #ffffff;
   border: 0;
-  border-radius: 0.5rem;
   box-sizing: border-box;
   color: #111827;
   font-size: 0.875rem;
@@ -81,13 +85,19 @@
   touch-action: manipulation;
 }
 
-.button-38:hover {
-  background-color: rgb(249, 250, 251);
-}
-
 .button-38:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+.button-38 {
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+  &:hover {
+    background-color: #ff5f5f64;
+    transform: scale(1.05);
+  }
 }
 
 .button-38:focus-visible {
@@ -117,13 +127,39 @@
   }
 }
 
-@media(min-width:1024px){
-
-.sub-navigation {
-
-  .subnav{
-    justify-content: center;
+@media (min-width: 1024px) {
+  .sub-navigation {
+    .subnav {
+      justify-content: center;
+    }
+  }
 }
 
-}
+@media (min-width: 1024px) {
+  .button-38 {
+    background-color: transparent;
+    border: none;
+    font-family: "Lora", serif;
+    font-size: 1.2rem;
+    font-weight: 100;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    transition: color 0.3s ease;
+    &:focus {
+      outline: none;
+    }
+    &:hover {
+      color: rgb(255, 255, 255);
+    }
+  }
+
+  .caret-left,
+  .caret-right {
+    display: block;
+    font-size: 1.5rem;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    transition: color 0.3s ease;
+    width: 1rem;
+  }
 }
