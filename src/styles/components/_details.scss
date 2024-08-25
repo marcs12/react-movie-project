@@ -105,3 +105,41 @@
     }
   }
 }
+
+// Desktop version
+@media (min-width: 1024px) {
+  .details-section {
+    flex-direction: row; 
+    align-items: flex-start;
+  }
+
+  .details-image-container {
+    width: 50%; 
+    margin-bottom: 0;
+    padding-right: 2rem; 
+  }
+
+  .details-image {
+    width: 100%; 
+    height: auto;
+  }
+
+  .details-content {
+    width: 50%; 
+    padding-left: 2rem; 
+  }
+ 
+  .details-image-container .stars-details {
+    bottom: 66rem;
+    width: 5rem;
+    height: 4rem;
+
+  }
+
+
+
+  .details-section p  {
+    font-size: 1.6rem;
+  }
+
+}
