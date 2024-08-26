@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { FavoritesProvider } from "./components/FavoritesProvider";
 import AppRouter from "./routers/AppRouter";
 import Favorites from "./globals/Favorites";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import "../src/styles/styles.scss";
 import backgroundImg from "./assets/background.png";
 
