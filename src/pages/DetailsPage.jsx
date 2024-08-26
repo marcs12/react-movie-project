@@ -5,6 +5,8 @@ import Favorites from "../globals/Favorites";
 import starSolid from "../assets/Images/star-solid.svg";
 import starRegular from "../assets/Images/star-regular.svg";
 import Footer from "../components/Footer";
+import containerTop from "../assets/buttons-imported/container-top.png";
+import containerBottom from "../assets/buttons-imported/container-bottom.png";
 
 const endpoint = "https://api.themoviedb.org/3/movie/";
 const baseImgURL = "https://image.tmdb.org/t/p/w500/";
@@ -48,23 +50,35 @@ const Details = () => {
       <Header />
       <section className="details-section">
         <article className="details-image-container">
-          <img
-            src={`${baseImgURL}${movie.poster_path}`}
-            alt="Container Top"
-            className="details-image"
-          />
-          <div className="stars-details">
-            <span
-              className={`star ${isFavorite ? "favorite" : ""}`}
-              onClick={() => toggleFavorite(movie)}
-            >
-              <img
-                src={isFavorite ? starSolid : starRegular}
-                alt="Star"
-                className="star-icon"
-              />
-            </span>
-          </div>
+          <figure className="img-star-container">
+            <img
+              src={containerTop}
+              alt="Top Container"
+              className="container-top-details"
+            />
+            <img
+              src={containerBottom}
+              alt="Bottom Container"
+              className="container-bottom-details"
+            />
+            <img
+              src={`${baseImgURL}${movie.poster_path}`}
+              alt="Container Top"
+              className="details-image"
+            />
+            <div className="stars-details">
+              <span
+                className={`star ${isFavorite ? "favorite" : ""}`}
+                onClick={() => toggleFavorite(movie)}
+              >
+                <img
+                  src={isFavorite ? starSolid : starRegular}
+                  alt="Star"
+                  className="star-icon"
+                />
+              </span>
+            </div>
+          </figure>
         </article>
         <article className="details-content">
           <h1 className="details-title" key="title">
