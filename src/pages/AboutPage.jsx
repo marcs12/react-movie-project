@@ -19,16 +19,14 @@ const About = () => {
             user-friendly platform.
             <br />
             <br />
-            We would like to acknowledge The Movie DB API, the API referenced is
-            for educational purposes only.
+            This product uses the TMDb API but is not endorsed or certified by
+            TMDb.The API referenced is for educational purposes only.
             <br />
             <a href="https://www.themoviedb.org/?language=en-CA">
               Visit The Movie DB
             </a>
-            .
+            {/* <img src="/assets/images/tmdb.svg" alt="tmdb logo" className="tmdb-logo"/> */}
           </p>
-
-          <img src="/assets/tmdb.svg" alt="tmdb logo" className="tmdb-logo"/>
 
           <figure className="social-links">
             <a href="https://discord.com">
