@@ -1,10 +1,10 @@
 import React from "react";
 import Header from "../components/Header";
 import mainLogo from "../assets/main-logo.png";
+import tmdbLogo from "../../src/assets/Images/tmdb.svg";
 import discordLogo from "../../src/assets/discord-button.png";
 import facebookLogo from "../../src/assets/facebook-button.png";
 import youtubeLogo from "../../src/assets/youtube-button.png";
-import tmdbLogo from "../../src/assets/images/tmdb.svg";
 
 const About = () => {
   return (
@@ -28,7 +28,6 @@ const About = () => {
             </a>
             <img src={tmdbLogo} alt="TMDb Logo" /> 
           </p>
-
           <figure className="social-links">
             <a href="https://discord.com">
               <img src={discordLogo} alt="Discord Logo" />
