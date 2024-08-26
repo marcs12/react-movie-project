@@ -6,19 +6,41 @@
 .hero-section {
   color: #fff;
   overflow: hidden;
+  position: relative;
 
-  h2 {
+  .handheld {
     text-align: center;
-    font-size: 1.6rem;
+    font-size: 2.25rem;
     font-weight: bold;
     @include Bebas-Neue;
     margin: 1rem 0 0 0;
+    text-shadow: 4px 4px 7px rgba(0, 0, 0, 0.6);
+  }
+
+  .desktop {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    position: absolute;
+    top: 0;
+    left: 46%;
+    width: 100%;
+    z-index: 1;
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 100;
+      @include Lora;
+      text-shadow: 4px 4px 7px rgba(0, 0, 0, 0.6);
+      margin: 0 auto;
+    }
   }
 
   .carousel-container {
     position: relative;
     width: 100%;
     overflow: hidden;
+    margin-top: 1rem;
   }
 
   .carousel-slides {
@@ -31,7 +53,6 @@
     min-width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
     box-sizing: border-box;
     padding: 1rem;
 
@@ -119,6 +140,7 @@
         align-items: center;
         justify-content: space-between;
         text-decoration: none;
+        margin: 1rem 0;
         .more-info-btn {
           display: flex;
           flex-direction: row;
@@ -227,8 +249,21 @@
 
   // Desktop Breakpoint
   @media (min-width: 1024px) {
+    .handheld {
+      display: none;
+    }
+
+    .desktop {
+      display: flex;
+      @include Lora;
+      font-size: 2rem;
+    }
     .hero-carousel-content {
-      gap: 4rem;
+      gap: 6rem;
+    }
+
+    .carousel-slide {
+      justify-content: center;
     }
 
     .hero-image {
@@ -253,7 +288,7 @@
   // Large Desktop Breakpoint
   @media (min-width: 1440px) {
     .hero-carousel-content {
-      gap: 3rem;
+      gap: 12rem;
     }
 
     .hero-image {

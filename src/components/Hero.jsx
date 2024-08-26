@@ -30,7 +30,7 @@ const Hero = () => {
 
   return (
     <section className="hero-section">
-      <h2>Now Playing</h2>
+      {/* <h2 className="handheld">Now Playing</h2> */}
       <div className="carousel-container">
         {movieData && movieData.length > 0 && (
           <>
@@ -68,6 +68,7 @@ const Hero = () => {
                       <p className="hero-description">
                         {movie.overview.split(" ").slice(0, 45).join(" ")}...
                       </p>
+                      <hr className="hero-hr" />
                       <Link to={`/movie/${movie.id}`} className="hero-link">
                         <div className="hero-info">
                           <span className="more-info-btn">
