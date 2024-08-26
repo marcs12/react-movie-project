@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import Favorites from "../globals/Favorites";
 import starSolid from "../assets/Images/star-solid.svg";
 import starRegular from "../assets/Images/star-regular.svg";
+import Footer from "../components/Footer";
 
 const endpoint = "https://api.themoviedb.org/3/movie/";
 const baseImgURL = "https://image.tmdb.org/t/p/w500/";
@@ -86,6 +87,7 @@ const Details = () => {
           </div>
         </article>
       </section>
+      <Footer />
     </>
   );
 };

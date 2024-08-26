@@ -4,6 +4,9 @@ import starRegular from "../assets/Images/star-regular.svg";
 import Favorites from "../globals/Favorites";
 import { Link } from "react-router-dom";
 import searchImg from "../assets/magnifying-glass-solid.svg";
+import moreInfo from "../assets/circle-info-solid.svg";
+import caretLeft from "../assets/caret-left-solid.svg";
+import caretRight from "../assets/caret-right-solid.svg";
 
 const endpoint = "https://api.themoviedb.org/3/movie/";
 const baseImgURL = "https://image.tmdb.org/t/p/w500/";
@@ -67,18 +70,8 @@ const Home = () => {
 
   return (
     <div>
-      {/* Search bar */}
-      <div className="search-bar">
-        <input
-          type="text"
-          placeholder={placeholderText}
-          value={searchTerm}
-          onChange={handleSearchChange}
-        />
-        <img src={searchImg} alt="Search" className="search-btn" />
-      </div>
-
       <nav className="subnav">
+        <img src={caretRight} alt="Previous" className="caret-right" />
         <button
           className="button-38"
           onClick={() => handleClick("now_playing", "Now Playing")}
@@ -103,7 +96,19 @@ const Home = () => {
         >
           Popular
         </button>
+        <img src={caretLeft} alt="caret left" className="caret-left" />
       </nav>
+
+      {/* Search bar */}
+      <div className="search-bar">
+        <input
+          type="text"
+          placeholder={placeholderText}
+          value={searchTerm}
+          onChange={handleSearchChange}
+        />
+        <img src={searchImg} alt="Search" className="search-btn" />
+      </div>
 
       <ul className="subnav-ul">
         {movies.length > 0 &&
@@ -115,6 +120,16 @@ const Home = () => {
 
             return (
               <li key={movie.id} className="movie-wrap">
+                <div className="hover-overlay">
+                  <h2>{movie.title}</h2>
+                  <br />
+                  <p>{movie.overview.split(" ").slice(0, 50).join(" ")}...</p>
+                  <br />
+                  <Link to={`/movie/${movie.id}`}>
+                    <p>More Info</p>
+                    <img src={moreInfo} alt="More Info" className="more-info" />
+                  </Link>
+                </div>
                 <Link to={`/movie/${movie.id}`}>
                   <img
                     src={`${baseImgURL}${movie.poster_path}`}

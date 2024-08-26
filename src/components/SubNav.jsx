@@ -24,8 +24,6 @@ const SubNav = () => {
   const apiKey = import.meta.env.VITE_MOVIE_API_KEY;
   const API = `https://api.themoviedb.org/3`;
 
-  // `https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=${API}`
-
   const handleClick = async () => {
     const response = await fetch(
       `${API}/movie/popular?language=en-US&page=1&api_key=${apiKey}`,

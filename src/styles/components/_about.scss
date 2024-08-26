@@ -58,28 +58,21 @@ body {
 }
 
 // Tablet Version
-@media (min-width: 768px) {
+@media (min-width: 48em) {
   .about {
     h1 {
       font-size: 5rem;
-    }
-    
-    .details-about {
-      p {
-        font-size: 3rem;
-        text-align: left;
-        @include Oswald;
-      }
     }
 
     .social-links {
       display: flex;
       justify-content: center;
-      gap: 2rem; 
+      flex-direction: column;
+      gap: 2rem;
       margin: 2rem;
 
       img {
-        width: 5rem; 
+        width: 5rem;
         height: auto;
       }
 
@@ -89,6 +82,117 @@ body {
         text-decoration: none;
       }
     }
+
+    .details-about {
+      padding: 2rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      p {
+        font-size: 1.25rem;
+        text-align: left;
+        @include Oswald;
+      }
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem;
+
+      img {
+        width: 10rem;
+        height: auto;
+      }
+
+      a {
+        color: white;
+        font-size: 1.5rem;
+        text-decoration: none;
+      }
+    }
+
+    .main-logo-bg {
+      width: 50%;
+      width: 50%;
+      opacity: 25%;
+      position: fixed;
+      top: 50%;
+      left: 25%;
+      z-index: -999;
+    }
   }
 }
 
+// Desktop Version
+
+@media (min-width: 64em) {
+  .about {
+    h1 {
+      font-size: 5rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      gap: 2rem;
+      margin: 2rem;
+
+      img {
+        width: 5rem;
+        height: auto;
+      }
+
+      a {
+        color: white;
+        font-size: 1.5rem;
+        text-decoration: none;
+      }
+    }
+
+    .details-about {
+      padding: 2rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 15rem;
+      p {
+        font-size: 1.6rem;
+        text-align: left;
+        @include Oswald;
+        text-wrap: balance;
+      }
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem;
+
+      img {
+        width: 10rem;
+        height: auto;
+      }
+
+      a {
+        color: white;
+        font-size: 1.5rem;
+        text-decoration: none;
+      }
+    }
+
+    .main-logo-bg {
+      width: 25%;
+      opacity: 25%;
+      position: fixed;
+      top: 50%;
+      left: 25%;
+      z-index: -999;
+    }
+  }
+}
