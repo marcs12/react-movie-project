@@ -90,10 +90,10 @@ const Details = () => {
           </p>
           <div className="details-details" key="details">
             <p className="rating" key="rating">
-              {movie.vote_average.toFixed(2)}
+              Rating: {movie.vote_average.toFixed(2)}
             </p>
             <p className="duration" key="duration">
-              {movie.runtime} mins
+              Runtime: {movie.runtime} mins
             </p>
             <p className="release-date" key="release-date">
               {movie.release_date}

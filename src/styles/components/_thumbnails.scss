@@ -14,19 +14,19 @@
   /* Default: Single column */
   grid-template-columns: 1fr;
 
-  @media (min-width: 40em) and (max-width: 47.5em) {
+  @media (min-width: 40em) {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media (min-width: 48em) and (max-width: 83.5em) {
+  @media (min-width: 48em) {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  @media (min-width: 84em) and (max-width: 96.5em) {
+  @media (min-width: 84em) {
     grid-template-columns: repeat(4, 1fr);
   }
 
-  @media (min-width: 97em) and (max-width: 119.5em) {
+  @media (min-width: 97em) {
     grid-template-columns: repeat(5, 1fr);
   }
 
@@ -125,9 +125,9 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  line-height: 1.2em; 
-  max-height: 2.4em; 
-  min-height: 2.4em; 
+  line-height: 1.2em;
+  max-height: 2.4em;
+  min-height: 2.4em;
 }
 
 .movie-title h2 {
@@ -136,39 +136,25 @@
   -webkit-line-clamp: 2;
   overflow: hidden;
   text-overflow: ellipsis;
-  line-height: 1.2em; 
-  max-height: 2.4em; 
-  min-height: 2.4em; 
+  line-height: 1.2em;
+  max-height: 2.4em;
+  min-height: 2.4em;
 }
 
 .movie-title h2:empty::before {
   content: "\00A0";
-  visibility: hidden; 
+  visibility: hidden;
 }
 
 .carousel-caption {
   position: absolute;
   width: 100%;
-  background: rgba(0, 0, 0, 0.5); 
+  background: rgba(0, 0, 0, 0.5);
   justify-content: center;
   align-items: center;
   color: white; /* Text color */
   padding: 20px;
   box-sizing: border-box;
-}
-
-@media (min-width: 1024px) {
-  .button-38 {
-    background-color: transparent; 
-    border: none; 
-    font-size: 1.25rem; 
-    color: rgb(255, 255, 255); 
-    cursor: pointer;
-    transition: color 0.3s ease; 
-    &:focus {
-      outline: none; 
-    }
-  }
 }
 
 .hover-overlay {
