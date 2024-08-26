@@ -28,6 +28,8 @@ const About = () => {
             .
           </p>
 
+          <img src="/assets/tmdb.svg" alt="tmdb logo" className="tmdb-logo"/>
+
           <figure className="social-links">
             <a href="https://discord.com">
               <img src={discordLogo} alt="Discord Logo" />
