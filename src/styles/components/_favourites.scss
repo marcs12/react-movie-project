@@ -10,6 +10,24 @@
   @include Bebas-Neue;
 }
 
+  font-size: 1.6rem;
+  @include Bebas-Neue;
+}
+
+@media (min-width: 64rem) {
+  .fave-heading {
+    font-size: 5rem;
+  }
+  .no-favorites-message {
+    p {
+      text-align: left;
+      font-size: 4rem;
+      @include Lora;
+    }
+  }
+}
+
+
 .movie-grid ul {
   list-style: none;
   padding: 0;
@@ -46,7 +64,11 @@
   padding: 2rem;
   p {
     text-align: left;
+
     font-size: 2rem;
+
+    font-size: 1.6rem;
+
     @include Lora;
   }
 }
