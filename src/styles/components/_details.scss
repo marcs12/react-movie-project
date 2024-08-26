@@ -56,6 +56,13 @@
     max-width: 30rem;
   }
 
+  .duration {
+    padding: 4px 8px;
+    border: 1px solid #fff;
+    background-color: #ffffff;
+    color: black;
+  }
+
   .details-title {
     font-weight: bold;
     margin-bottom: 10px;
@@ -64,15 +71,15 @@
 
   .details-details {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     gap: 10px;
     margin-bottom: 10px;
+
     .release-date {
       margin-left: 2rem;
     }
 
-    .rating,
-    .duration {
+    .rating {
       padding: 2px 6px;
       border: 1px solid #fff;
     }
@@ -175,6 +182,10 @@
   .details-content {
     width: 60%;
     padding-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
   }
 
   .details-image-container .stars-details {
@@ -237,7 +248,7 @@
       margin-left: 2rem;
     }
 
-    .details-section .details-details .duration {
+    .details-section .details-details {
       font-size: 24px;
       padding: 4px 8px;
       border: 1px solid #fff;
