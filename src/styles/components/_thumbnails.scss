@@ -126,9 +126,9 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  line-height: 1.2em; /* Adjust to match your design */
-  max-height: 2.4em; /* Ensure this is exactly 2 times the line-height */
-  min-height: 2.4em; /* Ensures the block always takes up 2 lines */
+  line-height: 1.2em; 
+  max-height: 2.4em; 
+  min-height: 2.4em; 
 }
 
 .movie-title h2 {
@@ -137,20 +137,20 @@
   -webkit-line-clamp: 2;
   overflow: hidden;
   text-overflow: ellipsis;
-  line-height: 1.2em; /* Adjust to match your design */
-  max-height: 2.4em; /* Ensure this is exactly 2 times the line-height */
-  min-height: 2.4em; /* Ensures the block always takes up 2 lines */
+  line-height: 1.2em; 
+  max-height: 2.4em; 
+  min-height: 2.4em; 
 }
 
 .movie-title h2:empty::before {
-  content: "\00A0"; /* Non-breaking space to ensure two lines are shown even if the title is empty */
-  visibility: hidden; /* Keeps the space invisible but ensures height */
+  content: "\00A0";
+  visibility: hidden; 
 }
 
 .carousel-caption {
   position: absolute;
   width: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Optional: Add a background with opacity */
+  background: rgba(0, 0, 0, 0.5); 
   justify-content: center;
   align-items: center;
   color: white; /* Text color */
@@ -160,19 +160,14 @@
 
 @media (min-width: 1024px) {
   .button-38 {
-    background-color: transparent; /* Remove background color */
-    border: none; /* Remove any borders */
-    font-size: 1.25rem; /* Set font size */
-    color: rgb(255, 255, 255); /* Default text color */
+    background-color: transparent; 
+    border: none; 
+    font-size: 1.25rem; 
+    color: rgb(255, 255, 255); 
     cursor: pointer;
-    transition: color 0.3s ease; /* Transition for color only */
-
-    // &:hover {
-    //   color: #ff5f5f; /* Change text color on hover */
-    // }
-
+    transition: color 0.3s ease; 
     &:focus {
-      outline: none; /* Remove outline when focused */
+      outline: none; 
     }
   }
 }
