@@ -4,6 +4,7 @@ import mainLogo from "../assets/main-logo.png";
 import discordLogo from "../../src/assets/discord-button.png";
 import facebookLogo from "../../src/assets/facebook-button.png";
 import youtubeLogo from "../../src/assets/youtube-button.png";
+import tmdbLogo from "../../src/assets/images/tmdb.svg";
 
 const About = () => {
   return (
@@ -25,7 +26,7 @@ const About = () => {
             <a href="https://www.themoviedb.org/?language=en-CA">
               Visit The Movie DB
             </a>
-            {/* <img src="/assets/images/tmdb.svg" alt="tmdb logo" className="tmdb-logo"/> */}
+            <img src={tmdbLogo} alt="TMDb Logo" /> 
           </p>
 
           <figure className="social-links">
