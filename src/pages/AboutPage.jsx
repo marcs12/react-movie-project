@@ -40,9 +40,6 @@ const About = () => {
             </a>
           </figure>
         </article>
-        <figure>
-          <img src={mainLogo} alt="35mm Logo" className="main-logo-bg" />
-        </figure>
       </section>
     </>
   );

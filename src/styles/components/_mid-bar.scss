@@ -139,12 +139,13 @@
   .button-38 {
     background-color: transparent;
     border: none;
-    font-family: "Lora", serif;
+    @include Oswald;
     font-size: 1.2rem;
     font-weight: 100;
     color: rgb(255, 255, 255);
     cursor: pointer;
     transition: color 0.3s ease;
+    box-shadow: none;
     &:focus {
       outline: none;
     }

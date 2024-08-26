@@ -123,8 +123,8 @@ const Home = () => {
                 <div className="hover-overlay">
                   <h2>{movie.title}</h2>
                   <br />
-                  <p>{movie.overview.split(" ").slice(0, 50).join(" ")}...</p>
-                  <br />
+                  <p>{movie.overview.split(" ").slice(0, 25).join(" ")}...</p>
+
                   <Link to={`/movie/${movie.id}`}>
                     <p>More Info</p>
                     <img src={moreInfo} alt="More Info" className="more-info" />
