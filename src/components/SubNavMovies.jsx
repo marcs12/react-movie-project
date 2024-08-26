@@ -33,7 +33,7 @@ const Home = () => {
 
   const handleClick = (id, placeholder) => {
     setCategory(id);
-    setPlaceholderText(`Search for ${placeholder}...`);
+    setPlaceholderText(`Search in ${placeholder}...`);
     setSearchTerm(""); // Reset search term when changing categories
   };
 
@@ -65,7 +65,7 @@ const Home = () => {
   };
 
   const [placeholderText, setPlaceholderText] = useState(
-    "Search for Now Playing...",
+    "Search in Now Playing...",
   );
 
   return (

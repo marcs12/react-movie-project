@@ -1,9 +1,7 @@
 import React from "react";
 import SubNavMovies from "./SubNavMovies";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import Button from 'react-bootstrap/Button';
-// import './styles/base/bootstrap.scss';
-// import '/styles/components/_thumbnails.scss';
+
 
 const SubNav = () => {
   const data = [

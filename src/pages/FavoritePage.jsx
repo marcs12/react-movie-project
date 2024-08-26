@@ -30,26 +30,6 @@ const Favorite = () => {
     }
   };
 
-  // useEffect(() => {
-  //   const observer = new IntersectionObserver(
-  //     (entries) => {
-  //       if (entries[0].isIntersecting) {
-  //         loadMoreMovies();
-  //       }
-  //     },
-  //     {
-  //       root: null,
-  //       threshold: 1.0,
-  //     },
-  //   );
-
-  //   if (containerRef.current) {
-  //     observer.observe(containerRef.current);
-  //   }
-
-  //   return () => observer.disconnect();
-  // }, [loadedMovies]);
-
   // Function to handle favorite toggle
   const toggleFavorite = (movie) => {
     if (favorites.some((obj) => obj.id === movie.id)) {
