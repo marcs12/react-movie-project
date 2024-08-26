@@ -57,6 +57,17 @@ body {
   }
 }
 
+.tmdb-logo {
+  margin-top: 2rem;
+  width: 5rem;
+ 
+}
+
+a {
+  color: #008080;
+  text-decoration: none;
+}
+
 // Tablet Version
 @media (min-width: 48em) {
   .about {
