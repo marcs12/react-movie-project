@@ -3,6 +3,13 @@
 @use "../utilities/functions" as *;
 @use "../base/typography" as *;
 
+.fave-heading {
+  text-align: center;
+  margin: 2rem 0;
+  font-size: 5rem;
+  @include Bebas-Neue;
+}
+
 .movie-grid ul {
   list-style: none;
   padding: 0;
@@ -13,79 +20,27 @@
   /* Default: Single column */
   grid-template-columns: 1fr;
 
- 
   @media (min-width: 40em) and (max-width: 47.5em) {
     grid-template-columns: repeat(2, 1fr);
   }
 
- 
   @media (min-width: 48em) and (max-width: 83.5em) {
     grid-template-columns: repeat(3, 1fr);
   }
 
- 
   @media (min-width: 84em) and (max-width: 96.5em) {
     grid-template-columns: repeat(4, 1fr);
   }
 
- 
   @media (min-width: 97em) and (max-width: 119.5em) {
     grid-template-columns: repeat(5, 1fr);
   }
-
 
   @media (min-width: 120em) {
     grid-template-columns: repeat(6, 1fr);
   }
 }
 
-
-
 .no-favorites-message {
   height: 50rem;
-}
-
-
-// .movie-wrap {
-//   background-color: white;
-//   padding: 0.5rem;
-//   margin: 0 auto;
-//   img {
-//     display: block;
-//     width: 100%;
-//     height: auto;
-//     transition: transform 0.3s;
-//     padding-bottom: 0.5rem;
-//     &:hover {
-//       transform: scale(1.05);
-//     }
-//   }
-//   .movie-title {
-//     text-align: center;
-//     margin: auto 0;
-//     padding: 1rem;
-//   }
-// }
-
-.favorite-section {
-  padding: 2rem;
-  margin: 2rem 0;
-  font-size: 1.6rem;
-  color: rgba(255, 255, 255, 0.747);
-}
-
-@media (min-width: 48rem) {
-  .favorite-section {
-    padding: 4rem;
-    margin: 4rem;
-    font-size: 2.4rem;
-  }
-}
-
-@media (min-width: 120rem) {
-  .favorite-section {
-    padding: 8rem;
-    margin: 8rem;
-    font-size: 2.6rem;
-  }
 }
