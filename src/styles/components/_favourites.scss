@@ -43,4 +43,10 @@
 
 .no-favorites-message {
   height: 50rem;
+  padding: 2rem;
+  p {
+    text-align: left;
+    font-size: 2rem;
+    @include Lora;
+  }
 }
