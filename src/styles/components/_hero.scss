@@ -41,12 +41,17 @@
     }
   }
 
+  hr {
+    border: 1px solid #ffffff;
+    width: 100%;
+  }
+
   .hero-carousel-content {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
+    gap: 2.5rem;
     max-width: 1200px;
     width: 100%;
 
@@ -91,6 +96,7 @@
     .hero-image {
       width: 100%;
       object-fit: cover;
+      box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
     }
   }
 
@@ -101,7 +107,6 @@
     justify-content: center;
     max-width: 500px;
     flex-wrap: wrap;
-    text-wrap: balance;
     font-size: 1.25rem;
 
     .hero-link {
@@ -110,7 +115,15 @@
       text-decoration: none;
       .hero-info {
         gap: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         text-decoration: none;
+        .more-info-btn {
+          display: flex;
+          flex-direction: row;
+          gap: 0.5rem;
+        }
         p {
           text-decoration: none;
         }
@@ -215,7 +228,7 @@
   // Desktop Breakpoint
   @media (min-width: 1024px) {
     .hero-carousel-content {
-      gap: 2rem;
+      gap: 4rem;
     }
 
     .hero-image {

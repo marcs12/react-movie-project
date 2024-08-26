@@ -64,14 +64,19 @@ const Hero = () => {
                     </div>
                     <div className="hero-text-wrapper">
                       <h3 className="hero-title">{movie.title}</h3>
+                      <hr className="hero-hr" />
                       <p className="hero-description">
                         {movie.overview.split(" ").slice(0, 45).join(" ")}...
                       </p>
                       <Link to={`/movie/${movie.id}`} className="hero-link">
                         <div className="hero-info">
-                          <p>More Info</p>
-                          <img src={infoBtn} alt="More Info" />
-                          <div className="hero-info-text"></div>
+                          <span className="more-info-btn">
+                            <p>More Info</p>
+                            <img src={infoBtn} alt="More Info" />
+                          </span>
+                          <p className="release-date" key="release-date">
+                            {movie.release_date}
+                          </p>
                         </div>
                       </Link>
                     </div>
