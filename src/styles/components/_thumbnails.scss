@@ -14,19 +14,19 @@
   /* Default: Single column */
   grid-template-columns: 1fr;
 
-  @media (min-width: 40em) and (max-width: 47.5em) {
+  @media (min-width: 40em) {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media (min-width: 48em) and (max-width: 83.5em) {
+  @media (min-width: 48em) {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  @media (min-width: 84em) and (max-width: 96.5em) {
+  @media (min-width: 84em) {
     grid-template-columns: repeat(4, 1fr);
   }
 
-  @media (min-width: 97em) and (max-width: 119.5em) {
+  @media (min-width: 97em) {
     grid-template-columns: repeat(5, 1fr);
   }
 
