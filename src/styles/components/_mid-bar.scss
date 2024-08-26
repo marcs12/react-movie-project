@@ -139,7 +139,7 @@
   .button-38 {
     background-color: transparent;
     border: none;
-    font-family: "Lora", serif;
+    @include Oswald;
     font-size: 1.2rem;
     font-weight: 100;
     color: rgb(255, 255, 255);
