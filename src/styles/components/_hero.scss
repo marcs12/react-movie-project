@@ -55,6 +55,7 @@
     align-items: center;
     box-sizing: border-box;
     padding: 1rem;
+    margin: 1.5rem 0;
 
     @media (max-width: 768px) {
       flex-direction: column;
@@ -266,11 +267,6 @@
       justify-content: center;
     }
 
-    
-    
-    
-    
-    
     .hero-text-wrapper {
       .hero-title {
         font-size: 2rem;
