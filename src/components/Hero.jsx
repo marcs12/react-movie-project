@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import infoBtn from "../assets/circle-info-solid.svg";
+import bottomContainer from "../assets/buttons-imported/container-bottom.png";
+import topContainer from "../assets/buttons-imported/container-top.png";
 
 const API = import.meta.env.VITE_MOVIE_API_KEY;
 
@@ -42,9 +44,19 @@ const Hero = () => {
                 <div key={index} className="carousel-slide">
                   <div className="hero-carousel-content">
                     <div className="hero-image-wrapper">
+                      <img
+                        src={bottomContainer}
+                        alt="Container Bottom"
+                        className="bottom-container"
+                      />
+                      <img
+                        src={topContainer}
+                        alt="Container Top"
+                        className="top-container"
+                      />
                       <Link to={`/movie/${movie.id}`}>
                         <img
-                          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                          src={`https://image.tmdb.org/t/p/w780${movie.poster_path}`}
                           alt={movie.title}
                           className="hero-image"
                         />
@@ -53,15 +65,15 @@ const Hero = () => {
                     <div className="hero-text-wrapper">
                       <h3 className="hero-title">{movie.title}</h3>
                       <p className="hero-description">
-                        {movie.overview.split(" ").slice(0, 20).join(" ")}...
+                        {movie.overview.split(" ").slice(0, 45).join(" ")}...
                       </p>
-                      <div className="hero-info">
-                        <img src={infoBtn} alt="More Info" />
-                        <div className="hero-info-text">
-                          <p>PG</p>
-                          <p>1H 36MINS</p>
+                      <Link to={`/movie/${movie.id}`} className="hero-link">
+                        <div className="hero-info">
+                          <p>More Info</p>
+                          <img src={infoBtn} alt="More Info" />
+                          <div className="hero-info-text"></div>
                         </div>
-                      </div>
+                      </Link>
                     </div>
                   </div>
                 </div>
