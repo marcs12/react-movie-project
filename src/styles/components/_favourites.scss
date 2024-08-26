@@ -67,14 +67,24 @@
 //   }
 // }
 
-// .favorite-section {
-//   padding: 2rem;
-//   margin: 2rem 0;
-// }
+.favorite-section {
+  padding: 2rem;
+  margin: 2rem 0;
+  font-size: 1.6rem;
+}
 
-// @media (min-width: 48rem) {
-//   .favorite-section {
-//     padding: 1rem;
-//     margin-bottom: 2rem;
-//   }
-// }
+@media (min-width: 48rem) {
+  .favorite-section {
+    padding: 4rem;
+    margin: 4rem;
+    font-size: 2.4rem;
+  }
+}
+
+@media (min-width: 120rem) {
+  .favorite-section {
+    padding: 8rem;
+    margin: 8rem;
+    font-size: 2.6rem;
+  }
+}

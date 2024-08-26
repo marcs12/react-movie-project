@@ -147,6 +147,37 @@
   visibility: hidden; /* Keeps the space invisible but ensures height */
 }
 
+
+.carousel-caption {
+  position: absolute;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Optional: Add a background with opacity */
+  justify-content: center;
+  align-items: center;
+  color: white; /* Text color */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+
+
+@media (min-width: 1024px){
+  .button-38 {
+    background-color: transparent; /* Remove background color */
+    border: none; /* Remove any borders */
+    font-family: 'Lora', serif; /* Set font to Lora */
+    font-size: 1.25rem; /* Set font size */
+    color: rgb(255, 255, 255); /* Default text color */
+    cursor: pointer;
+    transition: color 0.3s ease; /* Transition for color only */
+  
+    // &:hover {
+    //   color: #ff5f5f; /* Change text color on hover */
+    // }
+  
+    &:focus {
+      outline: none; /* Remove outline when focused */
+      
 .hover-overlay {
   position: absolute;
   top: 0;
@@ -177,6 +208,7 @@
     transition: background-color 0.3s;
     img {
       width: 2.5rem;
+
     }
   }
 }
