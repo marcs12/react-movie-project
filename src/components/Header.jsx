@@ -41,6 +41,7 @@ const Header = () => {
             <img src={mainLogo} alt="35mm Logo" />
           </a>
         </div>
+        
         {/* Dropdown Menu for Mobile */}
         <section className={`dropdown-menu ${menuOpen ? "show" : ""}`}>
           <ul>
