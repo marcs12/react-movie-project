@@ -3,10 +3,11 @@ import HomePage from "../pages/HomePage";
 import AboutPage from "../pages/AboutPage";
 import DetailsPage from "../pages/DetailsPage";
 import FavoritesPage from "../pages/FavoritePage";
+import { APP_FOLDER_NAME } from "../globals/globalVariables.js";
 
 const AppRouter = () => {
   return (
-    <Router>
+    <Router basename={APP_FOLDER_NAME}>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
