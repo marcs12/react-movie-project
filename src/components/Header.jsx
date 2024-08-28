@@ -37,22 +37,22 @@ const Header = () => {
           </div>
         </button>
         <div className="logo-main">
-          <a href="/">
+          <Link to="/">
             <img src={mainLogo} alt="35mm Logo" />
-          </a>
+          </Link>
         </div>
-        
+
         {/* Dropdown Menu for Mobile */}
         <section className={`dropdown-menu ${menuOpen ? "show" : ""}`}>
           <ul>
             <li>
-              <a href="/">Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <a href="/about">About</a>
+              <Link to="/about">About</Link>
             </li>
             <li>
-              <a href="/favorites">Favourites</a>
+              <Link to="/favorites">Favourites</Link>
             </li>
           </ul>
         </section>
@@ -72,9 +72,9 @@ const Header = () => {
           </ul>
         </nav>
         <div className="desktop-logo">
-          <a href="/">
+          <Link to="/">
             <img src={mainLogo} alt="35mm Logo" />
-          </a>
+          </Link>
         </div>
       </section>
     </header>
