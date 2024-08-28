@@ -6,6 +6,8 @@
 .fave-heading {
   text-align: center;
   margin: 2rem 0;
+  font-size: 5rem;
+  @include Bebas-Neue;
   font-size: 1.6rem;
   @include Bebas-Neue;
 }
@@ -59,7 +61,11 @@
   padding: 2rem;
   p {
     text-align: left;
+
+    font-size: 2rem;
+
     font-size: 1.6rem;
+
     @include Lora;
   }
 }

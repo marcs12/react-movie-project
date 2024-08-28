@@ -8,6 +8,7 @@ import { APP_FOLDER_NAME } from "../globals/globalVariables.js";
 const AppRouter = () => {
   return (
     <Router basename={APP_FOLDER_NAME}>
+    <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
